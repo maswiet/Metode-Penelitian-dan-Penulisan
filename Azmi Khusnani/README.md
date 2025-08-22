@@ -1,3 +1,155 @@
+# 📅 6-Month Learning Plan (PhD Student)
+
+**Topic:** Seismology & Tectonic System in Eastern Indonesia (NTT, PLAI–SOEI–MMRI–KAPI Stations, Lewotobi Volcano)
+**Target:** Ready to process waveform data in **Month 7**
+
+---
+
+## 📌 Struktur Mingguan
+
+### **Month 1 — Fundamentals of Geophysics & Seismology**
+
+* **Week 1**:
+
+  * Study: Tectonic framework of Eastern Indonesia (Flores back-arc, Timor subduction).
+  * Deliverable: 2–3 page summary on NTT tectonics.
+* **Week 2**:
+
+  * Study: Seismic waves (P, S, surface), travel times.
+  * Deliverable: Diagram of wave types + notes.
+* **Week 3**:
+
+  * Study: Seismic recording systems, channels (EHZ, EHN, EHE), sampling.
+  * Deliverable: Summary of PLAI, SOEI, MMRI, KAPI station specs.
+* **Week 4**:
+
+  * Study: Waveform formats (miniSEED, SAC). Install **ObsPy**.
+  * Deliverable: Script to load waveform using `obspy.read()`.
+
+---
+
+### **Month 2 — Data Handling & Signal Processing**
+
+* **Week 5**: Filtering (bandpass, high/low-pass, Butterworth).
+
+  * Deliverable: Script to filter noise.
+* **Week 6**: Instrument response removal (counts → ground motion).
+
+  * Deliverable: Script `remove_response`.
+* **Week 7**: Frequency analysis (FFT, STFT).
+
+  * Deliverable: Spectrogram plot of an IRIS earthquake.
+* **Week 8**: Event detection basics (STA/LTA).
+
+  * Deliverable: Event detection script.
+
+---
+
+### **Month 3 — Event Processing & Catalog Building**
+
+* **Week 9**: Manual phase picking (P, S).
+
+  * Deliverable: Marked picks on PLAI waveform.
+* **Week 10**: Automatic picking (AIC, Baer-Kradolfer).
+
+  * Deliverable: Compare auto vs manual picks.
+* **Week 11**: Basic location (3-station travel-time triangulation).
+
+  * Deliverable: Locate 3 events with PLAI–SOEI–MMRI.
+* **Week 12**: Add IRIS KAPI station.
+
+  * Deliverable: Event locations with 4 stations.
+
+---
+
+### **Month 4 — Tectonic & Volcanic Analysis**
+
+* **Week 13**: Seismotectonics of NTT.
+
+  * Deliverable: Tectonic map + correlation notes.
+* **Week 14**: Volcanic vs tectonic signals.
+
+  * Deliverable: Examples from Lewotobi/IRIS datasets.
+* **Week 15**: Local magnitude (ML).
+
+  * Deliverable: Script to compute ML.
+* **Week 16**: Event catalog draft.
+
+  * Deliverable: 10-event catalog table.
+
+---
+
+### **Month 5 — Statistics & Visualization**
+
+* **Week 17**: Magnitude–frequency distribution (Gutenberg–Richter law).
+
+  * Deliverable: b-value plot.
+* **Week 18**: Visualization (maps, cross-sections with GMT/Matplotlib).
+
+  * Deliverable: Seismicity plot.
+* **Week 19**: Correlation with Flores fault system.
+
+  * Deliverable: Short report with map.
+* **Week 20**: Discriminating volcanic vs tectonic signals.
+
+  * Deliverable: Comparison table + waveform examples.
+
+---
+
+### **Month 6 — Integration & Mini-Project**
+
+* **Week 21**: Data QC (gaps, overlaps, noise).
+
+  * Deliverable: Cleaning script.
+* **Week 22**: Full pipeline (download → preprocess → detect → locate → catalog).
+
+  * Deliverable: First complete pipeline script.
+* **Week 23**: Aftershock clustering (ETAS or visual clustering).
+
+  * Deliverable: Aftershock sequence plot.
+* **Week 24**: Review & presentation.
+
+  * Deliverable: 20-min seminar + final 6-month progress report.
+
+---
+
+## 📑 Template Laporan Mingguan
+
+```markdown
+# Weekly Progress Report
+**Name:** [Student Name]  
+**Week:** [e.g., Week 5]
+
+## 1. Learning Goals
+- [List of study topics]
+
+## 2. Activities Completed
+- [Scripts / readings / plots made]
+
+## 3. Results
+- [Key findings, outputs, screenshots if needed]
+
+## 4. Challenges
+- [Difficulties encountered]
+
+## 5. Plan Next Week
+- [Focus for next week]
+```
+
+---
+
+## 🎯 Final Outcome (End of Month 6)
+
+1. Mastery of **basic seismology & signal processing**.
+2. Working **scripts for detection, filtering, picking, and location**.
+3. Small **earthquake catalog** from PLAI, SOEI, MMRI, KAPI.
+4. Ready to start **real data research** in Month 7.
+
+---
+
+Apakah Bapak ingin saya sekalian tambahkan **list textbook + online resources** (gratis) untuk tiap bulan supaya mahasiswa punya referensi bacaan wajib?
+
+
 # 📚 **Learning Resources per Month**
 
 ## **Month 1 — Fundamentals of Geophysics & Seismology**
