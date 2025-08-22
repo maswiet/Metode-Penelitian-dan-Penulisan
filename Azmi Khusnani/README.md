@@ -147,8 +147,6 @@
 
 ---
 
-Apakah Bapak ingin saya sekalian tambahkan **list textbook + online resources** (gratis) untuk tiap bulan supaya mahasiswa punya referensi bacaan wajib?
-
 
 # 📚 **Learning Resources per Month**
 
