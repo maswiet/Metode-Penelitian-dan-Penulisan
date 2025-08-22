@@ -1,7 +1,3 @@
-Bagus sekali Pak 🙌. Berikut saya lengkapi **rencana belajar 6 bulan** dengan **textbook dan online resources** yang gratis/dapat diakses mahasiswa. Saya buat per bulan agar fokus dan terarah.
-
----
-
 # 📚 **Learning Resources per Month**
 
 ## **Month 1 — Fundamentals of Geophysics & Seismology**
@@ -94,9 +90,5 @@ Bagus sekali Pak 🙌. Berikut saya lengkapi **rencana belajar 6 bulan** dengan 
 * Minggu 2–3 → coba langsung contoh/script (ObsPy, GMT).
 * Minggu terakhir → tulis **summary 1 halaman** apa yang dipelajari (untuk progress report).
 
----
 
-👉 Dengan resource ini, mahasiswa Bapak akan punya **jalur bacaan yang jelas** + **latihan langsung** tiap minggu.
-
-Apakah Bapak ingin saya buatkan juga **list paper review mingguan** (1 paper/week dari jurnal top seismologi) agar mahasiswa terbiasa membaca literatur sejak awal?
 
