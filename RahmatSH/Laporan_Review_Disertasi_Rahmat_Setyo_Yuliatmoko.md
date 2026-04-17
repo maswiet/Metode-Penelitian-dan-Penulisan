@@ -10,7 +10,7 @@
 
 **Program Studi**: Doktor (S3) Fisika
 
-**Tanggal Sidang**: 10 Agustus 2026
+**Tanggal Sidang**: XX XXX 2026
 
 ---
 
@@ -37,7 +37,7 @@ Disertasi ini menerapkan tomografi gempa lokal dan analisis fungsi penerima tele
 
 ### 1.2 Temuan Utama
 
-Ketiga reviewer independen mengidentifikasi defisiensi serius yang harus diperbaiki sebelum disertasi dapat diterima atau dipublikasikan:
+Reviewer independen mengidentifikasi defisiensi serius yang harus diperbaiki sebelum disertasi dapat diterima atau dipublikasikan:
 
 **Masalah Kritis (Kesepakatan Bulat)**:
 
@@ -50,10 +50,10 @@ Ketiga reviewer independen mengidentifikasi defisiensi serius yang harus diperba
 
 ### 1.3 Konsensus Reviewer
 
-- Ketiga reviewer memberi rating **3-4/5 untuk soundness**, **2-3/5 untuk presentasi**, dan **3-4/5 untuk kontribusi**
-- Ketiga reviewer memberi **rating keseluruhan 4-5/10**, menunjukkan **revisi mayor diperlukan**
-- Ketiga reviewer mengidentifikasi **nilai praktis/sosial tinggi** tetapi **inovasi ilmiah terbatas**
-- Ketiga reviewer menyatakan **kepercayaan tinggi (4/5)** dalam penilaian mereka
+- Reviewer memberi rating **3-4/5 untuk soundness**, **2-3/5 untuk presentasi**, dan **3-4/5 untuk kontribusi**
+- Reviewer memberi **rating keseluruhan 4-5/10**, menunjukkan **revisi mayor diperlukan**
+- Reviewer mengidentifikasi **nilai praktis/sosial tinggi** tetapi **inovasi ilmiah terbatas**
+- Reviewer menyatakan **kepercayaan tinggi (4/5)** dalam penilaian mereka
 
 ### 1.4 Rekomendasi
 
@@ -910,40 +910,40 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 
 ---
 
-## 7. TEMUAN KRITIS DARI 3 REVIEWER INDEPENDEN
+## 7. TEMUAN KRITIS DARI REVIEWER INDEPENDEN
 
 ### 7.1 Profil Reviewer
 
-**Reviewer 1: Methods & Theory Specialist**
+**Review 1: Methods & Theory Specialist**
 - Keahlian: Tomografi seismik dan analisis fungsi penerima
 - Fokus: Soundness metodologi, kecanggihan teknis, positioning terhadap state-of-the-art
 
-**Reviewer 2: Experiments & Practical Impact Specialist**
+**Review 2: Experiments & Practical Impact Specialist**
 - Keahlian: Seismologi eksperimental dan penilaian bahaya
 - Fokus: Validasi eksperimental, kontrol kualitas, aplikasi praktis
 
-**Reviewer 3: Clarity, Positioning & Broader Impact Specialist**
+**Review 3: Clarity, Positioning & Broader Impact Specialist**
 - Keahlian: Komunikasi ilmiah dan penilaian akademis
 - Fokus: Kejelasan presentasi, positioning akademis, dampak lebih luas
 
 ### 7.2 Konsensus Reviewer: Masalah Kritis
 
-**Ketiga reviewer mencapai konsensus luar biasa pada masalah kritis berikut**:
+**Reviewer mencapai konsensus luar biasa pada masalah kritis berikut**:
 
 #### 7.2.1 Kegagalan Akademis Fundamental
 
 **MASALAH #1: Tidak Ada Keterlibatan dengan Librian et al. (2024)** [PRIORITAS TERTINGGI]
 
 **Konsensus Bulat**:
-- Ketiga reviewer mengidentifikasi ini sebagai kegagalan akademis paling kritis
+- Reviewer mengidentifikasi ini sebagai kegagalan akademis paling kritis
 - Paper terbaru di *Physics of the Earth and Planetary Interiors* menangani masalah yang sama
 - Tidak ada penyebutan, tidak ada perbandingan, tidak ada diferensiasi dalam disertasi
 - Mempertanyakan orisinalitas dan menunjukkan tinjauan pustaka yang tidak memadai
 
 **Pernyataan Reviewer**:
-- **Reviewer 1**: "Critical limitation: unclear differentiation from Librian et al. (2024)"
-- **Reviewer 2**: "Significant overlap with recent Librian et al. (2024) tomography study of same region—unique contribution unclear without explicit comparison"
-- **Reviewer 3**: "Critical failure: complete lack of engagement with Librian et al. (2024)"
+- **1**: "Critical limitation: unclear differentiation from Librian et al. (2024)"
+- **2**: "Significant overlap with recent Librian et al. (2024) tomography study of same region—unique contribution unclear without explicit comparison"
+- **3**: "Critical failure: complete lack of engagement with Librian et al. (2024)"
 
 **Koreksi Wajib**:
 1. Dapatkan dan analisis paper secara menyeluruh
@@ -957,15 +957,15 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 **MASALAH #2: Tidak Ada Analisis Resolusi** [KRITIS]
 
 **Konsensus Bulat**:
-- Ketiga reviewer menekankan persyaratan fundamental ini
+- Reviewer menekankan persyaratan fundamental ini
 - Tidak ada uji checkerboard, uji pemulihan sintetik, atau kernel resolusi
 - Tidak mungkin membedakan fitur yang dapat diandalkan dari artefak
 - Tidak dapat menilai anomali kecepatan mana yang nyata vs. artefak inversi
 
 **Pernyataan Reviewer**:
-- **Reviewer 1**: "Absence of resolution analysis... Standard practice requires checkerboard tests"
-- **Reviewer 2**: "Missing resolution analysis: No checkerboard tests or synthetic recovery tests"
-- **Reviewer 3**: "The absence of resolution tests makes it impossible to assess which velocity anomalies are reliable"
+- **1**: "Absence of resolution analysis... Standard practice requires checkerboard tests"
+- **2**: "Missing resolution analysis: No checkerboard tests or synthetic recovery tests"
+- **3**: "The absence of resolution tests makes it impossible to assess which velocity anomalies are reliable"
 
 **Koreksi Wajib**:
 - Lakukan uji checkerboard pada berbagai skala spasial (5, 10, 20 km)
@@ -977,16 +977,16 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 **MASALAH #3: Tidak Ada Kuantifikasi Ketidakpastian** [KRITIS]
 
 **Konsensus Bulat**:
-- Ketiga reviewer mengidentifikasi ini sebagai komponen esensial yang hilang
+- Reviewer mengidentifikasi ini sebagai komponen esensial yang hilang
 - Tidak ada error bar pada nilai Tabel 1
 - Tidak ada peta ketidakpastian untuk model kecepatan
 - Tidak dapat menilai signifikansi statistik dari variasi
 - Esensial untuk aplikasi penilaian bahaya
 
 **Pernyataan Reviewer**:
-- **Reviewer 1**: "Lack of uncertainty quantification... no formal uncertainty estimates"
-- **Reviewer 2**: "Absence of uncertainty quantification: No error bars on Table 1 values, no uncertainty maps"
-- **Reviewer 3**: "The lack of uncertainty quantification undermines confidence in quantitative conclusions"
+- **1**: "Lack of uncertainty quantification... no formal uncertainty estimates"
+- **2**: "Absence of uncertainty quantification: No error bars on Table 1 values, no uncertainty maps"
+- **3**: "The lack of uncertainty quantification undermines confidence in quantitative conclusions"
 
 **Koreksi Wajib**:
 - Implementasikan analisis ketidakpastian yang ketat (bootstrap, jackknife, Bayesian)
@@ -998,15 +998,15 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 **MASALAH #4: Presentasi Hasil Tidak Lengkap** [KRITIS]
 
 **Konsensus Bulat**:
-- Ketiga reviewer menekankan kegagalan presentasi fundamental ini
+- Reviewer menekankan kegagalan presentasi fundamental ini
 - Gambar 2-4 hanya menampilkan DWS (cakupan sinar), bukan peta anomali kecepatan aktual
 - Seperti menyajikan studi eksperimental yang menunjukkan aparatus tetapi tidak menunjukkan data
 - Hilang: cross-section, contoh RF, plot H-κ, peta spasial
 
 **Pernyataan Reviewer**:
-- **Reviewer 1**: "Critical: Only DWS (ray coverage) shown, not actual velocity anomaly maps"
-- **Reviewer 2**: "Incomplete results: Only DWS shown, not actual velocity models"
-- **Reviewer 3**: "Critical deficiency: Figures 2-4 show only Derivative Weight Sum (ray coverage), not the primary results"
+- **1**: "Critical: Only DWS (ray coverage) shown, not actual velocity anomaly maps"
+- **2**: "Incomplete results: Only DWS shown, not actual velocity models"
+- **3**: "Critical deficiency: Figures 2-4 show only Derivative Weight Sum (ray coverage), not the primary results"
 
 **Koreksi Wajib**:
 - Tambahkan peta anomali kecepatan (Vp, Vs, Vp/Vs) pada berbagai irisan kedalaman
@@ -1019,15 +1019,15 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 **MASALAH #5: Dokumentasi Metodologi Tidak Memadai** [KRITIS]
 
 **Konsensus Bulat**:
-- Ketiga reviewer mencatat detail teknis tidak cukup
+- Reviewer mencatat detail teknis tidak cukup
 - Hilang: spesifikasi algoritma, pilihan parameter, prosedur kontrol kualitas
 - Detail tidak cukup untuk reprodusibilitas
 - Software dan kode tidak diidentifikasi
 
 **Pernyataan Reviewer**:
-- **Reviewer 1**: "Inadequate methodological documentation... insufficient detail for reproducibility"
-- **Reviewer 2**: "Inadequate experimental documentation: Instrumentation, deployment details, data acquisition... insufficiently described"
-- **Reviewer 3**: "Critical methodological details are missing or unclear... prevents independent verification"
+- **1**: "Inadequate methodological documentation... insufficient detail for reproducibility"
+- **2**: "Inadequate experimental documentation: Instrumentation, deployment details, data acquisition... insufficiently described"
+- **3**: "Critical methodological details are missing or unclear... prevents independent verification"
 
 **Koreksi Wajib**:
 - Berikan spesifikasi teknis lengkap untuk semua metode
@@ -1044,9 +1044,9 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 - Esensial untuk membangun kepercayaan pada hasil untuk aplikasi bahaya
 
 **Pernyataan Reviewer**:
-- **Reviewer 2**: "Critical: Inadequate validation: No systematic comparison with independent datasets"
-- **Reviewer 1**: "No validation against independent datasets"
-- **Reviewer 3**: "Limited comparison with international fault zone studies"
+- **1**: "Critical: Inadequate validation: No systematic comparison with independent datasets"
+- **2**: "No validation against independent datasets"
+- **3**: "Limited comparison with international fault zone studies"
 
 **Koreksi Wajib**:
 - Bandingkan dengan batasan geodetik (Adam et al. 2019)
@@ -1059,14 +1059,14 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 **MASALAH #7: Integrasi Terbatas dari Metode Komplementer** [MAYOR]
 
 **Konsensus Bulat**:
-- Ketiga reviewer mencatat kelemahan ini
+- Reviewer mencatat kelemahan ini
 - Hasil tomografi dan RF disajikan terpisah, tidak dianalisis bersama
 - Kehilangan peluang untuk validasi silang dan batasan
 
 **Pernyataan Reviewer**:
-- **Reviewer 1**: "Limited integration of complementary methods"
-- **Reviewer 2**: "Limited integration: Tomography and RF results presented separately"
-- **Reviewer 3**: "Limited integration of complementary methods (tomography and RFs presented separately)"
+- **1**: "Limited integration of complementary methods"
+- **2**: "Limited integration: Tomography and RF results presented separately"
+- **3**: "Limited integration of complementary methods (tomography and RFs presented separately)"
 
 **Sangat Direkomendasikan**:
 - Implementasikan framework inversi bersama
@@ -1076,7 +1076,7 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 
 ### 7.3 Konsensus Reviewer: Kekuatan
 
-**Ketiga reviewer mengidentifikasi kekuatan berikut**:
+**Reviewer mengidentifikasi kekuatan berikut**:
 
 #### 7.3.1 Relevansi Sosial Tinggi [KEKUATAN TERKUAT]
 
@@ -1087,9 +1087,9 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 - **Motivasi sosial ini membenarkan penelitian meskipun kebaruan ilmiah terbatas**
 
 **Pernyataan Reviewer**:
-- **Reviewer 1**: "High societal relevance: Addresses critical seismic hazard"
-- **Reviewer 2**: "High practical importance: Addresses critical seismic hazard for Yogyakarta region"
-- **Reviewer 3**: "Important societal relevance: Addresses critical seismic hazard"
+- **1**: "High societal relevance: Addresses critical seismic hazard"
+- **2**: "High practical importance: Addresses critical seismic hazard for Yogyakarta region"
+- **3**: "Important societal relevance: Addresses critical seismic hazard"
 
 #### 7.3.2 Upaya Lapangan Substansial
 
@@ -1121,7 +1121,7 @@ Disertasi menggunakan teknik yang merupakan praktik standar sekitar tahun 2010-2
 
 ### 7.4 Konsensus Reviewer: Kelemahan
 
-**Ketiga reviewer mengidentifikasi kelemahan kritis berikut**:
+**Reviewer mengidentifikasi kelemahan kritis berikut**:
 
 #### 7.4.1 Metodologi Ketinggalan Zaman
 
