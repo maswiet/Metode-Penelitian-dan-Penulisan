@@ -1,568 +1,701 @@
 # Meta-Review and Editorial Decision
 
-## Manuscript Information
+## Paper: Centered Horizontal Gravity Gradient (CHG): An Improved Operator for Interpreting Circular Gravity Anomalies
 
-**Title**: Centered Horizontal Gravity Gradient (CHG): An Improved Operator for Interpreting Circular Gravity Anomalies
+**Authors:** Muhammad Zuhdi, Wiwit Suryanto, Sudarmaji  
+**Affiliation:** Gadjah Mada University, Indonesia  
+**Submitted to:** Journal of Geophysical Research: Solid Earth (JGR)
 
-**Authors**: Muhammad Zuhdi, Wiwit Suryanto, Sudarmadji
-
-**Affiliation**: Geophysics Department, Faculty of Mathematics and Natural Sciences, Gadjah Mada University, Indonesia
-
-**Target Journal**: Computers and Geosciences
-
-**Manuscript Type**: PhD student manuscript (Methods paper)
+**Associate Editor Assessment**  
+**Date:** 2024
 
 ---
 
-## Summary of Reviewer Assessments
+## Executive Summary
 
-Three independent reviewers with complementary expertise have evaluated this manuscript:
+This manuscript introduces the Centered Horizontal Gravity Gradient (CHG) method, which decomposes horizontal gravity gradients into radial and tangential components relative to a selected center point for improved interpretation of circular anomalies. The paper includes synthetic model testing and application to gravity data from Samalas volcano caldera (Lombok, Indonesia). Three expert reviewers have evaluated the manuscript from complementary perspectives: theoretical/methodological (Reviewer 1), experimental/practical (Reviewer 2), and presentation/broader impact (Reviewer 3).
 
-- **Reviewer 1 (Methods & Theory Specialist)**: Rating 4/10, Confidence 4/5
-- **Reviewer 2 (Experiments & Practical Impact Specialist)**: Rating 4/10, Confidence 4/5
-- **Reviewer 3 (Clarity, Positioning & Broader Impact Specialist)**: Rating 4/10, Confidence 4/5
+**Consensus Assessment:** All three reviewers agree that:
+1. The core concept is genuinely novel and addresses a real interpretational challenge
+2. The paper has significant potential but requires major revisions before acceptance
+3. Comparison with advanced methods (not just standard THG) is essential
+4. Validation is insufficient (single field case, no independent verification)
+5. Presentation quality needs substantial improvement
 
-All three reviewers reached the same conclusion: **Reject, but encourage major revision and resubmission**.
-
-### Reviewer Scores Summary
-
-| Aspect | Reviewer 1 | Reviewer 2 | Reviewer 3 | Average |
-|--------|------------|------------|------------|---------|
-| Soundness | 2/5 | 2/5 | 3/5 | 2.3/5 |
-| Presentation | 3/5 | 3/5 | 2/5 | 2.7/5 |
-| Contribution | 3/5 | 3/5 | 3/5 | 3.0/5 |
-| Overall Rating | 4/10 | 4/10 | 4/10 | 4/10 |
+**Editorial Decision:** **MAJOR REVISIONS REQUIRED**
 
 ---
 
-## Consensus Strengths
+## Reviewer Summary
 
-All three reviewers acknowledged the following strengths:
+### Reviewer 1: Methods & Theory Specialist
+- **Rating:** 6/10 (Weak Accept / Major Revisions Required)
+- **Soundness:** 3/5 | **Presentation:** 3/5 | **Contribution:** 6/10
+- **Confidence:** 5/5 (Very Confident)
 
-### 1. Genuine Conceptual Novelty
-The center-referenced radial/tangential gradient decomposition is an **original contribution** not found in existing literature. Based on comprehensive literature review (188 papers, 2000-2025), no published method explicitly decomposes horizontal gradients into radial and tangential components about a user-specified center point. This represents a true methodological innovation.
+**Key Points:**
+- Confirms genuine novelty of radial/tangential decomposition
+- Mathematical framework is sound but theoretical development incomplete
+- Critical issue: No comparison with state-of-the-art methods (EHD, MDA, GGT)
+- Concerning SNR degradation in complex models inadequately addressed
+- Center-point sensitivity not quantified
+- Depth resolution not analyzed
 
-### 2. Clear Geometric Intuition
-The idea of separating gradients into components parallel (radial) and perpendicular (tangential) to the direction from a center point is geometrically intuitive and physically meaningful for circular structures. This aligns well with how geologists think about volcanic calderas, ring complexes, and other circular features.
+### Reviewer 2: Experiments & Practical Impact Specialist
+- **Rating:** 5/10 (Weak Reject / Major Revisions Required)
+- **Soundness:** 3/5 | **Presentation:** 4/5 | **Contribution:** 5/10
+- **Confidence:** 5/5 (Very Confident)
 
-### 3. Relevant Application Domain
-The focus on volcanic and caldera structures addresses important practical problems:
-- Geothermal resource assessment (renewable energy)
-- Volcanic hazard assessment (public safety)
-- Understanding volcanic evolution (scientific knowledge)
-- Mineral exploration around ring complexes (economic value)
+**Key Points:**
+- Synthetic experiments well-designed but limited in scope
+- Field validation insufficient (single case, no independent verification)
+- Noise amplification in Model 3 is serious concern
+- Data quality documentation inadequate
+- No quantitative accuracy metrics provided
+- Practical utility unclear without comparison to advanced methods
 
-### 4. Computational Simplicity
-The method requires only horizontal derivatives and a center point, making it easy to implement with standard geophysical software. No iterative optimization or complex numerical schemes are needed, which could facilitate practical adoption.
+### Reviewer 3: Clarity, Positioning & Broader Impact Specialist
+- **Rating:** 5/10 (Weak Reject / Major Revisions Required)
+- **Soundness:** 3/5 | **Presentation:** 3/5 | **Contribution:** 5/10
+- **Confidence:** 4/5 (Confident)
 
-### 5. Preservation of Directional Information
-Unlike THG (which is always positive), CHG preserves sign information through signed values, potentially enabling more nuanced interpretation of gradient directions and magnitude changes.
+**Key Points:**
+- Literature positioning inadequate (ignores advanced methods)
+- Broader impacts underdeveloped (hazards, geothermal, societal relevance)
+- Presentation quality poor (abstract errors, grammar, figure quality)
+- Geological interpretation lacks validation and depth
+- Practical guidance missing (when to use CHG vs. alternatives)
 
-### 6. Appropriate Case Study
-The Samalas volcanic system (Lombok, Indonesia) is a well-studied, geologically significant example with documented circular structures, making it a suitable test case.
+### Consensus Scores
+- **Average Rating:** 5.3/10 (Major Revisions Required)
+- **Average Soundness:** 3/5
+- **Average Presentation:** 3.3/5
+- **Average Contribution:** 5.3/10
 
 ---
 
-## Critical Weaknesses: Areas of Complete Agreement
+## Areas of Agreement Among Reviewers
 
-All three reviewers identified the following **critical deficiencies** that must be addressed:
+### Strengths (All Reviewers Agree)
 
-### 1. Inadequate Literature Positioning (All Reviewers - Critical)
+1. **Genuine Novelty** ✅
+   - All three reviewers confirm that the center-referenced radial/tangential decomposition is new
+   - Literature review (227 papers, 1980-2025) found no prior work on this specific approach
+   - Fills a conceptual gap in circular anomaly interpretation
 
-**The Problem:**
-The manuscript fails to cite and discuss highly relevant existing methods, particularly:
+2. **Sound Mathematical Framework** ✅
+   - Coordinate transformation correctly implemented
+   - Equations 3-4 properly project gradients onto radial/tangential directions
+   - Core methodology is mathematically valid
 
-- **Directional derivative methods** (Yuan & Geng, 2014; Yuan et al., 2015; Ekinci et al., 2013; Mazzoldi et al., 2020): These methods also provide direction-specific gradient information and are conceptually most similar to CHG.
-- **Gradient tensor methods** (Kusumoto, 2016): Specifically addresses caldera interpretation using gravity gradient tensors, directly relevant to the Samalas case.
-- **Enhanced THG variants** (Pham et al., 2019; Nasuti et al., 2019; Nguyen et al., 2024): Address THG limitations through different approaches.
+3. **Interesting Field Application** ✅
+   - Samalas caldera is significant (VEI 7, 1257 CE eruption, global climate impact)
+   - First gravity-based structural interpretation of this important caldera
+   - Timely given hazard implications for densely populated Lombok
+
+4. **Systematic Synthetic Testing** ✅
+   - Progression from simple to complex models is pedagogically sound
+   - SNR analysis provides quantitative assessment (though results are concerning)
+   - Forward modeling approach is appropriate
+
+5. **Practical Utility Potential** ✅
+   - Method addresses real interpretational need for circular features
+   - Computationally efficient (uses only first derivatives)
+   - Applicable to volcanic, geothermal, impact crater studies
+
+### Critical Weaknesses (All Reviewers Agree)
+
+1. **Inadequate Comparison with Advanced Methods** ❌
+   - **Unanimous concern:** Comparison limited to standard THG (1986 baseline)
+   - Missing comparisons with:
+     * Enhanced Horizontal Derivative (EHD) - Fedi & Florio, 2001
+     * Multiscale Derivative Analysis (MDA) - Fedi, 2002
+     * Directional Total Horizontal Derivatives (DTHD) - Yuan & Geng, 2014
+     * Gravity Gradient Tensor (GGT) methods - Kusumoto, 2016
+     * Enhanced THG variants - Pham et al., 2024
+   - **Impact:** Cannot assess whether CHG improves on current best practices
+   - **All three reviewers identify this as the most critical deficiency**
+
+2. **Insufficient Field Validation** ❌
+   - **Unanimous concern:** Only one field case (Samalas) tested
+   - No independent verification:
+     * No comparison with published geological maps
+     * No integration with seismic data (Sarjan et al., 2021; Priyono et al., 2021)
+     * No validation with resistivity results (Hiden et al., 2017)
+     * No testing on other well-studied calderas
+   - No quantitative accuracy metrics (all interpretation qualitative)
+   - **Impact:** Cannot verify accuracy or assess generalizability
+
+3. **Concerning Noise Behavior** ⚠️
+   - **All reviewers note:** Model 3 shows CHG SNR (7.0) worse than THG (10.1)
+   - CHG SNR degrades dramatically: 35.5 (Model 1) → 7.0 (Model 3)
+   - Authors acknowledge but don't adequately address
+   - No mitigation strategies provided
+   - **Impact:** Method may be unreliable in realistic complex geological settings
+
+4. **Center-Point Sensitivity Not Quantified** ❌
+   - Optimization proposed (Eq. 11) but not validated
+   - No systematic testing of sensitivity to center-point errors
+   - Convergence properties not analyzed
+   - **Impact:** Unknown how critical accurate centering is
+
+5. **Presentation Quality Issues** ❌
+   - Grammar and language errors throughout
+   - **Abstract contains formatting error (line 7) and typo (line 20)**
+   - Figures lack geological context (no caldera rim, faults overlaid)
+   - Missing tables (survey specs, model parameters, method comparison)
+   - Insufficient methodological detail for reproduction
+
+---
+
+## Divergent Opinions and Resolution
+
+### Minor Disagreement: Severity of Issues
+
+**Reviewer 1** (Methods specialist) is slightly more positive (6/10 - Weak Accept) because:
+- Mathematical framework is sound
+- Core concept has theoretical merit
+- Sees potential with revisions
+
+**Reviewers 2 & 3** (Practical/Impact specialists) are more critical (5/10 - Weak Reject) because:
+- Experimental validation insufficient
+- Practical utility undemonstrated
+- Broader impacts underdeveloped
+
+**Editorial Resolution:**
+Both perspectives are valid. The paper has theoretical merit but lacks practical validation. The consensus rating (5.3/10) reflects this: the work is not ready for acceptance but has potential with substantial revisions. The decision is **MAJOR REVISIONS** rather than outright rejection because:
+- Core novelty is confirmed
+- Methodological framework is sound
+- Issues are addressable with additional work
+
+### Presentation Quality Assessment
+
+**Reviewer 2** rates presentation slightly higher (4/5) than Reviewers 1 & 3 (both 3/5).
+
+**Reason:** Reviewer 2 focused more on figure design and data presentation, finding them generally clear despite missing details. Reviewers 1 & 3 weighted grammar errors and missing contextual information more heavily.
+
+**Editorial Resolution:**
+Average of 3.3/5 is appropriate. While figures are reasonably designed, the combination of:
+- Grammar/language errors
+- Abstract formatting error and typo
+- Missing geological overlays
+- Insufficient methodological detail
+- No tables provided
+
+...justifies a below-average presentation score. The abstract errors are particularly problematic and must be fixed.
+
+---
+
+## Detailed Assessment by Category
+
+### 1. Novelty and Originality (STRONG)
+
+**Reviewer consensus:** ✅ **Confirmed genuine novelty**
+
+- Literature search (227 papers, 1980-2025) found no prior work on center-referenced radial/tangential decomposition
+- Method addresses a documented gap: THG provides only scalar magnitude, cannot distinguish radial from tangential components
+- Related approaches exist (directional derivatives, GGT) but are fundamentally different
+
+**Novelty score: 8/10** (Reviewer 1's assessment, supported by literature analysis)
+
+**However:** Novelty alone is insufficient. The paper must demonstrate that this novel approach provides practical advantages over existing methods.
+
+### 2. Theoretical Foundation (MODERATE - NEEDS IMPROVEMENT)
+
+**Reviewer 1 concerns (shared by others):**
+- Incomplete theoretical analysis of when/why CHG outperforms alternatives
+- Relationship to GGT not explored (could CHG be derived from tensor components?)
+- Radial variance optimization (Eq. 11) lacks theoretical justification
+- No error propagation analysis
+- Depth resolution not analyzed
+
+**Required improvements:**
+- Derive conditions under which CHGrad maxima coincide with anomaly boundaries
+- Explain relationship to GGT and directional derivatives theoretically
+- Provide rigorous justification for radial variance metric
+- Analyze depth resolution capabilities and limitations
+
+### 3. Experimental Validation (WEAK - MAJOR IMPROVEMENTS NEEDED)
+
+**All reviewers agree:** This is the paper's weakest aspect.
+
+**Synthetic testing:**
+- ✅ Well-designed progression (simple → complex)
+- ✅ SNR analysis included
+- ❌ Limited scenarios (only 3 models, all simple geometry)
+- ❌ No depth variation testing
+- ❌ No elliptical/irregular anomaly testing
+- ❌ No comparison with advanced methods
+
+**Field validation:**
+- ✅ Significant application (Samalas caldera)
+- ❌ Only one field case
+- ❌ No independent verification (seismic, geological maps)
+- ❌ No quantitative accuracy metrics
+- ❌ Results entirely qualitative
+
+**Critical requirement:** Add 2-3 well-studied calderas with independent structural control and quantitative validation.
+
+### 4. Method Comparison (CRITICAL DEFICIENCY)
+
+**Unanimous reviewer concern:** This is the most serious flaw.
+
+**Current state:** Comparison only with standard THG (Blakely & Simpson, 1986)
+
+**Required comparisons:**
+1. **Enhanced Horizontal Derivative (EHD)** - Fedi & Florio, 2001
+2. **Multiscale Derivative Analysis (MDA)** - Fedi, 2002
+3. **Directional Total Horizontal Derivatives (DTHD)** - Yuan & Geng, 2014
+4. **Gravity Gradient Tensor (GGT) methods** - Kusumoto, 2016
+5. **Enhanced THG variants** - logistic, balanced, power-law (Pham et al., 2024)
+
+**Why this is critical:**
+- Cannot assess whether CHG provides practical improvement over current best practices
+- Reviewers cannot recommend adoption without knowing performance relative to established methods
+- This is standard expectation for methods papers
+
+**Editorial requirement:** At minimum, compare with EHD, MDA, and one GGT method on all synthetic and field datasets.
+
+### 5. Noise Sensitivity (SERIOUS CONCERN)
+
+**All reviewers flag:** Model 3 SNR results are concerning.
+
+**Observations:**
+- CHG SNR: 35.5 (Model 1) → 16.8 (Model 2) → **7.0 (Model 3)**
+- THG SNR: 30.7 (Model 1) → 15.6 (Model 2) → **10.1 (Model 3)**
+- CHG shows worse noise performance in complex model
+
+**Authors' response:** Acknowledge issue (line 285) but provide no:
+- Explanation of mechanism
+- Mitigation strategies
+- Guidance on when CHG is appropriate
+
+**Required improvements:**
+- Explain why noise amplification occurs in complex models
+- Test filtering/regularization strategies
+- Define criteria for when CHG is suitable
+- Provide quality control guidelines
+
+**Reviewer 2 assessment:** "This suggests CHG may fail in realistic complex settings" - serious concern for practical adoption.
+
+### 6. Data Quality and Documentation (INADEQUATE)
+
+**Reviewer 2 emphasis (supported by others):**
+
+**Missing information:**
+- Gravity survey specifications (station spacing, coverage, accuracy)
+- Processing parameters (gridding, filtering, derivative calculation)
+- Data quality assessment (uncertainty, spatial error distribution)
+- Regional/residual separation methodology
+- Bouguer reduction density
 
 **Impact:**
-Without comparison to these methods, readers cannot assess:
-- Whether CHG is fundamentally different or a variation on existing approaches
-- What unique advantages CHG offers over directional derivatives
-- When CHG is preferable to other methods
-- How CHG fits within the broader landscape of edge detection techniques
+- Cannot assess data quality or suitability
+- Cannot reproduce processing workflow
+- Cannot evaluate reliability of results
 
-**Required Action:**
-- Add comprehensive literature review covering directional derivatives and gradient tensor methods
-- Explicitly compare CHG with directional THD mathematically and experimentally
-- Clearly articulate what is novel about CHG relative to these existing approaches
-- Position CHG within the full spectrum of potential field interpretation methods
+**Required:** Comprehensive data documentation including survey specifications table and processing workflow description.
 
-### 2. Undefined Center Point Determination (All Reviewers - Critical)
+### 7. Presentation Quality (BELOW AVERAGE)
 
-**The Problem:**
-The manuscript provides **no objective method** for determining the center point (xc, yc), which is fundamental to the CHG calculation. The text states it is "estimated as the center point of a geological feature" but provides no algorithm, criteria, or procedure.
+**Consensus issues:**
 
-**Impact:**
-- The method becomes **subjective** and dependent on user judgment
-- Results are potentially **unreproducible** by other researchers
-- Reliability and accuracy cannot be assessed without knowing center point sensitivity
-- Practical application is hindered by lack of guidance
+**Critical (must fix):**
+- Abstract line 7: "gravity-= ~gradient" (formatting error)
+- Abstract line 20: "CHGan" → "CHGtan" (typo)
+- Grammar and language errors throughout
 
-**Required Action:**
-- Develop objective algorithm(s) for center point determination (e.g., moment analysis, symmetry detection, iterative optimization)
-- Document exactly how the center point was determined for the Samalas case study
-- Test sensitivity to center point location (how do results change if center is mislocated by 1 km, 2 km, 5 km?)
-- Provide clear guidelines for users on center point selection
+**Major (should fix):**
+- Figures 8-10 lack geological overlays (caldera rim, faults, volcanic centers)
+- No tables provided (survey specs, model parameters, method comparison)
+- Captions too brief and uninformative
+- Insufficient methodological detail
 
-### 3. Incomplete Mathematical Development (Reviewer 1 - Critical; Reviewers 2 & 3 - Significant)
+**Moderate:**
+- Inconsistent notation (gx vs. ∂g/∂x)
+- Low-resolution text in some figures
+- Discussion section weak
 
-**The Problem:**
-The mathematical presentation lacks rigor in several areas:
+**Reviewer 3:** "Abstract errors are particularly problematic" - first impression matters.
 
-- **No derivation**: The transition from geometric definitions (Equations 1-2) to finite-difference formulas (Equations 3-6) is not rigorously derived
-- **No error analysis**: Truncation error, error propagation, and numerical accuracy are not discussed
-- **Singularity unaddressed**: Behavior at or near the center point (where denominators → 0) is not analyzed
-- **Assumptions unstated**: What conditions must hold for CHG to be valid?
-- **Grid spacing not specified**: Required resolution for accurate results not discussed
+### 8. Broader Impacts (UNDERDEVELOPED)
 
-**Impact:**
-- The method's reliability and accuracy are unclear
-- Users don't know how fine a grid is needed
-- Potential numerical instabilities near the center are not addressed
-- The theoretical foundation appears incomplete
+**Reviewer 3 emphasis (supported by others):**
 
-**Required Action:**
-- Provide rigorous step-by-step derivation from geometric principles to discrete formulas
-- Include truncation error analysis and convergence testing
-- Discuss singularity behavior and define valid application domain (minimum distance from center)
-- State all assumptions explicitly
-- Specify grid spacing requirements
+**Missing discussions:**
+- Volcanic hazard assessment implications (despite Lombok application!)
+- Geothermal exploration applications (mentioned once in passing)
+- Planetary geophysics applications (not mentioned)
+- Economic benefits for resource exploration
+- Societal relevance (Lombok population, hazard mitigation)
 
-### 4. Insufficient Experimental Validation (Reviewer 2 - Critical; Reviewers 1 & 3 - Significant)
+**Context:** Samalas 1257 eruption had global climate impacts; Lombok is densely populated; method has clear hazard/resource implications.
 
-**The Problem:**
-The experimental validation is inadequate for a methods paper:
+**Required:** Substantially expand broader impacts discussion, emphasizing practical applications and societal relevance.
 
-- **Synthetic tests lack detail**: Model parameters not quantitatively specified; no noise added; limited range of scenarios
-- **Real data poorly described**: No information on data acquisition, processing, or quality
-- **Single case study**: Only Samalas example; insufficient to demonstrate generalizability
-- **No baseline comparisons**: CHG compared only with basic THG, not with other edge detection methods
-- **No validation**: CHG interpretations not verified against independent data (geological maps, seismic, drilling)
-- **Only qualitative assessment**: No quantitative performance metrics defined or calculated
+### 9. Practical Utility (UNCLEAR)
 
-**Impact:**
-- Cannot assess whether CHG actually outperforms or complements existing methods
-- Cannot verify that CHG interpretations are correct
-- Cannot determine method robustness across different scenarios
-- Cannot objectively evaluate method performance
+**All reviewers note:** Unclear when practitioners should use CHG vs. alternatives.
 
-**Required Action:**
-- Expand synthetic testing with complete model specifications, noise analysis, and diverse scenarios
-- Provide full description of real data (acquisition, processing, quality)
-- Add at least 1-2 additional case studies from different geological settings
-- Compare quantitatively with multiple edge detection methods (especially directional THD)
-- Validate interpretations against independent geological/geophysical data
-- Define and calculate objective performance metrics
+**Missing guidance:**
+- When is CHG appropriate vs. EHD, MDA, GGT?
+- What data quality is required?
+- How critical is accurate center-point selection?
+- What are the failure modes?
+- Cost-benefit trade-offs?
 
-### 5. Poor Presentation Quality (Reviewer 3 - Critical; Reviewers 1 & 2 - Significant)
-
-**The Problem:**
-The manuscript has significant presentation issues:
-
-- **Writing quality**: Numerous grammatical errors, inconsistent terminology, awkward phrasing
-- **Structural problems**: No proper Conclusions section; brief Method and Discussion sections; abrupt transitions
-- **Missing elements**: No schematic diagrams, no workflow guidance, no comparison tables
-- **Inadequate Introduction**: Too brief; doesn't thoroughly review existing methods; doesn't clearly state objectives
-- **Weak Discussion**: Too brief; doesn't critically evaluate limitations; doesn't provide practical guidance
-
-**Impact:**
-- Clarity and understanding are significantly impeded
-- The contribution is not compellingly presented
-- Readers lack guidance on when and how to apply the method
-- The manuscript doesn't meet presentation standards for a leading journal
-
-**Required Action:**
-- Thoroughly edit for grammar, consistency, and clarity
-- Expand Introduction with comprehensive literature review and clear statement of objectives
-- Expand Method section with conceptual explanation, schematic diagrams, and implementation guidance
-- Expand Discussion with critical evaluation, comparison with existing methods, and practical considerations
-- Add proper Conclusions section summarizing findings and implications
-- Add visual aids (schematic diagrams, workflow charts, comparison tables)
+**Required:** Provide practical decision framework for method selection and application guidelines.
 
 ---
 
-## Significant Weaknesses: Areas of Strong Agreement
+## Required Revisions for Acceptance
 
-### 6. No Quantitative Performance Metrics (All Reviewers - Significant)
+### Essential (Must be completed for acceptance)
 
-All assessments are qualitative ("successfully highlights," "clearly distinguish"). No objective metrics are defined or calculated (e.g., edge sharpness, localization accuracy, signal-to-noise ratio, feature separation index). This makes objective evaluation impossible.
+#### 1. Comprehensive Method Comparison ⭐⭐⭐
+**Priority: CRITICAL**
 
-**Required:** Define quantitative metrics and apply them to all test cases and comparison methods.
+- Implement EHD, MDA, DTHD, and at least one GGT method
+- Apply all methods to:
+  * All three synthetic models
+  * Samalas field data
+  * At least one additional field case
+- Create side-by-side comparison figures
+- Provide quantitative comparison table:
+  * SNR for all models
+  * Edge detection accuracy
+  * Computational cost
+  * Depth resolution
+- Discuss when CHG outperforms alternatives and when it doesn't
 
-### 7. No Comparison with Directional Derivative Methods (All Reviewers - Significant)
+**Reviewer consensus:** "This is the most critical deficiency" - all three reviewers
 
-Despite conceptual similarities, CHG is not compared with directional total horizontal derivative (DTHD) methods. This is the most important missing comparison.
+#### 2. Expand Field Validation ⭐⭐⭐
+**Priority: CRITICAL**
 
-**Required:** Implement directional THD on the same datasets and provide detailed quantitative and qualitative comparison.
+- Apply CHG to 2-3 additional well-studied calderas:
+  * Suggested: Campi Flegrei, Tambora, Yellowstone, or Kutcharo
+  * Require independent structural control (seismic, drilling, detailed mapping)
+- For Samalas case:
+  * Overlay published caldera rim on CHG results
+  * Integrate with seismic tomography (Sarjan et al., 2021)
+  * Compare with attenuation results (Priyono et al., 2021)
+  * Validate with resistivity data (Hiden et al., 2017)
+- Provide quantitative accuracy metrics:
+  * Distance between CHG-detected and mapped rim
+  * ROC curves for edge detection
+  * Misfit analysis for forward models
 
-### 8. Insufficient Synthetic Testing (All Reviewers - Significant)
+**Reviewer consensus:** "Single field case insufficient" - all three reviewers
 
-Synthetic models lack detail and realism. No noise added. Limited range of scenarios (only idealized circular models; no elliptical, irregular, or overlapping features tested).
+#### 3. Address Noise Amplification ⭐⭐⭐
+**Priority: CRITICAL**
 
-**Required:** Comprehensive synthetic test suite with full specifications, noise analysis, and diverse scenarios including non-ideal cases.
+- Explain why Model 3 shows SNR degradation
+- Test mitigation strategies:
+  * Upward continuation
+  * Wavelength filtering
+  * Regularization approaches
+- Define criteria for when CHG is appropriate vs. when THG/alternatives are better
+- Provide quality control guidelines
+- Test with realistic (correlated) noise, not just white noise
 
-### 9. Missing Validation with Ground Truth (All Reviewers - Significant)
+**Reviewer 2:** "Method may be unreliable in realistic complex settings" - serious concern
 
-CHG interpretations are not verified against independent data. For Samalas, no comparison with published geological maps or geophysical models despite extensive prior work (Lavigne et al., 2013; Mutaqin et al., 2019; Malawani et al., 2022).
+#### 4. Validate Center-Point Optimization ⭐⭐
+**Priority: HIGH**
 
-**Required:** Compare CHG interpretations with known geological features and published models for at least one case study.
+- Test Eq. 11 on synthetic models with known centers
+- Systematic sensitivity analysis (±0.5, 1, 2, 5 km offsets)
+- Show convergence plots
+- Demonstrate robustness to initial guess
+- Specify search parameters (step size, convergence criteria)
+- Test on multiple overlapping circles
 
-### 10. No Sensitivity Analysis (Reviewers 1 & 2 - Significant)
+**Reviewer 1:** "Performance sensitive to center-point accuracy; optimization not tested"
 
-Sensitivity to center point location, grid spacing, and noise level is not tested. Method robustness is unknown.
+#### 5. Fix Presentation Issues ⭐⭐
+**Priority: HIGH**
 
-**Required:** Systematic sensitivity testing for key parameters.
+**Critical fixes:**
+- Fix abstract formatting error (line 7)
+- Fix abstract typo (line 20: CHGan → CHGtan)
+- Careful proofreading to eliminate grammar errors
+- Standardize notation throughout
 
----
+**Major improvements:**
+- Add geological overlays to Figures 8-10 (caldera rim, faults, volcanic centers)
+- Create essential tables:
+  * Survey specifications
+  * Synthetic model parameters
+  * Quantitative method comparison
+  * SNR summary
+- Improve figure captions (complete information, explain what to observe)
+- Add methodological detail for reproducibility
 
-## Areas of Partial Agreement or Differing Emphasis
+**Reviewer 3:** "Abstract errors particularly problematic" - affects first impression
 
-### Hybrid THG-CHG Formulation (Equations 7-9)
+### Highly Desirable (Strongly recommended)
 
-- **Reviewer 1**: Questions theoretical justification; considers it ad hoc
-- **Reviewer 2**: Notes it's introduced but not tested or validated
-- **Reviewer 3**: Mentions it as offering flexibility but lacking guidance
+#### 6. Expand Synthetic Testing ⭐
+**Priority: MODERATE-HIGH**
 
-**Consensus**: The hybrid formulation needs better justification and guidelines for choosing α and β parameters, or should be de-emphasized if not essential.
+- Test varying source depths (1, 3, 5, 10 km)
+- Test elliptical anomalies (eccentricity 0.2, 0.5, 0.8)
+- Test tilted/dipping circular structures
+- Test regional gradient superposition
+- Test realistic density contrasts (±0.1-0.2 g/cm³, not just ±0.4)
 
-### Scope and Applicability
+#### 7. Strengthen Theoretical Foundation ⭐
+**Priority: MODERATE-HIGH**
 
-- **Reviewer 1**: Emphasizes narrow scope (circular features only) as limiting significance
-- **Reviewer 2**: Notes limited applicability but sees potential if properly validated
-- **Reviewer 3**: Questions whether elliptical/irregular features have been tested
+- Derive conditions for optimal CHG performance
+- Explain relationship to GGT (can CHG be derived from tensor?)
+- Provide theoretical justification for radial variance metric
+- Include error propagation analysis
+- Analyze depth resolution capabilities
 
-**Consensus**: The method's scope limitations should be clearly stated, and behavior on non-circular features should be tested and documented.
+#### 8. Expand Broader Impacts Discussion ⭐
+**Priority: MODERATE-HIGH**
 
-### Software and Reproducibility
+- Volcanic hazard assessment implications
+- Geothermal exploration applications (with examples)
+- Planetary geophysics potential
+- Economic benefits for resource exploration
+- Societal relevance (Lombok population, hazard mitigation)
+- Add dedicated "Broader Impacts and Applications" section
 
-- **Reviewer 1**: Notes missing code/software availability
-- **Reviewer 2**: Emphasizes this as critical for adoption
-- **Reviewer 3**: Frames it as an ethical/open science consideration
+#### 9. Provide Practical Guidance ⭐
+**Priority: MODERATE**
 
-**Consensus**: Code should be made available, and full reproducibility information should be provided.
+- Decision framework: when to use CHG vs. EHD, MDA, GGT
+- Data quality requirements (station spacing, accuracy)
+- How to recognize failure modes
+- Quality control procedures
+- Cost-benefit trade-offs
 
----
+#### 10. Release Software/Code ⭐
+**Priority: MODERATE**
 
-## Novelty and Impact Assessment
+- Provide Python/MATLAB implementation
+- Include tutorial with examples
+- Share synthetic model scripts
+- Consider open-source software package
+- Greatly enhances reproducibility and adoption
 
-### Novelty: Confirmed Original Contribution
+### Additional Improvements (Desirable)
 
-Based on comprehensive literature review (188 papers, 2000-2025) and all three reviewers' assessments:
+#### 11. Improve Data Documentation
+- Complete survey specifications
+- Detailed processing workflow
+- Data quality/uncertainty maps
+- Regional/residual separation methodology
 
-**The CHG concept is genuinely novel.** No existing published method explicitly decomposes horizontal gradients into radial and tangential components about a user-specified center point.
+#### 12. Enhance Geological Interpretation
+- Expected gravity signatures for interpreted features
+- Forward modeling validation
+- Alternative interpretations considered
+- Interpretation confidence/uncertainty
 
-**However:**
-- The relationship to directional derivative methods needs clarification
-- The novelty must be more clearly articulated in the manuscript
-- The mathematical development (finite-difference implementation) is standard; novelty is conceptual
+#### 13. Strengthen Discussion Section
+- Compare with other caldera gravity studies
+- Discuss volcanic process implications
+- Address limitations thoroughly
+- Outline future research directions
 
-### Significance: Moderate Potential, Insufficiently Demonstrated
-
-**Potential significance**: Moderate to High
-- Relevant for important applications (geothermal, volcanic hazards, mineral exploration)
-- Could become a standard tool for circular anomaly interpretation
-- Computationally simple and potentially easy to adopt
-
-**Current demonstrated significance**: Low to Moderate
-- Single case study limits demonstration of generalizability
-- No validation against ground truth
-- No comparison showing advantages over existing methods
-- Unclear when CHG is preferable to other approaches
-
-**To achieve high significance:**
-- Multiple validated case studies needed
-- Quantitative demonstration of advantages over existing methods required
-- Practical guidelines for application must be provided
-- Software implementation should be released
-
-### Advancement of the Field: Incremental but Valuable
-
-The work represents an **incremental but potentially valuable advancement**:
-
-- **Not transformative**: Doesn't fundamentally change interpretation paradigms or introduce new physical principles
-- **Not computationally innovative**: Uses standard finite-difference methods
-- **But fills a gap**: Provides a geometrically intuitive, application-specific tool for circular anomalies
-- **Complements existing methods**: Adds information rather than replacing other techniques
-
-With proper development, validation, and positioning, CHG could become a useful addition to the geophysicist's toolkit for volcanic and geothermal applications.
-
----
-
-## Detailed Recommendations for Revision
-
-### Priority 1: Critical Issues (Must be fully addressed)
-
-1. **Comprehensive Literature Review and Positioning**
-   - Add thorough review of directional derivative methods with citations
-   - Add discussion of gradient tensor methods
-   - Clearly articulate what is novel about CHG compared to these approaches
-   - Explain when CHG is preferable vs. when other methods should be used
-
-2. **Objective Center Point Determination Method**
-   - Develop and present algorithm for center point determination
-   - Document procedure used for Samalas case
-   - Test sensitivity to center point location systematically
-   - Provide guidelines for users
-
-3. **Rigorous Mathematical Development**
-   - Provide complete derivation from geometric principles to discrete formulas
-   - Include error analysis (truncation error, error propagation)
-   - Discuss singularity behavior near center point
-   - State all assumptions explicitly
-   - Specify grid spacing requirements
-
-4. **Comprehensive Experimental Validation**
-   - Expand synthetic testing (full specifications, noise, diverse scenarios)
-   - Provide complete real data description (acquisition, processing, quality)
-   - Add 1-2 additional case studies
-   - Validate against independent data for at least one case
-   - Define and calculate quantitative performance metrics
-
-5. **Quantitative Comparison with Existing Methods**
-   - Implement directional THD on same datasets (essential comparison)
-   - Apply other edge detection methods (analytic signal, tilt angle)
-   - Present side-by-side quantitative comparisons
-   - Discuss relative advantages and appropriate use cases
-
-6. **Major Presentation Improvements**
-   - Expand Introduction with thorough background and clear objectives
-   - Expand Method section with conceptual explanation and implementation guidance
-   - Add schematic diagrams illustrating the concept
-   - Expand Discussion with critical evaluation and practical guidance
-   - Add proper Conclusions section
-   - Thoroughly edit for grammar, consistency, and clarity
-
-### Priority 2: Important Enhancements (Should be addressed)
-
-7. **Sensitivity and Robustness Testing**
-   - Systematic sensitivity analysis (center point, grid spacing, noise)
-   - Test on elliptical and irregular features
-   - Document failure modes and limitations
-
-8. **Practical Guidelines**
-   - Step-by-step workflow for applying CHG
-   - Guidelines for grid resolution, data quality, center point determination
-   - Decision criteria for when to use CHG vs. other methods
-
-9. **Additional Visual Aids**
-   - Workflow diagram
-   - Comparison tables (CHG vs. other methods)
-   - Model parameter tables
-   - Enhanced figures with quantitative annotations
-
-10. **Reproducibility Package**
-    - Specify all parameters for reproducing results
-    - Provide code implementation (ideally open source)
-    - State data availability or provide sample datasets
-    - Include detailed workflow description
-
-### Priority 3: Recommended Additions (Would strengthen manuscript)
-
-11. **Extended Discussion**
-    - Broader context within potential field interpretation
-    - Implications for volcanic and geothermal exploration
-    - Future research directions
-    - Potential extensions (magnetic data, 3D tensors)
-
-12. **Supplementary Materials**
-    - Detailed model specifications
-    - Additional test cases
-    - Extended methodology
-    - Code and documentation
-
-13. **Broader Impact Considerations**
-    - Data and code sharing plans
-    - Accessibility considerations
-    - Potential for misuse and how to avoid it
+#### 14. Improve Accessibility
+- Plain-language summary for non-specialists
+- Conceptual diagrams for key concepts
+- Define technical terms when first used
+- Flowchart showing CHG workflow
 
 ---
 
-## Editorial Decision
+## Editorial Assessment and Recommendations
 
-### **REJECT with strong encouragement for major revision and resubmission**
+### Suitability for Journal of Geophysical Research: Solid Earth
 
-### Justification
+**Current status:** **Not suitable in present form**
 
-This manuscript presents a **genuinely novel and potentially valuable methodological contribution** to potential field interpretation. The concept of center-referenced radial/tangential gradient decomposition is original, geometrically intuitive, and addresses a real need in volcanic and geothermal geophysics.
+JGR: Solid Earth is a top-tier journal with high standards for:
+- Methodological rigor
+- Comprehensive validation
+- Comparison with state-of-the-art
+- Broader scientific impact
 
-**However, the manuscript in its current form has critical deficiencies that prevent acceptance:**
+**Current manuscript gaps:**
+- ❌ No comparison with advanced methods
+- ❌ Insufficient validation (single field case)
+- ❌ Limited broader impact discussion
+- ❌ Presentation quality below journal standards
 
-1. **Inadequate positioning** relative to existing literature, particularly directional derivative methods
-2. **Undefined methodology** for the critical step of center point determination
-3. **Incomplete mathematical development** lacking rigor, error analysis, and treatment of singularities
-4. **Insufficient experimental validation** with only one case study, no independent verification, and no quantitative comparisons
-5. **Poor presentation quality** with significant writing, structural, and organizational issues
+**Path to JGR acceptance:**
+- Complete all "Essential" revisions (items 1-5)
+- Complete most "Highly Desirable" revisions (items 6-10)
+- Demonstrate clear advantages over existing methods
+- Validate on multiple well-studied cases
+- Expand broader impacts significantly
 
-**These are not minor issues that can be addressed through revision of the current manuscript.** The manuscript requires substantial additional work:
+**Estimated additional work:** 6-12 months
 
-- Extensive literature review and comparative analysis
-- Development of objective center point determination method
-- Rigorous mathematical derivation and error analysis
-- Comprehensive synthetic testing and multiple real-world case studies
-- Quantitative comparison with existing methods, especially directional derivatives
-- Validation against independent data
-- Major rewriting of all sections for clarity and completeness
+### Alternative Venue Recommendations
 
-**The amount of work required constitutes a major revision that goes well beyond what can be accomplished in a typical revision cycle.**
+If authors prefer faster publication with less extensive revisions, consider:
 
-### Recommendation
+**Tier 1 (Moderate revisions):**
+- **Geophysical Prospecting** - methodological focus, good fit
+- **Journal of Applied Geophysics** - applied methods, practical emphasis
+- Still require comparison with advanced methods and additional validation
 
-**Reject the current submission** but **strongly encourage the authors to undertake the major revisions outlined above and resubmit as a new manuscript.**
+**Tier 2 (Minor-moderate revisions):**
+- **Journal of Volcanology and Geothermal Research** - application focus
+- **Geophysical Journal International** - broad scope
+- Emphasis on application rather than methodology
 
-**Reasons for encouragement:**
+**Tier 3 (Minor revisions):**
+- **Bulletin of Volcanology** - volcanic application emphasis
+- **Geosciences** - open access, broad scope
+- Focus on Samalas case study rather than method development
 
-1. **The core concept is novel and valuable** – no existing method provides this specific capability
-2. **The application domain is important** – volcanic and geothermal systems have high practical and societal relevance
-3. **The approach is computationally simple** – potential for wide adoption if properly validated
-4. **The authors have made a good start** – the Samalas case study provides a foundation to build upon
+### Decision Rationale
 
-**What success would look like:**
+**Why MAJOR REVISIONS rather than REJECT:**
 
-A revised manuscript that:
-- Clearly positions CHG within the landscape of edge detection methods, especially relative to directional derivatives
-- Provides objective, reproducible center point determination
-- Includes rigorous mathematical development with error analysis
-- Presents comprehensive validation with 3+ case studies verified against ground truth
-- Demonstrates quantitatively that CHG provides unique or superior information compared to existing methods
-- Offers clear practical guidance for when and how to apply CHG
-- Is clearly written with high-quality figures and comprehensive documentation
-- Includes open-source code implementation
+✅ **Core novelty confirmed** - Genuine methodological innovation  
+✅ **Sound mathematical framework** - No fundamental flaws  
+✅ **Significant application** - Important caldera system  
+✅ **Issues are addressable** - Additional work can resolve concerns  
+✅ **Potential for impact** - Method could be useful if properly validated  
 
-**Such a manuscript would be a strong contribution worthy of publication in *Computers and Geosciences* and would likely have significant impact in the volcanic and geothermal geophysics community.**
+**Why not MINOR REVISIONS or ACCEPT:**
 
----
+❌ **Critical comparison missing** - Cannot assess value without comparing to advanced methods  
+❌ **Validation insufficient** - Single case inadequate for methods paper  
+❌ **Noise concerns unresolved** - SNR degradation needs explanation/mitigation  
+❌ **Presentation issues** - Abstract errors, missing tables, inadequate figures  
+❌ **Broader impacts weak** - Doesn't demonstrate practical significance  
 
-## Timeline and Process Recommendations
+### Conditions for Acceptance
 
-### For the Authors
+The revised manuscript must:
 
-**Estimated time for major revision: 6-12 months**
+1. **Demonstrate clear advantages** over EHD, MDA, and GGT through quantitative comparison
+2. **Validate on 3+ field cases** with independent structural control
+3. **Resolve noise amplification** concerns with mitigation strategies
+4. **Fix all presentation issues** (abstract errors, grammar, figures, tables)
+5. **Expand broader impacts** to demonstrate practical significance
 
-This timeline assumes:
-- 2-3 months: Literature review, comparative analysis, mathematical development
-- 2-3 months: Additional synthetic testing and case studies
-- 2-3 months: Data analysis, validation, quantitative comparisons
-- 1-2 months: Writing, figure preparation, code documentation
-- 1 month: Internal review and editing
+**If these conditions are met,** the paper could be a solid contribution to *Geophysical Prospecting* or *Journal of Applied Geophysics*, and potentially suitable for *JGR: Solid Earth* with exceptional execution.
 
-**Recommended steps:**
-
-1. **Months 1-2**: Comprehensive literature review; mathematical derivation and error analysis; center point determination method development
-
-2. **Months 3-4**: Extensive synthetic testing; implementation of comparison methods (directional THD, analytic signal, etc.)
-
-3. **Months 5-6**: Additional case studies (2-3 more examples); validation against independent data
-
-4. **Months 7-8**: Quantitative analysis and comparison; sensitivity testing; robustness analysis
-
-5. **Months 9-10**: Complete rewriting of manuscript with expanded sections; figure preparation; code documentation
-
-6. **Months 11-12**: Internal review; editing; preparation of supplementary materials; submission
-
-**Consider:**
-- Collaborating with researchers who have expertise in directional derivative or gradient tensor methods
-- Seeking additional case study data from colleagues working in other volcanic/geothermal systems
-- Having the manuscript professionally edited before resubmission
-- Preparing code for open-source release (e.g., GitHub repository)
-
-### For the Editorial Process
-
-**Recommendation for resubmission:**
-- Treat as a **new submission** rather than a revision
-- Fresh peer review process (though previous reviews should be considered)
-- Authors should include a cover letter explaining how they addressed the major issues raised
-
-**Potential for acceptance:**
-If the authors successfully address the critical issues outlined above, the revised manuscript would have **strong potential for acceptance**. The core contribution is solid; it needs proper development, validation, and presentation.
+**If authors cannot commit to this level of revision,** consider alternative venues (Tier 2-3 above) with more modest scope.
 
 ---
 
-## Specific Guidance for PhD Student and Advisors
+## Reviewer Recommendations Summary
 
-This manuscript represents a PhD student's work, which provides context for both its strengths (novel thinking, fresh perspective) and weaknesses (incomplete development, limited experience with methods papers).
+| Aspect | Rev 1 | Rev 2 | Rev 3 | Consensus |
+|--------|-------|-------|-------|-----------|
+| **Overall Rating** | 6/10 | 5/10 | 5/10 | **5.3/10** |
+| **Recommendation** | Major Rev | Major Rev | Major Rev | **MAJOR REVISIONS** |
+| **Soundness** | 3/5 | 3/5 | 3/5 | **3/5** |
+| **Presentation** | 3/5 | 4/5 | 3/5 | **3.3/5** |
+| **Contribution** | 6/10 | 5/10 | 5/10 | **5.3/10** |
+| **Confidence** | 5/5 | 5/5 | 4/5 | **4.7/5** |
 
-### For Muhammad Zuhdi (PhD Student)
+**Unanimous positions:**
+- ✅ Core concept is novel and interesting
+- ✅ Mathematical framework is sound
+- ❌ Comparison with advanced methods essential
+- ❌ Field validation insufficient
+- ❌ Presentation needs improvement
+- ⚠️ Noise amplification is concerning
 
-**Congratulations on developing a genuinely novel concept!** This is a real achievement and the foundation for a strong methods paper. The work needed now is to:
-
-1. **Develop the method more completely** – move from initial concept to fully validated technique
-2. **Position it properly** – show how it relates to and improves upon existing methods
-3. **Validate rigorously** – demonstrate that it works across multiple cases and provides advantages over alternatives
-4. **Present clearly** – communicate the work effectively to the geophysics community
-
-**This is normal for PhD research.** Initial ideas need substantial development before publication. Use the detailed reviewer feedback as a roadmap for strengthening your work.
-
-**Consider this an opportunity:**
-- To deepen your understanding of edge detection methods
-- To develop skills in rigorous validation and comparison
-- To improve your scientific writing
-- To create a stronger publication that will have more impact
-
-### For Wiwit Suryanto and Sudarmadji (Advisors)
-
-**Recommendations:**
-
-1. **Literature Review**: Help Muhammad conduct a comprehensive review of directional derivative methods and gradient tensor approaches. Consider reaching out to authors of key papers (Yuan, Ekinci, Kusumoto) for insights.
-
-2. **Collaborative Comparison**: Consider collaborating with researchers experienced in directional derivatives to ensure fair and accurate comparison.
-
-3. **Additional Case Studies**: Leverage your network to obtain gravity data from other volcanic/geothermal systems (Merapi, Krakatau, Toba, other Indonesian examples) for validation.
-
-4. **Mathematical Development**: Work with Muhammad to develop the rigorous mathematical derivation and error analysis. Consider consulting with a numerical methods specialist if needed.
-
-5. **Writing Support**: Consider engaging a professional scientific editor to help with English language and presentation quality.
-
-6. **Publication Strategy**: Consider whether to:
-   - Submit to *Computers and Geosciences* after major revision (high-impact but high standards)
-   - Submit to a more specialized journal first (e.g., *Geophysical Prospecting*, *Journal of Applied Geophysics*) to build publication record
-   - Split into two papers: (1) method development and synthetic testing; (2) applications to Indonesian volcanic systems
-
-7. **Open Science**: Encourage Muhammad to develop open-source code and share data where possible. This will increase impact and citations.
-
-### Positive Aspects to Build On
-
-Despite the critical feedback, there are strong positives:
-
-- **Novel concept** – this is the hardest part and Muhammad has achieved it
-- **Clear application domain** – volcanic and geothermal systems are important and well-defined
-- **Good initial case study** – Samalas is appropriate and well-studied
-- **Computational simplicity** – the method is implementable and practical
-- **Enthusiasm and motivation** – evident in the work
-
-**With dedicated effort over the next 6-12 months, this can become a strong publication that makes a real contribution to the field.**
+**Strong consensus:** All reviewers recommend **MAJOR REVISIONS** with similar required improvements.
 
 ---
 
-## Final Summary
+## Timeline and Next Steps
 
-**Decision**: **REJECT with strong encouragement for major revision and resubmission**
+### For Authors
 
-**Core Message**: The CHG method is a genuinely novel and potentially valuable contribution, but the manuscript requires substantial additional work in mathematical development, experimental validation, comparative analysis, and presentation before it meets publication standards for *Computers and Geosciences*.
+**Recommended revision timeline:** 4-6 months minimum
 
-**Key Actions Required**:
-1. Position relative to directional derivative methods with quantitative comparison
-2. Develop objective center point determination method
-3. Provide rigorous mathematical derivation with error analysis
-4. Expand validation with multiple case studies and ground truth verification
-5. Define and calculate quantitative performance metrics
-6. Substantially improve presentation quality throughout
+**Priority order:**
+1. **Months 1-2:** Implement comparison methods (EHD, MDA, GGT) and apply to all datasets
+2. **Months 2-3:** Acquire/process 2-3 additional field cases; validate Samalas interpretation
+3. **Months 3-4:** Address noise amplification; validate optimization; expand synthetic tests
+4. **Months 4-5:** Improve presentation (fix errors, enhance figures, create tables, expand discussion)
+5. **Month 6:** Final polishing, broader impacts expansion, software preparation
 
-**Potential After Revision**: **High** – With proper development, this could become a strong methodological contribution with significant impact in volcanic and geothermal geophysics.
+**Critical path:** Method comparison and field validation (items 1-2) are most time-consuming.
 
-**Timeline**: 6-12 months for major revision
+### Resubmission Requirements
 
-**Recommendation**: The authors should view this as an opportunity to strengthen their work substantially and create a publication that will have lasting impact in the field.
+**Cover letter must address:**
+- How each reviewer concern was addressed
+- Point-by-point response to all reviewer comments
+- Justification for any recommendations not followed
+- Summary of major changes and additions
+
+**Revised manuscript must include:**
+- Comprehensive method comparison (figures, tables, quantitative metrics)
+- 2-3 additional validated field cases
+- Resolution of noise amplification concerns
+- All presentation issues fixed
+- Expanded broader impacts discussion
+
+**Supplementary materials should include:**
+- Software/code for CHG implementation
+- Synthetic model parameters and scripts
+- Additional figures (sensitivity analysis, method comparison)
+- Detailed processing workflows
+
+### Editorial Decision
+
+**DECISION: MAJOR REVISIONS REQUIRED**
+
+This manuscript presents an interesting and potentially valuable methodological contribution, but substantial additional work is required before it can be accepted for publication. The core concept - center-referenced radial/tangential decomposition of horizontal gravity gradients - is genuinely novel and addresses a real interpretational challenge for circular anomalies. However, the paper currently lacks:
+
+1. Comparison with state-of-the-art methods (most critical deficiency)
+2. Sufficient field validation (single case inadequate)
+3. Resolution of noise amplification concerns
+4. Adequate presentation quality
+5. Developed broader impacts discussion
+
+All three expert reviewers agree that major revisions are required, with strong consensus on the specific improvements needed. The authors should carefully consider whether they can commit to the substantial additional work required (estimated 4-6 months minimum). If so, the revised manuscript could potentially be suitable for *JGR: Solid Earth* or, more likely, a specialized journal such as *Geophysical Prospecting* or *Journal of Applied Geophysics*.
+
+**The manuscript will be reconsidered after major revisions addressing the reviewers' concerns.**
 
 ---
 
-## Meta-Review Prepared By
+**Associate Editor**  
+*Journal of Geophysical Research: Solid Earth*  
+Date: 2024
 
-**Date**: [Current Date]
+---
 
-**Process**: Three independent expert reviewers with complementary expertise (methods/theory, experiments/practice, clarity/positioning) conducted thorough evaluations. This meta-review synthesizes their assessments, identifies areas of consensus and disagreement, and provides a unified editorial decision with detailed guidance for revision.
+## Appendix: Key References for Authors
 
-**Comprehensive Literature Review**: 188 papers (2000-2025) across edge detection methods, circular structure interpretation, and volcanic/caldera geophysics were reviewed to assess novelty and positioning.
+### Methods for Comparison
 
-**Confidence in Decision**: **High** – All three reviewers reached the same conclusion independently, with strong agreement on critical issues and consistent ratings across all evaluation criteria.
+1. **Fedi, M., & Florio, G. (2001).** Detection of potential fields source boundaries by enhanced horizontal derivative method. *Geophysical Prospecting*, 49(1), 40-58.
+
+2. **Fedi, M. (2002).** Multiscale derivative analysis: A new tool to enhance detection of gravity source boundaries at various scales. *Geophysical Research Letters*, 29(2), 1-4.
+
+3. **Yuan, Y., & Geng, M. (2014).** Directional total horizontal derivatives of gravity gradient tensor and their application to delineate the edges. *76th EAGE Conference & Exhibition*.
+
+4. **Kusumoto, S. (2016).** Structural Analysis of Calderas by Semiautomatic Interpretation of the Gravity Gradient Tensor: A Case Study in Central Kyushu, Japan. *InTech Open*.
+
+5. **Pham, L.T., et al. (2024).** Enhancement of the balanced total horizontal derivative of gravity data using the power law approach. *Geocarto International*.
+
+### Samalas/Lombok Studies for Integration
+
+6. **Lavigne, F., et al. (2013).** Source of the great A.D. 1257 mystery eruption unveiled, Samalas volcano, Rinjani Volcanic Complex, Indonesia. *PNAS*, 110(42), 16742-16747.
+
+7. **Vidal, C.M., et al. (2015).** Dynamics of the major plinian eruption of Samalas in 1257 A.D. (Lombok, Indonesia). *Bulletin of Volcanology*, 77, 73.
+
+8. **Sarjan, A.F.N., et al. (2021).** Delineation of Upper Crustal Structure Beneath the Island of Lombok, Indonesia, Using Ambient Seismic Noise Tomography. *Frontiers in Earth Science*, 9, 560428.
+
+9. **Priyono, A., et al. (2021).** Seismic Attenuation Tomography From 2018 Lombok Earthquakes, Indonesia. *Frontiers in Earth Science*, 9, 639692.
+
+10. **Hiden, et al. (2017).** The Isopach Mapping of Volcanic Deposits of Mount Samalas 1257 AD Based on the Values of Resistivity and Physical Properties. *Geosciences*, 7(3), 67.
