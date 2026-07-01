@@ -1,0 +1,5 @@
+label_folder,correct,total,accuracy
+Gempa_Bumi,23,29,0.7931034482758621
+Multiphase,2,36,0.05555555555555555
+Rockfall,6,16,0.375
+VTB,39,47,0.8297872340425532

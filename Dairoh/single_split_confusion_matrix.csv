@@ -1,0 +1,5 @@
+,pred_Gempa_Bumi,pred_Multiphase,pred_Rockfall,pred_VTB
+true_Gempa_Bumi,6,1,1,1
+true_Multiphase,1,3,2,5
+true_Rockfall,0,2,3,0
+true_VTB,1,3,1,9
