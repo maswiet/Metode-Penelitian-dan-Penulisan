@@ -28,6 +28,12 @@ Data MiniSEED awal dikelompokkan ke dalam 4 folder label manual/awal:
 - `Multiphase`
 - `Rockfall`
 - `VTB`
+<ul>
+  <li><span style="background-color:#fff2cc; padding:2px 6px; border-radius:6px; font-family:monospace;">Gempa_Bumi</span></li>
+  <li><span style="background-color:#d9ead3; padding:2px 6px; border-radius:6px; font-family:monospace;">Multiphase</span></li>
+  <li><span style="background-color:#f4cccc; padding:2px 6px; border-radius:6px; font-family:monospace;">Rockfall</span></li>
+  <li><span style="background-color:#cfe2f3; padding:2px 6px; border-radius:6px; font-family:monospace;">VTB</span></li>
+</ul>
 
 Setiap event direkam minimal oleh 3 sensor dan umumnya oleh 5 sensor. Nama file menyimpan informasi waktu event dan kode sensor, misalnya:
 
