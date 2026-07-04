@@ -1,7 +1,9 @@
 # Ringkasan Workflow Beamforming, XGBoost, dan Validasi BPPTKG — Event Merapi 2023
 
-**Penyusun:** Wiwit Suryanto & Agent
+**Penyusun:** Wiwit Suryanto & AI Agent
+
 **Data:** potongan event Merapi dari Raspberry Shake small-aperture array UGM dan bulletin BPPTKG 2023  
+
 **Tujuan:** merangkum alur dari beamforming delay-sum, seleksi arah sumber Merapi, eksperimen supervised machine learning, sampai validasi label terhadap ground truth BPPTKG.
 
 ---
