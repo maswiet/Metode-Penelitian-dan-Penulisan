@@ -30,7 +30,7 @@ All three reviewers identify the following shared strengths and concerns:
 
 ### Reviewer-Specific Concerns (Not Shared by All)
 
-**Reviewer 1 (Methods & Theory)** raises additional technical concerns:
+**Reviewer 1 (Methods & Theory)** raises additional technical concerns (lebih detail [disini](./reviewer_1_report.md)):
 - FK analysis parameters (slowness grid, coherence threshold, back-azimuth tolerance) are not disclosed, preventing reproducibility.
 - The beamforming algorithm is not specified (delay-and-sum, Capon, MUSIC?).
 - STA/LTA trigger threshold and other parameters are not reported.
@@ -38,7 +38,7 @@ All three reviewers identify the following shared strengths and concerns:
 - No statistical significance testing is applied to performance comparisons.
 - The 0.8–1.8 Hz bandpass filter is very narrow and may suppress discriminative information for some event classes.
 
-**Reviewer 2 (Experiments & Practical Impact)** raises additional experimental concerns:
+**Reviewer 2 (Experiments & Practical Impact)** raises additional experimental concerns (lebih detail [disini](./reviewer_2_report.md)):
 - No data augmentation is attempted despite the small, imbalanced dataset.
 - AUC values are listed as evaluation metrics but never reported quantitatively.
 - No comparison with near-field BPPTKG station performance is provided.
@@ -46,7 +46,7 @@ All three reviewers identify the following shared strengths and concerns:
 - The 90:10 split performance degradation is not adequately explained or investigated.
 - The labeled dataset and code are not deposited in a public repository.
 
-**Reviewer 3 (Clarity & Positioning)** raises additional presentation concerns:
+**Reviewer 3 (Clarity & Positioning)** raises additional presentation concerns (lebih detail [disini](./reviewer_3_report.md)):
 - Multiple typographical errors (e.g., "Univeritas," "Sciemces," "Leaming," "occorred," "Skweness," truncated "cod").
 - The abstract is too long and repetitive.
 - The title does not fully reflect the paper's scope.
@@ -65,8 +65,8 @@ All three reviewers identify the following shared strengths and concerns:
 
 **Resolution:** The slight divergence between Reviewers 1–2 and Reviewer 3 reflects the difference between technical rigor (which is clearly insufficient) and practical contribution (which is real but modest). The meta-reviewer agrees with Reviewers 1 and 2 that the technical and experimental deficiencies are too significant for borderline acceptance. The paper requires major revision before it can be considered further.
 
-**On novelty:**
-- All three reviewers agree the paper makes an incremental but useful contribution. No reviewer considers the work transformative or highly novel. The primary novelty is the end-to-end integration of array processing with ML dataset construction for a remote low-cost array—a combination that is underrepresented in the literature but not unprecedented.
+**On novelty:** 
+- All three reviewers agree the paper makes an incremental but useful contribution. No reviewer considers the work transformative or highly novel. The primary novelty is the end-to-end integration of array processing with ML dataset construction for a remote low-cost array—a combination that is underrepresented in the literature but not unprecedented. Lebih lengkap untuk kebaruan [disini](./novelty_report.md)
 
 ---
 
