@@ -1,4 +1,4 @@
-# Laporan Reviewer Brutal
+# Laporan Reviewer Paper SOM Pak Beck
 
 Naskah yang dinilai adalah **“Spatiotemporal Analysis of the 2018 Lombok Earthquake Sequence Using a Simplified Manual Self-Organizing Map”** oleh Bakti Sukrisna dan rekan-rekan. 
 
