@@ -1,4 +1,4 @@
-# Laporan Reviewer Brutal
+# Laporan Reviewer Galak
 
 Naskah yang dinilai adalah **“Array-Based Dataset Construction for Machine Learning Classification of Long-Distance Volcanic Seismic Signals”**, manuscript **AIIG-D-26-00215**, dengan Dairoh sebagai penulis pertama. 
 
