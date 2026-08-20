@@ -52,4 +52,3 @@ Berikut adalah daftar periksa (*checklist*) yang terstruktur berdasarkan komenta
 * [ ] Perbaiki persentase di halaman 6 baris 234: $703/693 \approx 101.4\%$ (bukan 1.4%).
 * [ ] Haluskan klaim-klaim mutlak seperti "*tectonically physical rate everywhere*" atau "*inherits declustering uncertainty*" jika belum dibuktikan secara langsung dalam analisis.
 
-Apakah Anda ingin saya menjabarkan salah satu poin di atas ke dalam format paragraf revisi langsung?
