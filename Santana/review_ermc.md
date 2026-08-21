@@ -1,4 +1,4 @@
-# Review sangat seksama dan galak
+# Review sangat seksama
 
 Naskah yang dinilai adalah **“Efficient Monte Carlo Simulation of Continuous-Variable Hamiltonians within the Phase-Space Formulation”** oleh Santana Y. Pradata dan rekan-rekan. Naskah memperkenalkan *epistemically restricted Monte Carlo* atau ERMC, yaitu estimasi energi variational berbasis *epistemically restricted phase space*, dengan satu ensemble posisi–momentum yang digunakan kembali selama optimasi. 
 
