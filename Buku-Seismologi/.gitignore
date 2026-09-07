@@ -1,0 +1,5 @@
+build/_gabungan.md
+build/_pandoc-default.docx
+build/*.pdf
+build/*.jpg
+build/__pycache__/
