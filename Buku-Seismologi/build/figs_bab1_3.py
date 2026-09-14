@@ -250,32 +250,61 @@ def g22():
 
 # ---------------------------------------------------------------- Gambar 2.3
 def g23():
-    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.7))
-    eps = [0.2, 0.5, 1.0, 2.0]
+    """Tanggapan amplitudo sistem orde dua, skala linear dan logaritmik."""
+    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.95),
+                             constrained_layout=True)
     wn = 1.0
-    w = np.linspace(0.001, 3.0, 800)
+    kasus = [(0.2, "-", 1.5), (0.5, "--", 1.2), (1.0, "-.", 1.2),
+             (2.0, (0, (1.4, 1.6)), 1.2)]
+
+    def H(w, e):
+        return 1.0 / np.sqrt((wn**2 - w**2)**2 + 4 * e**2 * wn**2 * w**2)
+
+    def nama(e):
+        teks = f"{e:.1f}".replace(".", ",")
+        return (rf"$\varepsilon = {teks}$"
+                + ("  (kritis)" if e == 1.0 else ""))
+
+    # --------------------------------------------------- (a) skala linear
     ax = axes[0]
-    for e in eps:
-        H = 1.0 / np.sqrt((wn**2 - w**2)**2 + 4 * e**2 * wn**2 * w**2)
-        ax.plot(w, H, color=K, lw=1.1)
-        if e == 0.2:
-            ax.text(1.02, 2.62, r"$\varepsilon=0{,}2$", fontsize=7)
-        if e == 2.0:
-            ax.text(1.55, 0.28, r"$\varepsilon=2$", fontsize=7)
-    ax.set_xlabel(r"$\omega/\omega_n$"); ax.set_ylabel(r"$|S_0/I_0|$")
-    ax.set_ylim(0, 3.0); ax.set_xlim(0, 3)
-    ax.axvline(1, color=G2, ls=":", lw=0.8)
+    w = np.linspace(0.001, 3.0, 900)
+    for e, ls, lw in kasus:
+        ax.plot(w, H(w, e), color=K, ls=ls, lw=lw, label=nama(e))
+    ax.axvline(1, color=G2, ls=":", lw=0.8, zorder=0)
+    ax.text(1.04, 0.06, r"$\omega_n$", fontsize=7.5, color=G1)
+    ax.set_xlim(0, 3); ax.set_ylim(0, 2.9)
+    ax.set_xlabel(r"$\omega/\omega_n$")
+    ax.set_ylabel(r"$|S_0/I_0|$")
     ax.set_title("(a) skala linear", fontsize=8.5)
+    ax.grid(True, lw=0.3, color=G3)
+    ax.legend(loc="upper right", frameon=True, framealpha=0.92,
+              edgecolor=G2, fontsize=6.6, borderpad=0.45,
+              handlelength=2.3, labelspacing=0.35)
+
+    # ---------------------------------------------- (b) skala logaritmik
     ax = axes[1]
-    w = np.logspace(-1.3, 1.3, 800)
-    for e in eps:
-        H = 1.0 / np.sqrt((wn**2 - w**2)**2 + 4 * e**2 * wn**2 * w**2)
-        ax.loglog(w, H, color=K, lw=1.1)
-    ax.loglog(w[w > 1.6], 1 / w[w > 1.6]**2, color=G2, ls="--", lw=0.9)
-    ax.text(4.5, 0.02, "kemiringan\n$-12$ dB/oktaf", fontsize=6.5, color=G1)
-    ax.axvline(1, color=G2, ls=":", lw=0.8)
-    ax.set_xlabel(r"$\omega/\omega_n$"); ax.set_ylabel(r"$|S_0/I_0|$")
+    w = np.logspace(-1.3, 1.3, 700)
+    for e, ls, lw in kasus:
+        ax.loglog(w, H(w, e), color=K, ls=ls, lw=lw)
+    ax.axvline(1, color=G2, ls=":", lw=0.8, zorder=0)
+    # segitiga acuan kemiringan, diletakkan di daerah yang kosong
+    xa, xb, ya = 4.4, 9.2, 1.30
+    yb = ya * (xa / xb) ** 2
+    ax.loglog([xa, xb], [ya, yb], color=K, lw=1.3)
+    ax.loglog([xa, xb], [ya, ya], color=G1, lw=0.8)
+    ax.loglog([xb, xb], [ya, yb], color=G1, lw=0.8)
+    ax.text(np.sqrt(xa * xb), ya * 1.20, "1", fontsize=6.6, color=G1,
+            ha="center", va="bottom")
+    ax.text(xb * 1.12, np.sqrt(ya * yb), "2", fontsize=6.6, color=G1,
+            ha="left", va="center")
+    ax.text(np.sqrt(xa * xb), yb * 0.60, "$-12$ dB/oktaf",
+            fontsize=6.5, color=G1, ha="center", va="top")
+    ax.set_xlim(0.05, 20); ax.set_ylim(3e-3, 4)
+    ax.set_xlabel(r"$\omega/\omega_n$")
+    ax.set_ylabel(r"$|S_0/I_0|$")
     ax.set_title("(b) skala logaritmik", fontsize=8.5)
+    ax.grid(True, lw=0.3, color=G3, which="both")
+    ax.text(1.18, 4.6e-3, r"$\omega_n$", fontsize=7.5, color=G1)
     simpan(fig, "gbr-2-3-orde2.png")
 
 
