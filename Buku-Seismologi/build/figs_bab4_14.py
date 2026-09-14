@@ -121,12 +121,14 @@ def g45():
     ax.set_xlim(2, 9.6); ax.set_ylim(2, 9.6)
     ax.legend(loc="upper left", frameon=False)
     ax.grid(True, lw=0.3, color=G3)
-    ax.annotate("penjenuhan", xy=(8.6, 8.0), xytext=(6.4, 4.2), fontsize=7.5,
+    ax.annotate("penjenuhan", xy=(9.15, 6.28), xytext=(8.45, 4.75),
+                fontsize=7.5, color=G1, ha="center", va="center",
                 arrowprops=dict(arrowstyle="->", lw=0.8, color=G1))
     ax.plot(9.1, 9.1, "*", color=K, ms=10)
-    ax.text(8.75, 9.25, "Aceh 2004", fontsize=6.4, ha="right")
+    ax.text(8.85, 9.05, "Aceh 2004", fontsize=6.4, ha="right", va="top")
     ax.plot(6.3, 6.3, "o", color=K, ms=4.5)
-    ax.text(6.5, 6.05, "Yogyakarta 2006", fontsize=6.4)
+    ax.text(6.05, 6.55, "Yogyakarta 2006", fontsize=6.4, ha="right",
+            va="bottom")
     simpan(fig, "gbr-4-5-magnitudo.png")
 
 
@@ -634,93 +636,136 @@ def g514():
 
 # ================================================================ Bab 6-14
 def g61():
-    fig, ax = plt.subplots(figsize=(6.4, 2.9))
+    """Sketsa penampang tektonik Jawa Tengah dari palung sampai busur."""
+    fig, ax = plt.subplots(figsize=(6.4, 3.0))
     bersih(ax); ax.set_aspect("auto")
-    ax.set_xlim(0, 620); ax.set_ylim(220, -40)
-    ax.plot([0, 620], [0, 0], color=K, lw=1.2)
-    ax.fill_between([0, 250], -14, 0, color="#eef2f5")
-    ax.text(90, -22, "Samudra Hindia", fontsize=6.6, ha="center")
-    ax.text(430, -22, "Pulau Jawa", fontsize=6.6, ha="center")
-    slabx = np.array([215, 260, 320, 390, 460, 530, 600])
-    slaby = np.array([6, 25, 60, 105, 150, 190, 218])
-    ax.plot(slabx, slaby, color=K, lw=1.6)
-    ax.plot(slabx, slaby - 28, color=K, lw=1.0)
-    ax.fill_between(slabx, slaby - 28, slaby, color=G3, alpha=0.6)
-    ax.text(430, 140, "lempeng menunjam\n(Indo-Australia)", fontsize=6.6,
-            rotation=-38, ha="center")
+    ax.set_xlim(0, 640); ax.set_ylim(225, -52)
+    putih = dict(fc="white", ec="none", pad=1.0, alpha=0.9)
+
+    # permukaan, laut, dan daratan
+    ax.plot([0, 640], [0, 0], color=K, lw=1.2)
+    ax.fill_between([0, 250], -12, 0, color="#eef2f5")
+    ax.text(110, -20, "Samudra Hindia", fontsize=6.6, ha="center")
+    ax.text(570, -20, "Pulau Jawa", fontsize=6.6, ha="center")
+
+    # lempeng menunjam
+    sx = np.array([215, 260, 320, 390, 460, 530, 600])
+    sy = np.array([6, 25, 60, 105, 150, 190, 218])
+    ax.plot(sx, sy, color=K, lw=1.6)
+    ax.plot(sx, sy - 28, color=K, lw=1.0)
+    ax.fill_between(sx, sy - 28, sy, color=G3, alpha=0.6)
+    ax.annotate("lempeng menunjam\n(Indo-Australia)", xy=(345, 92),
+                xytext=(120, 118), fontsize=6.6, ha="center", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
+
+    # kegempaan zona Wadati-Benioff
     rng = np.random.default_rng(7)
-    for i in range(90):
+    for _ in range(85):
         t = rng.uniform(0, 1)
-        x = np.interp(t, np.linspace(0, 1, 7), slabx)
-        y = np.interp(t, np.linspace(0, 1, 7), slaby) - rng.uniform(0, 26)
+        x = np.interp(t, np.linspace(0, 1, 7), sx)
+        y = np.interp(t, np.linspace(0, 1, 7), sy) - rng.uniform(0, 26)
         ax.plot(x + rng.normal(0, 6), y + rng.normal(0, 5), "o", ms=1.6,
-                color=G1, alpha=0.8)
-    ax.plot([250, 620], [30, 30], color=K, lw=1.0, ls="--")
-    ax.text(560, 25, "Moho $\\approx$ 30 km", fontsize=6.2, ha="right")
-    ax.add_patch(Polygon([[455, 0], [470, -26], [485, 0]], fc=G3, ec=K,
+                color=G1, alpha=0.75)
+
+    # Moho
+    ax.plot([250, 636], [30, 30], color=K, lw=1.0, ls=(0, (4, 2.5)))
+    ax.text(632, 24, "Moho $\\approx$ 30 km", fontsize=6.2, ha="right",
+            va="bottom", bbox=putih)
+
+    # gunung api dan jalur fluida
+    ax.add_patch(Polygon([[452, 0], [470, -28], [488, 0]], fc=G3, ec=K,
                          lw=1.0))
-    ax.text(470, -34, "Merapi", fontsize=6.8, ha="center")
-    for y0 in np.linspace(120, 20, 6):
-        x0 = np.interp(y0, slaby, slabx)
-        panah(ax, (x0 - 6, y0), (x0 - 30, y0 - 22), lw=0.7, color=G1)
-    ax.text(392, 66, "fluida naik", fontsize=6.2, rotation=-35, color=G1)
-    ax.add_patch(Circle((398, 12), 5.5, fc="none", ec=K, lw=1.4))
-    ax.plot(398, 12, "x", color=K, ms=5)
-    ax.text(360, 8, "zona sumber\ngempa 2006", fontsize=6.2, ha="right")
-    ax.annotate("palung", xy=(215, 4), xytext=(180, -30), fontsize=6.6,
-                arrowprops=dict(arrowstyle="->", lw=0.7))
+    ax.text(470, -34, "Merapi", fontsize=6.8, ha="center", va="bottom")
+    ax.annotate("", xy=(468, -6), xytext=(408, 104),
+                arrowprops=dict(arrowstyle="-|>", lw=1.2, color=G1,
+                                connectionstyle="arc3,rad=0.28",
+                                mutation_scale=9))
+    ax.text(398, 72, "fluida naik", fontsize=6.4, color=G1, rotation=-62,
+            ha="center", va="center", bbox=putih)
+
+    # zona sumber gempa Yogyakarta 2006
+    ax.plot(398, 12, "x", color=K, ms=6, mew=1.6)
+    ax.annotate("zona sumber\ngempa 2006", xy=(398, 12), xytext=(300, -32),
+                fontsize=6.4, ha="center", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
+
+    ax.annotate("palung", xy=(216, 4), xytext=(168, -34), fontsize=6.6,
+                ha="center", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
+
     ax.set_ylabel("Kedalaman (km)")
-    ax.set_yticks([0, 50, 100, 150, 200])
     ax.set_xlabel("Jarak dari palung (km)")
-    for s in ["top", "right"]:
-        ax.spines[s].set_visible(False)
-    for s in ["left", "bottom"]:
-        ax.spines[s].set_visible(True)
+    ax.set_yticks([0, 50, 100, 150, 200])
     ax.set_xticks([0, 200, 400, 600])
+    for sp in ("left", "bottom"):
+        ax.spines[sp].set_visible(True)
     simpan(fig, "gbr-6-1-meramex.png")
 
 
 def g71():
-    fig, ax = plt.subplots(figsize=(6.4, 3.2))
-    ax.set_xlim(94, 142); ax.set_ylim(-12, 8)
+    """Sketsa tatanan tektonik Indonesia."""
+    fig, ax = plt.subplots(figsize=(6.3, 3.4))
+    ax.set_xlim(93, 141); ax.set_ylim(-14.8, 9.6)
     ax.set_aspect(1.0)
-    # garis palung (skematis)
+
+    # ------------------------------------------------------ palung Sunda
     tr_x = [94, 97, 100, 103, 106, 110, 114, 118, 122, 126, 130]
-    tr_y = [4.5, 1.5, -1.5, -5.0, -7.5, -9.5, -10.5, -11.0, -11.2, -10.5, -8.0]
-    ax.plot(tr_x, tr_y, color=K, lw=1.8)
-    for i in range(0, len(tr_x) - 1, 1):
-        mx = (tr_x[i] + tr_x[i + 1]) / 2; my = (tr_y[i] + tr_y[i + 1]) / 2
+    tr_y = [4.5, 1.5, -1.5, -5.0, -7.5, -9.5, -10.5, -11.0, -11.2,
+            -10.5, -8.0]
+    ax.plot(tr_x, tr_y, color=K, lw=2.0, solid_capstyle="round")
+    for i in range(len(tr_x) - 1):                  # gigi arah penunjaman
+        mx = (tr_x[i] + tr_x[i + 1]) / 2
+        my = (tr_y[i] + tr_y[i + 1]) / 2
         dx = tr_x[i + 1] - tr_x[i]; dy = tr_y[i + 1] - tr_y[i]
         n = np.hypot(dx, dy)
-        ax.plot([mx, mx - 0.5 * dy / n], [my, my + 0.5 * dx / n], color=K,
-                lw=1.4)
-    ax.text(99, -4.4, "Palung Sunda", fontsize=6.6, rotation=-52)
-    # sesar-sesar
-    ax.plot([95.5, 105.8], [5.5, -6.2], color=K, lw=1.2, ls="-")
-    ax.text(99.0, 0.9, "Sesar Sumatra", fontsize=6.4, rotation=-49)
-    ax.plot([119.4, 120.6], [0.6, -2.6], color=K, lw=1.2)
-    ax.text(118.0, -1.3, "Sesar\nPalu–Koro", fontsize=6.2)
-    ax.plot([116, 124], [-8.0, -7.4], color=K, lw=1.1, ls="--")
-    ax.text(118.5, -7.1, "sesar naik belakang busur Flores", fontsize=5.8)
-    ax.plot([128, 138], [-1.4, -2.2], color=K, lw=1.2)
-    ax.text(130.5, -0.9, "Sesar Sorong", fontsize=6.2)
-    # arah konvergensi
-    for x in [100, 107, 114, 121]:
-        y = np.interp(x, tr_x, tr_y)
-        panah(ax, (x + 1.0, y - 3.2), (x + 0.3, y - 0.9), lw=1.0, color=G1)
-    ax.text(108, -13.0 + 0.4, "", fontsize=6)
-    ax.text(104.5, -11.3, "konvergensi $\\approx$ 6–7 cm/tahun", fontsize=6.2,
-            color=G1)
-    # label lempeng
-    ax.text(101, 6.2, "LEMPENG SUNDA\n(Eurasia)", fontsize=7, ha="center")
-    ax.text(112, -11.4, "LEMPENG INDO-AUSTRALIA", fontsize=7, ha="center")
-    ax.text(137, 5.0, "LEMPENG\nPASIFIK–FILIPINA", fontsize=7, ha="center")
-    # kota acuan
-    for x, y, nm in [(110.4, -7.8, "Yogyakarta"), (95.3, 5.5, "Banda Aceh"),
-                     (119.9, -0.9, "Palu"), (106.8, -6.2, "Jakarta")]:
-        ax.plot(x, y, "s", color=K, ms=3)
-        ax.text(x + 0.4, y + 0.25, nm, fontsize=5.8)
+        ax.plot([mx, mx - 0.62 * dy / n], [my, my + 0.62 * dx / n],
+                color=K, lw=1.3)
+    ax.text(103.0, -9.4, "Palung Sunda", fontsize=6.8, rotation=-49,
+            ha="center", va="center")
+
+    # ------------------------------------------------------- sesar utama
+    def sesar(p1, p2, lw=1.2, ls="-"):
+        ax.plot([p1[0], p2[0]], [p1[1], p2[1]], color=K, lw=lw, ls=ls)
+
+    sesar((96.6, 5.4), (106.0, -5.2))
+    ax.text(101.9, 0.4, "Sesar Sumatra", fontsize=6.6, rotation=-48,
+            ha="center", va="center",
+            bbox=dict(fc="white", ec="none", pad=0.8, alpha=0.85))
+    sesar((119.4, 0.6), (120.6, -2.6))
+    ax.text(118.8, -2.1, "Sesar\nPalu–Koro", fontsize=6.4, ha="right",
+            va="center")
+    sesar((128, -1.4), (138, -2.2))
+    ax.text(133.0, -0.6, "Sesar Sorong", fontsize=6.6, ha="center",
+            va="bottom")
+    sesar((116, -8.0), (124, -7.4), lw=1.1, ls=(0, (4, 2)))
+    ax.text(120.0, -8.6, "sesar naik belakang busur Flores", fontsize=6.0,
+            ha="center", va="top")
+
+    # ------------------------------------------- arah dan laju konvergensi
+    for x in (116, 120, 124):
+        panah(ax, (x, -13.0), (x, -11.6), lw=1.1, color=G1)
+    ax.text(128.6, -12.4, "konvergensi\n$\\approx$ 6–7 cm/tahun",
+            fontsize=6.2, color=G1, ha="left", va="center")
+
+    # ---------------------------------------------------------- lempeng
+    for x, y, nm in [(108.0, 8.2, "LEMPENG SUNDA (EURASIA)"),
+                     (108.0, -13.6, "LEMPENG INDO-AUSTRALIA"),
+                     (134.0, 7.4, "LEMPENG\nPASIFIK–FILIPINA")]:
+        ax.text(x, y, nm, fontsize=7.2, ha="center", va="center",
+                fontweight="bold")
+
+    # ------------------------------------------------------------- kota
+    kota = [(95.3, 5.5, "Banda Aceh", 0.45, 0.95, "left", "bottom"),
+            (106.8, -6.2, "Jakarta", 0.5, 0.55, "left", "bottom"),
+            (110.4, -7.8, "Yogyakarta", 0.5, 0.6, "left", "bottom"),
+            (119.9, -0.9, "Palu", 0.6, 0.5, "left", "bottom")]
+    for x, y, nm, dx, dy, ha, va in kota:
+        ax.plot(x, y, "s", color=K, ms=3.4)
+        ax.text(x + dx, y + dy, nm, fontsize=6.4, ha=ha, va=va)
+
     ax.set_xlabel("Bujur (°BT)"); ax.set_ylabel("Lintang (°)")
+    ax.set_xticks([100, 110, 120, 130, 140])
+    ax.set_yticks([-10, -5, 0, 5])
     ax.grid(True, lw=0.3, color=G3)
     ax.set_title("Sketsa tatanan tektonik Indonesia (tidak berskala peta)",
                  fontsize=8)
@@ -912,36 +957,47 @@ def g111():
 
 
 def g112():
-    fig, ax = plt.subplots(figsize=(6.4, 2.6))
+    fig, ax = plt.subplots(figsize=(6.4, 2.7))
     bersih(ax); ax.set_aspect("auto")
-    ax.set_xlim(0, 40); ax.set_ylim(0, 5.2)
-    ax.plot([0.5, 39], [1.0, 1.0], color=K, lw=1.2)
+    ax.set_xlim(0, 40); ax.set_ylim(0, 5.4)
+
+    def waktu_x(t):
+        return 1.0 + t * 1.06
+
+    ax.plot([0.5, 39.2], [1.0, 1.0], color=K, lw=1.2)
     for t, lab in [(0, "0"), (2, "2 mnt"), (5, "5 mnt"), (20, "20 mnt"),
                    (35, "35 mnt")]:
-        x = 1.0 + t * 1.06
-        ax.plot([x, x], [0.85, 1.15], color=K, lw=1.0)
-        ax.text(x, 0.55, lab, fontsize=6.3, ha="center")
+        x = waktu_x(t)
+        ax.plot([x, x], [0.82, 1.18], color=K, lw=1.0)
+        ax.text(x, 0.62, lab, fontsize=6.2, ha="center", va="top")
     ax.text(20, 0.12, "waktu sejak gempa", fontsize=6.6, ha="center",
-            color=G1)
-    tahap = [(0.6, "Gempa\nterjadi"), (2.6, "Deteksi &\nparameter otomatis"),
-             (7.0, "Keputusan &\nperingatan"),
+            va="bottom", color=G1)
+
+    tahap = [(0.0, "Gempa\nterjadi"), (2.0, "Deteksi &\nparameter otomatis"),
+             (5.0, "Keputusan &\nperingatan"),
              (16.0, "Penyebaran,\nsirene, media"),
-             (26.5, "EVAKUASI\nMANDIRI"), (34.5, "Tsunami\ntiba")]
-    for t, lab in tahap:
-        x = 1.0 + t * 1.06
-        kotak(ax, x, 3.3, 5.4, 1.35, lab, fs=6.2,
-              fc=G3 if "EVAKUASI" in lab else "white",
-              lw=1.4 if "EVAKUASI" in lab else 0.9)
-        panah(ax, (x, 2.6), (x, 1.25), lw=0.7, color=G1)
-    ax.text(20, 4.75, "Mata rantai terlemah bukan teknologi, "
+             (26.5, "EVAKUASI\nMANDIRI"), (35.0, "Tsunami\ntiba")]
+    # kotak disusun merata agar tidak bertumpuk, lalu ditarik ke titik waktunya
+    w = 5.9
+    pusat = [3.3 + i * 6.6 for i in range(len(tahap))]
+    for (t, lab), cx in zip(tahap, pusat):
+        penting = "EVAKUASI" in lab
+        kotak(ax, cx, 3.55, w, 1.45, lab, fs=6.2,
+              fc=G3 if penting else "white", lw=1.4 if penting else 0.9)
+        tx = waktu_x(t)
+        ax.plot([cx, cx, tx, tx], [2.83, 2.15, 2.15, 1.24],
+                color=G1, lw=0.7, solid_joinstyle="miter")
+        ax.plot(tx, 1.24, "v", color=G1, ms=3)
+    ax.text(20, 5.05, "Mata rantai terlemah bukan teknologi, "
                       "melainkan tanggapan masyarakat",
-            fontsize=6.6, ha="center", style="italic", color=G1)
+            fontsize=6.6, ha="center", va="center", style="italic", color=G1)
     simpan(fig, "gbr-11-2-inatews.png")
 
 
 def g121():
     fig, axes = plt.subplots(3, 2, figsize=(6.2, 3.9),
-                             gridspec_kw={"width_ratios": [2.2, 1]})
+                             gridspec_kw={"width_ratios": [2.2, 1]},
+                             constrained_layout=True)
     t = np.linspace(0, 20, 4000)
     rng = np.random.default_rng(5)
     sinyal = {}
@@ -959,6 +1015,7 @@ def g121():
         ax = axes[i][0]
         ax.plot(t, s + 0.03 * rng.normal(0, 1, t.size), color=K, lw=0.6)
         ax.set_yticks([]); ax.set_ylabel(nm, fontsize=8)
+        ax.set_xlim(0, 20); ax.set_xticks([0, 5, 10, 15, 20])
         for sp in ["top", "right", "left"]:
             ax.spines[sp].set_visible(False)
         if i < 2:
@@ -968,6 +1025,7 @@ def g121():
         A = np.abs(np.fft.rfft(s))
         ax.semilogy(F, A + 1e-3, color=K, lw=0.8)
         ax.set_xlim(0, 15); ax.set_yticks([])
+        ax.set_xticks([0, 5, 10, 15])
         for sp in ["top", "right", "left"]:
             ax.spines[sp].set_visible(False)
         if i < 2:
@@ -976,49 +1034,73 @@ def g121():
     axes[2][1].set_xlabel("Frekuensi (Hz)")
     axes[0][0].set_title("seismogram", fontsize=8)
     axes[0][1].set_title("spektrum", fontsize=8)
-    fig.tight_layout()
     simpan(fig, "gbr-12-1-gempa-vulkanik.png")
 
 
 def g141():
-    fig, ax = plt.subplots(figsize=(4.8, 4.4))
-    ax.set_xlim(110.15, 110.72); ax.set_ylim(-8.22, -7.66)
+    """Sketsa daerah sumber gempa Yogyakarta 2006."""
+    fig, ax = plt.subplots(figsize=(5.0, 3.8))
+    ax.set_xlim(110.20, 110.68); ax.set_ylim(-8.10, -7.76)
     ax.set_aspect(1.0)
-    # Merapi
-    ax.plot(110.446, -7.541, "^", color=K, ms=8, clip_on=False)
-    # kota
-    ax.plot(110.37, -7.80, "s", color=K, ms=5)
-    ax.text(110.355, -7.786, "Kota Yogyakarta", fontsize=6.6, ha="right")
-    ax.plot(110.33, -7.89, "s", color=G1, ms=3.5)
-    ax.text(110.325, -7.879, "Bantul", fontsize=6.0, ha="right")
-    # Sesar Opak (skematis, arah TL-BD)
-    ox = np.array([110.30, 110.36, 110.42, 110.47])
-    oy = np.array([-8.05, -7.96, -7.87, -7.80])
-    ax.plot(ox, oy, color=K, lw=2.0)
-    ax.text(110.285, -8.09, "jalur Sesar Opak", fontsize=6.4, rotation=42)
-    # zona gempa susulan, bergeser ke timur
-    ax2x = ox + 0.10
-    ax2y = oy - 0.01
-    rng = np.random.default_rng(21)
-    for i in range(220):
-        t = rng.uniform(0, 1)
-        x = np.interp(t, np.linspace(0, 1, 4), ax2x) + rng.normal(0, 0.018)
-        y = np.interp(t, np.linspace(0, 1, 4), ax2y) + rng.normal(0, 0.018)
-        ax.plot(x, y, "o", ms=2.0, color=G1, alpha=0.65)
-    ax.plot(ax2x, ax2y, color=K, lw=1.2, ls="--")
-    ax.text(110.545, -8.02, "pusat sebaran\ngempa susulan", fontsize=6.4,
-            ha="center")
-    ax.annotate("", xy=(110.47, -7.99), xytext=(110.39, -7.99),
-                arrowprops=dict(arrowstyle="<->", lw=0.9, color=K))
-    ax.text(110.43, -7.978, "$\\approx$ 10–20 km", fontsize=6.4, ha="center")
-    # episenter instrumental
-    ax.plot(110.458, -7.962, "*", color=K, ms=14, mfc="white", mew=1.2)
-    ax.text(110.468, -7.951, "episenter USGS", fontsize=6.4)
+
+    putih = dict(fc="white", ec="none", pad=1.2, alpha=0.9)
+
     # daerah kerusakan terberat
     ax.add_patch(Ellipse((110.40, -7.95), 0.20, 0.30, angle=-42, fc=G3,
-                         ec=G1, lw=0.9, alpha=0.45, zorder=0))
-    ax.text(110.22, -7.90, "kerusakan\nterberat", fontsize=6.4)
+                         ec=G2, lw=0.9, alpha=0.5, zorder=0))
+    ax.annotate("kerusakan\nterberat", xy=(110.305, -7.895),
+                xytext=(110.212, -7.845), fontsize=6.4, ha="left",
+                va="center", arrowprops=dict(arrowstyle="->", lw=0.7,
+                                             color=G1))
+
+    # jalur Sesar Opak
+    ox = np.array([110.30, 110.36, 110.42, 110.47])
+    oy = np.array([-8.05, -7.96, -7.87, -7.80])
+    ax.plot(ox, oy, color=K, lw=2.2, solid_capstyle="round", zorder=3)
+    ax.text(110.318, -7.988, "jalur Sesar Opak", fontsize=6.4, rotation=56,
+            ha="center", va="center", bbox=putih, zorder=4)
+
+    # sebaran gempa susulan, bergeser ke timur
+    sx = ox + 0.10
+    sy = oy - 0.01
+    rng = np.random.default_rng(21)
+    for _ in range(200):
+        t = rng.uniform(0, 1)
+        x = np.interp(t, np.linspace(0, 1, 4), sx) + rng.normal(0, 0.016)
+        y = np.interp(t, np.linspace(0, 1, 4), sy) + rng.normal(0, 0.016)
+        ax.plot(x, y, "o", ms=1.9, color=G1, alpha=0.55, zorder=1)
+    ax.plot(sx, sy, color=K, lw=1.2, ls=(0, (4, 2.4)), zorder=3)
+    ax.annotate("pusat sebaran\ngempa susulan", xy=(110.535, -7.945),
+                xytext=(110.60, -8.035), fontsize=6.4, ha="center",
+                va="center", zorder=4,
+                arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
+
+    # jarak antara jalur Opak dan pusat gempa susulan
+    yd = -7.905
+    x1 = np.interp(yd, oy, ox)
+    x2 = np.interp(yd, sy, sx)
+    ax.annotate("", xy=(x2, yd), xytext=(x1, yd),
+                arrowprops=dict(arrowstyle="<|-|>", lw=0.9, color=K,
+                                mutation_scale=7), zorder=4)
+    ax.text((x1 + x2) / 2, yd + 0.006, "$\\approx$ 10–20 km", fontsize=6.5,
+            ha="center", va="bottom", bbox=putih, zorder=5)
+
+    # episenter instrumental
+    ax.plot(110.458, -7.962, "*", color=K, ms=13, mfc="white", mew=1.2,
+            zorder=5)
+    ax.text(110.470, -7.974, "episenter USGS", fontsize=6.4, ha="left",
+            va="top", bbox=putih, zorder=5)
+
+    # kota
+    for x, y, nm, ms in [(110.37, -7.80, "Kota Yogyakarta", 5.0),
+                         (110.33, -7.89, "Bantul", 3.6)]:
+        ax.plot(x, y, "s", color=K, ms=ms, zorder=4)
+        ax.text(x - 0.010, y, nm, fontsize=6.5, ha="right", va="center",
+                bbox=putih, zorder=5)
+
     ax.set_xlabel("Bujur (°BT)"); ax.set_ylabel("Lintang (°)")
+    ax.set_xticks([110.2, 110.3, 110.4, 110.5, 110.6])
+    ax.set_yticks([-8.10, -8.00, -7.90, -7.80])
     ax.grid(True, lw=0.3, color=G3)
     ax.set_title("Sketsa daerah sumber gempa Yogyakarta 2006\n"
                  "(skematis, tidak untuk kerja kuantitatif)", fontsize=8)

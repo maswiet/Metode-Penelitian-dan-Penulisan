@@ -313,7 +313,8 @@ def g24():
     fig, ax = plt.subplots(figsize=(3.5, 3.0))
     bersih(ax); ax.set_xlim(0, 6.5); ax.set_ylim(0, 6)
     ax.add_patch(Rectangle((0.8, 1.0), 4.4, 4.2, fc="none", ec=K, lw=1.3))
-    ax.text(1.05, 4.9, "kerangka", fontsize=6.5, color=G1)
+    ax.text(5.05, 1.25, "kerangka", fontsize=6.5, color=G1, ha="right",
+            va="bottom")
     ys = np.linspace(5.2, 3.6, 200)
     ax.plot(2.1 + 0.18 * np.sin(np.linspace(0, 12 * np.pi, 200)), ys,
             color=K, lw=1.0)
@@ -384,20 +385,27 @@ def _sens(fig, axes, extra=0):
         ax.axvline(1, color=G2, ls=":", lw=0.8)
         ax.set_title(lab, fontsize=8)
         ax.set_xlabel(r"$\omega/\omega_n$")
-        ax.text(0.055, y[3] * 2.2, f"{s1:+d}", fontsize=6.8, color=G1)
-        ax.text(8.0, y[-1] * 1.6, f"{s2:+d}", fontsize=6.8, color=G1)
+        ax.text(0.05, 0.05, f"{s1:+d}", fontsize=6.8, color=G1,
+                transform=ax.transAxes, ha="left", va="bottom")
+        ax.text(0.95, 0.05, f"{s2:+d}", fontsize=6.8, color=G1,
+                transform=ax.transAxes, ha="right", va="bottom")
         ax.set_yticks([])
+        ax.set_xlim(0.03, 32)
+        ax.set_xticks([0.1, 1, 10])
+        ax.tick_params(axis="x", which="minor", length=1.6)
 
 
 def g26():
-    fig, axes = plt.subplots(1, 3, figsize=(6.5, 2.2))
+    fig, axes = plt.subplots(1, 3, figsize=(6.5, 2.25),
+                             constrained_layout=True)
     _sens(fig, axes, extra=0)
     axes[0].set_ylabel("sensitivitas")
     simpan(fig, "gbr-2-6-sensitivitas.png")
 
 
 def g27():
-    fig, axes = plt.subplots(1, 3, figsize=(6.5, 2.2))
+    fig, axes = plt.subplots(1, 3, figsize=(6.5, 2.25),
+                             constrained_layout=True)
     _sens(fig, axes, extra=1)
     axes[0].set_ylabel("sensitivitas")
     fig.suptitle("seismometer elektromagnetik (keluaran sebanding kecepatan)",
@@ -570,18 +578,20 @@ def g32():
 # ---------------------------------------------------------------- Gambar 3.3
 def g33():
     fig, ax = plt.subplots(figsize=(4.8, 3.0))
-    bersih(ax); ax.set_xlim(0, 11); ax.set_ylim(0, 6.4); ax.set_aspect("auto")
+    bersih(ax); ax.set_xlim(0, 9.6); ax.set_ylim(0, 6.4)
+    ax.set_aspect("auto")
     for y, lab in [(5.0, "$v_1$"), (3.4, "$v_2 > v_1$"), (1.6, "$v_3 > v_2$")]:
         ax.axhline(y, color=K, lw=1.0)
         ax.text(0.15, y - 0.55, lab, fontsize=7.5)
     ax.axhline(6.2, color=K, lw=1.3)
     src = (1.2, 6.2)
-    for p, sty, nm in [(0.10, "-", "berkas I ($p_1$)"),
-                       (0.16, "--", "berkas II ($p_2>p_1$)")]:
+    for p, sty, nm, lx, ly, lha in [
+            (0.40, "-", "berkas I ($p_1$)", 4.8, 0.85, "right"),
+            (0.50, "--", "berkas II ($p_2>p_1$)", 7.6, 2.45, "left")]:
         x = src[0]; y = src[1]
         pts = [(x, y)]
-        for v, ytop, ybot in [(1.0, 6.2, 5.0), (1.5, 5.0, 3.4),
-                              (2.2, 3.4, 1.6), (3.0, 1.6, 0.3)]:
+        for v, ytop, ybot in [(1.0, 6.2, 5.0), (1.25, 5.0, 3.4),
+                              (1.5, 3.4, 1.6), (1.8, 1.6, 0.3)]:
             s = np.clip(p * v, 0, 0.999)
             th = np.arcsin(s)
             dy = ytop - ybot
@@ -590,9 +600,10 @@ def g33():
             pts.append((x, y))
         pts = np.array(pts)
         ax.plot(pts[:, 0], pts[:, 1], color=K, lw=1.2, ls=sty)
-        ax.text(pts[-1, 0] + 0.15, 0.45, nm, fontsize=6.5)
+        ax.text(lx, ly, nm, fontsize=6.5, va="center", ha=lha,
+                bbox=dict(fc="white", ec="none", pad=0.8, alpha=0.9))
     ax.add_patch(Circle(src, 0.14, fc=K))
-    ax.text(0.75, 5.85, "sumber", fontsize=6.5)
+    ax.text(1.9, 5.98, "sumber", fontsize=6.5, ha="left", va="top")
     simpan(fig, "gbr-3-3-berkas.png")
 
 
@@ -779,36 +790,62 @@ def g37_g38():
 
 # ---------------------------------------------------------------- Gambar 3.9
 def g39():
-    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.6))
-    for ax, judul, lapisan in [
+    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.7),
+                             constrained_layout=True)
+    putih = dict(fc="white", ec="none", pad=0.8, alpha=0.9)
+    for ax, judul, lapisan, sx in [
             (axes[0], "(a) kerak benua",
              [(0, 18, "granit", "#ffffff"), (18, 35, "basalt", FILL),
-              (35, 45, "mantel", G3)]),
+              (35, 45, "mantel", G3)], 14),
             (axes[1], "(b) kerak samudra",
              [(0, 5, "air laut", "#eef2f5"), (5, 11, "basalt", FILL),
-              (11, 22, "mantel", G3)])]:
+              (11, 22, "mantel", G3)], 14)]:
         bersih(ax); ax.set_aspect("auto")
-        ax.set_xlim(0, 100); ax.set_ylim(45 if "benua" in judul else 22, -6)
+        atas = lapisan[0][0]
+        bawah = lapisan[-1][1]
+        ax.set_xlim(0, 100); ax.set_ylim(bawah, -0.09 * bawah)
         for y0, y1, nm, c in lapisan:
             ax.add_patch(Rectangle((0, y0), 100, y1 - y0, fc=c, ec=K, lw=0.9))
-            ax.text(2, (y0 + y1) / 2, nm, fontsize=6.5, va="center")
-        top = lapisan[0][0]
-        src = (12, lapisan[0][1] * 0.55 if "benua" in judul else 7.5)
-        ax.plot(*src, "*", color=K, ms=9)
-        ax.plot([src[0], 82], [src[1], top], color=K, lw=1.0)
-        ax.text(46, (src[1] + top) / 2 - 1.2, "Pg / Sg", fontsize=6.3)
+        # nama lapisan di tepi kiri, di bawah garis batasnya
+        for y0, y1, nm, c in lapisan:
+            ax.text(2.5, y0 + 0.26 * (y1 - y0), nm, fontsize=6.3,
+                    va="center", ha="left", bbox=putih)
+        # sumber gempa
+        ysrc = lapisan[0][1] * 0.55 if "benua" in judul else 7.6
+        ax.plot(sx, ysrc, "*", color=K, ms=9, zorder=4)
         mid = lapisan[1][0]
-        ax.plot([src[0], 30, 72, 88], [src[1], mid, mid, top], color=K,
-                lw=1.0, ls="--")
-        ax.text(50, mid - 1.2, "P* / S*", fontsize=6.3)
         moh = lapisan[2][0]
-        ax.plot([src[0], 34, 78, 92], [src[1], moh, moh, top], color=K,
-                lw=1.0, ls=":")
-        ax.text(55, moh - 1.3, "Pn / Sn", fontsize=6.3)
-        ax.text(96, top - 1.5, "O", fontsize=7, ha="right")
+        # fase langsung, fase Conrad, dan fase Moho
         if "benua" in judul:
-            ax.text(96, mid - 1.5, "C", fontsize=7, ha="right")
-        ax.text(96, moh - 1.5, "M", fontsize=7, ha="right")
+            jalur = [((sx, ysrc), (86, atas), "-", "Pg / Sg", 0.62),
+                     ((sx, ysrc), (30, mid), (78, mid), (92, atas), "--",
+                      "P* / S*", 0.50),
+                     ((sx, ysrc), (34, moh), (80, moh), (95, atas), ":",
+                      "Pn / Sn", 0.72)]
+        else:
+            jalur = [((sx, ysrc), (88, atas), "-", "P* / S*", 0.60),
+                     ((sx, ysrc), (32, moh), (80, moh), (95, atas), ":",
+                      "Pn / Sn", 0.72)]
+        for item in jalur:
+            *titik, sty, nm, fr = item
+            xs = [t[0] for t in titik]; ys = [t[1] for t in titik]
+            ax.plot(xs, ys, color=K, lw=1.0, ls=sty)
+            # label di tengah penggal mendatar atau di tengah lintasan
+            if len(titik) == 2:
+                lx = xs[0] + fr * (xs[1] - xs[0])
+                ly = ys[0] + fr * (ys[1] - ys[0])
+            else:
+                lx = (xs[1] + xs[2]) / 2
+                ly = ys[1] - 0.045 * bawah      # sedikit di atas bidang batas
+            ax.text(lx, ly, nm, fontsize=6.3, ha="center", va="center",
+                    bbox=putih, zorder=5)
+        # penanda bidang batas di luar kerangka gambar
+        tanda = [(atas, "O"), (moh, "M")]
+        if "benua" in judul:
+            tanda.insert(1, (mid, "C"))
+        for y, nm in tanda:
+            ax.text(101.5, y, nm, fontsize=7, ha="left", va="center",
+                    clip_on=False)
         ax.set_title(judul, fontsize=8.2)
     simpan(fig, "gbr-3-9-kerak.png")
 
