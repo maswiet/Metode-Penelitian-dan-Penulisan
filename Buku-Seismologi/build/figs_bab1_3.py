@@ -7,46 +7,92 @@ from gaya import simpan, kotak, panah, bersih, K, G1, G2, G3, FILL
 
 # ---------------------------------------------------------------- Gambar 1.1
 def g11():
-    fig, ax = plt.subplots(figsize=(6.3, 4.1))
-    ax.set_xlim(0, 10); ax.set_ylim(0, 6.6); bersih(ax)
-    ax.set_aspect("auto")
+    """Bagan pohon geosains: penyiku ortogonal, jalur seismologi ditonjolkan."""
+    from matplotlib.patches import FancyBboxPatch
 
-    kotak(ax, 5, 6.15, 2.4, 0.55, "GEOSAINS", fs=9, fc=G3, lw=1.2,
-          fontweight="bold")
+    fig, ax = plt.subplots(figsize=(6.3, 4.6))
+    ax.set_xlim(0, 136); ax.set_ylim(98.5, -2)
+    ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_visible(False)
 
-    l1 = ["GEOLOGI", "GEOGRAFI", "GEODESI", "GEOFISIKA"]
-    xs1 = [1.3, 3.4, 5.5, 8.0]
-    for x, t in zip(xs1, l1):
-        fc = FILL if t == "GEOFISIKA" else "white"
-        kotak(ax, x, 5.05, 1.85, 0.5, t, fs=7.5, fc=fc,
-              lw=1.2 if t == "GEOFISIKA" else 0.9)
-        panah(ax, (5, 5.87), (x, 5.32), lw=0.7, color=G1)
+    TEBAL, TIPIS = 1.5, 0.85          # lebar garis jalur utama dan cabang
+    SOROT, BIASA = "#d9d9d9", "white"
 
-    l2 = ["METEOROLOGI", "OSEANOGRAFI", "HIDROLOGI",
-          "GEOKOSMOFISIKA\n(ionosfer)", "GEOFISIKA\nBUMI PADAT"]
-    xs2 = [1.15, 3.0, 4.7, 6.5, 8.75]
-    for x, t in zip(xs2, l2):
-        fc = FILL if "BUMI PADAT" in t else "white"
-        kotak(ax, x, 3.85, 1.75, 0.62, t, fs=6.6, fc=fc,
-              lw=1.2 if "BUMI PADAT" in t else 0.9)
-        panah(ax, (8.0, 4.78), (x, 4.19), lw=0.7, color=G1)
+    def kotak(cx, cy, w, h, teks, fs=7.0, fc=BIASA, lw=0.9, bold=False):
+        ax.add_patch(FancyBboxPatch(
+            (cx - w / 2, cy - h / 2), w, h,
+            boxstyle="round,pad=0,rounding_size=1.4",
+            fc=fc, ec=K, lw=lw, zorder=3))
+        ax.text(cx, cy, teks, ha="center", va="center", fontsize=fs,
+                zorder=4, linespacing=1.15,
+                fontweight="bold" if bold else "normal")
 
-    l3 = ["SEISMOLOGI", "VULKANOLOGI", "GEOMAGNETISME", "GEOELEKTRISITAS",
-          "TEKTONOFISIKA", "GRAVITASI", "GEOTERMAL", "GEOKOSMOGONI",
-          "GEOKRONOLOGI"]
-    for i, t in enumerate(l3):
-        col = i % 3
-        row = i // 3
-        x = 2.1 + col * 2.9
-        y = 2.45 - row * 0.75
-        fc = G3 if t == "SEISMOLOGI" else "white"
-        kotak(ax, x, y, 2.55, 0.5, t, fs=6.8, fc=fc,
-              lw=1.3 if t == "SEISMOLOGI" else 0.8,
-              fontweight="bold" if t == "SEISMOLOGI" else "normal")
-    ax.plot([8.75, 8.75], [3.54, 2.9], lw=0.7, color=G1)
-    ax.plot([2.1, 7.9], [2.9, 2.9], lw=0.7, color=G1)
-    for col in range(3):
-        ax.plot([2.1 + col * 2.9] * 2, [2.9, 2.70], lw=0.7, color=G1)
+    def garis(pts, lw=TIPIS):
+        xs, ys = zip(*pts)
+        ax.plot(xs, ys, color=K, lw=lw, solid_capstyle="round",
+                solid_joinstyle="miter", zorder=2)
+
+    # ---------------------------------------------------------- aras 0 dan 1
+    y0, h0 = 6.0, 9.0
+    kotak(68, y0, 38, h0, "GEOSAINS", fs=10, fc=SOROT, lw=1.4, bold=True)
+
+    y1, h1, w1 = 24.0, 9.0, 29.0
+    x1 = [18.5, 51.0, 83.5, 116.0]
+    nama1 = ["GEOLOGI", "GEOGRAFI", "GEODESI", "GEOFISIKA"]
+    bus1 = 16.5
+    garis([(68, y0 + h0 / 2), (68, bus1)], TEBAL)
+    garis([(x1[0], bus1), (68, bus1)])
+    garis([(68, bus1), (x1[3], bus1)], TEBAL)
+    for x, nm in zip(x1, nama1):
+        utama = nm == "GEOFISIKA"
+        garis([(x, bus1), (x, y1 - h1 / 2)], TEBAL if utama else TIPIS)
+        kotak(x, y1, w1, h1, nm, fs=8,
+              fc=SOROT if utama else BIASA, lw=1.3 if utama else 0.9,
+              bold=utama)
+
+    # ----------------------------------------------------------------- aras 2
+    y2, h2, w2 = 45.5, 14.0, 24.0
+    x2 = [14.0, 41.0, 68.0, 95.0, 122.0]
+    nama2 = ["METEOROLOGI", "OSEANOGRAFI", "HIDROLOGI",
+             "GEOKOSMO-\nFISIKA\n(ionosfer)", "GEOFISIKA\nBUMI\nPADAT"]
+    bus2 = 36.0
+    garis([(x1[3], y1 + h1 / 2), (x1[3], bus2)], TEBAL)
+    garis([(x2[0], bus2), (x1[3], bus2)])
+    garis([(x1[3], bus2), (x2[4], bus2)], TEBAL)
+    for x, nm in zip(x2, nama2):
+        utama = nm.startswith("GEOFISIKA")
+        garis([(x, bus2), (x, y2 - h2 / 2)], TEBAL if utama else TIPIS)
+        fs2 = 6.3
+        kotak(x, y2, w2, h2, nm, fs=fs2,
+              fc=SOROT if utama else BIASA, lw=1.3 if utama else 0.9,
+              bold=utama)
+
+    # ----------------------------------------------- aras 3: cabang bumi padat
+    nama3 = ["SEISMOLOGI", "VULKANOLOGI", "GEOMAGNETISME",
+             "GEOELEKTRISITAS", "TEKTONOFISIKA", "GRAVITASI",
+             "GEOTERMAL", "GEOKOSMOGONI", "GEOKRONOLOGI"]
+    w3, h3 = 38.0, 9.0
+    kolom = [26.0, 68.0, 110.0]           # titik pusat tiap kolom
+    baris = [67.0, 79.5, 92.0]            # titik pusat tiap baris
+    tulang = [c - w3 / 2 - 4.0 for c in kolom]
+    bus3 = 58.0
+    garis([(x2[4], y2 + h2 / 2), (x2[4], bus3)], TEBAL)
+    garis([(tulang[1], bus3), (x2[4], bus3)])
+    garis([(tulang[0], bus3), (tulang[1], bus3)], TEBAL)
+    garis([(tulang[2], bus3), (x2[4], bus3)])
+    for k, (cx, tl) in enumerate(zip(kolom, tulang)):
+        utama = k == 0
+        garis([(tl, bus3), (tl, baris[-1])], TEBAL if utama else TIPIS)
+        for b, y in enumerate(baris):
+            nm = nama3[b * 3 + k]
+            sorot = nm == "SEISMOLOGI"
+            garis([(tl, y), (cx - w3 / 2, y)],
+                  TEBAL if sorot else TIPIS)
+            kotak(cx, y, w3, h3, nm, fs=7.0,
+                  fc=SOROT if sorot else BIASA,
+                  lw=1.4 if sorot else 0.9, bold=sorot)
+
     simpan(fig, "gbr-1-1-geosains.png")
 
 
