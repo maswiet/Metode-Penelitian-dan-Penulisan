@@ -98,30 +98,82 @@ def g11():
 
 # ---------------------------------------------------------------- Gambar 1.2
 def g12():
-    fig, ax = plt.subplots(figsize=(4.2, 3.0))
-    x = np.linspace(0, 10, 400)
-    y = 9.4 * (1 - np.exp(-0.55 * x))
-    ax.plot(x, y, color=K, lw=1.8)
-    ax.axvline(2.4, color=G2, ls=":", lw=1.0)
-    ax.text(1.1, 8.6, "fase A", fontsize=10, ha="center", fontweight="bold")
-    ax.text(6.6, 8.6, "fase B", fontsize=10, ha="center", fontweight="bold")
-    ax.annotate("", xy=(2.4, 1.2), xytext=(0.55, 1.2),
-                arrowprops=dict(arrowstyle="<->", lw=0.9, color=G1))
-    ax.text(1.45, 0.65, "input kecil", fontsize=7, ha="center", color=G1)
-    ax.annotate("", xy=(0.35, 6.6), xytext=(0.35, 1.4),
-                arrowprops=dict(arrowstyle="<->", lw=0.9, color=G1))
-    ax.text(0.75, 4.0, "output\nbesar", fontsize=7, va="center", color=G1)
-    ax.annotate("", xy=(9.6, 8.35), xytext=(3.2, 8.35),
-                arrowprops=dict(arrowstyle="<->", lw=0.9, color=G1))
-    ax.text(6.4, 7.75, "input besar", fontsize=7, ha="center", color=G1)
-    ax.annotate("", xy=(9.85, 9.35), xytext=(9.85, 8.5),
-                arrowprops=dict(arrowstyle="<->", lw=0.9, color=G1))
-    ax.text(9.6, 8.95, "output\nkecil", fontsize=7, ha="right", va="center",
-            color=G1)
-    ax.set_xlabel("INPUT (usaha, dana, kerumitan)")
-    ax.set_ylabel("OUTPUT (ketelitian hasil)")
+    """Kurva output-input fase A dan fase B dengan garis ukur yang rapi."""
+    fig, ax = plt.subplots(figsize=(5.2, 3.5))
+    ax.set_xlim(0, 11.7); ax.set_ylim(0, 10.7)
     ax.set_xticks([]); ax.set_yticks([])
-    ax.set_xlim(0, 10.4); ax.set_ylim(0, 10.2)
+    for sp in ("top", "right"):
+        ax.spines[sp].set_visible(False)
+    for sp in ("left", "bottom"):
+        ax.spines[sp].set_linewidth(1.0)
+        ax.spines[sp].set_color(K)
+    # ujung sumbu diberi mata panah
+    ax.plot(1, 0, ">", color=K, ms=5, transform=ax.get_yaxis_transform(),
+            clip_on=False)
+    ax.plot(0, 1, "^", color=K, ms=5, transform=ax.get_xaxis_transform(),
+            clip_on=False)
+
+    def f(x):
+        return 9.4 * (1 - np.exp(-0.55 * x))
+
+    xd = 2.4                                   # batas fase A dan fase B
+    ax.axvspan(0, xd, color=G3, alpha=0.32, lw=0)
+    ax.plot([xd, xd], [0, 10.25], color=G2, lw=0.9, ls=(0, (2, 2.6)))
+
+    x = np.linspace(0, 10.2, 500)
+    ax.plot(x, f(x), color=K, lw=2.2, solid_capstyle="round")
+
+    def ukur(p1, p2, arah, label, geser, fs=7.2, label_x=None):
+        """Garis ukur berpanah dua arah beserta labelnya."""
+        ax.annotate("", xy=p2, xytext=p1,
+                    arrowprops=dict(arrowstyle="<|-|>", lw=0.85, color=G1,
+                                    mutation_scale=7, shrinkA=0, shrinkB=0))
+        if arah == "h":
+            for px in (p1[0], p2[0]):
+                ax.plot([px, px], [p1[1] - 0.22, p1[1] + 0.22], color=G1,
+                        lw=0.7)
+            ax.text((p1[0] + p2[0]) / 2, p1[1] + geser, label, fontsize=fs,
+                    ha="center", va="top", color=G1)
+        else:
+            for py in (p1[1], p2[1]):
+                ax.plot([p1[0] - 0.16, p1[0] + 0.16], [py, py], color=G1,
+                        lw=0.7)
+            lx = label_x if label_x is not None else p1[0] + geser
+            ax.text(lx, (p1[1] + p2[1]) / 2, label, fontsize=fs,
+                    ha="center", va="center", color=G1, rotation=90)
+
+    def bantu(pts):
+        xs, ys = zip(*pts)
+        ax.plot(xs, ys, color=G2, lw=0.6, ls=(0, (1.6, 2.0)), zorder=1)
+
+    # ------------------------------------------------------------ fase A
+    xa1, xa2 = 0.55, xd
+    ya1, ya2 = f(xa1), f(xa2)
+    bantu([(xa1, 1.05), (xa1, ya1)]); bantu([(xa2, 1.05), (xa2, ya2)])
+    bantu([(0.33, ya1), (xa1, ya1)]); bantu([(0.33, ya2), (xa2, ya2)])
+    ukur((xa1, 1.05), (xa2, 1.05), "h", "input kecil", -0.28)
+    ukur((0.33, ya1), (0.33, ya2), "v", "", 0.0)
+    # label diletakkan mendatar di atas garis ukur, di daerah yang kosong
+    ax.text(0.20, ya2 + 0.34, "output besar", fontsize=7.2, color=G1,
+            ha="left", va="bottom")
+
+    # ------------------------------------------------------------ fase B
+    xb1, xb2 = 3.2, 9.7
+    yb1, yb2 = f(xb1), f(xb2)
+    bantu([(xb1, 6.0), (xb1, yb1)]); bantu([(xb2, 6.0), (xb2, yb2)])
+    bantu([(xb1, yb1), (10.45, yb1)]); bantu([(xb2, yb2), (10.45, yb2)])
+    ukur((xb1, 6.0), (xb2, 6.0), "h", "input besar", -0.28)
+    ukur((10.45, yb1), (10.45, yb2), "v", "output kecil", 0.55)
+
+    ax.text(1.18, 8.85, "FASE A", fontsize=10, fontweight="bold", ha="center")
+    ax.text(1.18, 8.15, "tahap awal", fontsize=6.8, color=G1, ha="center",
+            style="italic")
+    ax.text(6.30, 3.35, "FASE B", fontsize=10, fontweight="bold", ha="center")
+    ax.text(6.30, 2.65, "tahap lanjut", fontsize=6.8, color=G1, ha="center",
+            style="italic")
+
+    ax.set_xlabel("INPUT (usaha, dana, kerumitan)", labelpad=6)
+    ax.set_ylabel("OUTPUT (ketelitian hasil)", labelpad=6)
     simpan(fig, "gbr-1-2-fase.png")
 
 
