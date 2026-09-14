@@ -702,77 +702,8 @@ def g61():
     simpan(fig, "gbr-6-1-meramex.png")
 
 
-def g71():
-    """Sketsa tatanan tektonik Indonesia."""
-    fig, ax = plt.subplots(figsize=(6.3, 3.4))
-    ax.set_xlim(93, 141); ax.set_ylim(-14.8, 9.6)
-    ax.set_aspect(1.0)
 
-    # ------------------------------------------------------ palung Sunda
-    tr_x = [94, 97, 100, 103, 106, 110, 114, 118, 122, 126, 130]
-    tr_y = [4.5, 1.5, -1.5, -5.0, -7.5, -9.5, -10.5, -11.0, -11.2,
-            -10.5, -8.0]
-    ax.plot(tr_x, tr_y, color=K, lw=2.0, solid_capstyle="round")
-    for i in range(len(tr_x) - 1):                  # gigi arah penunjaman
-        mx = (tr_x[i] + tr_x[i + 1]) / 2
-        my = (tr_y[i] + tr_y[i + 1]) / 2
-        dx = tr_x[i + 1] - tr_x[i]; dy = tr_y[i + 1] - tr_y[i]
-        n = np.hypot(dx, dy)
-        ax.plot([mx, mx - 0.62 * dy / n], [my, my + 0.62 * dx / n],
-                color=K, lw=1.3)
-    ax.text(103.0, -9.4, "Palung Sunda", fontsize=6.8, rotation=-49,
-            ha="center", va="center")
-
-    # ------------------------------------------------------- sesar utama
-    def sesar(p1, p2, lw=1.2, ls="-"):
-        ax.plot([p1[0], p2[0]], [p1[1], p2[1]], color=K, lw=lw, ls=ls)
-
-    sesar((96.6, 5.4), (106.0, -5.2))
-    ax.text(101.9, 0.4, "Sesar Sumatra", fontsize=6.6, rotation=-48,
-            ha="center", va="center",
-            bbox=dict(fc="white", ec="none", pad=0.8, alpha=0.85))
-    sesar((119.4, 0.6), (120.6, -2.6))
-    ax.text(118.8, -2.1, "Sesar\nPalu–Koro", fontsize=6.4, ha="right",
-            va="center")
-    sesar((128, -1.4), (138, -2.2))
-    ax.text(133.0, -0.6, "Sesar Sorong", fontsize=6.6, ha="center",
-            va="bottom")
-    sesar((116, -8.0), (124, -7.4), lw=1.1, ls=(0, (4, 2)))
-    ax.text(120.0, -8.6, "sesar naik belakang busur Flores", fontsize=6.0,
-            ha="center", va="top")
-
-    # ------------------------------------------- arah dan laju konvergensi
-    for x in (116, 120, 124):
-        panah(ax, (x, -13.0), (x, -11.6), lw=1.1, color=G1)
-    ax.text(128.6, -12.4, "konvergensi\n$\\approx$ 6–7 cm/tahun",
-            fontsize=6.2, color=G1, ha="left", va="center")
-
-    # ---------------------------------------------------------- lempeng
-    for x, y, nm in [(108.0, 8.2, "LEMPENG SUNDA (EURASIA)"),
-                     (108.0, -13.6, "LEMPENG INDO-AUSTRALIA"),
-                     (134.0, 7.4, "LEMPENG\nPASIFIK–FILIPINA")]:
-        ax.text(x, y, nm, fontsize=7.2, ha="center", va="center",
-                fontweight="bold")
-
-    # ------------------------------------------------------------- kota
-    kota = [(95.3, 5.5, "Banda Aceh", 0.45, 0.95, "left", "bottom"),
-            (106.8, -6.2, "Jakarta", 0.5, 0.55, "left", "bottom"),
-            (110.4, -7.8, "Yogyakarta", 0.5, 0.6, "left", "bottom"),
-            (119.9, -0.9, "Palu", 0.6, 0.5, "left", "bottom")]
-    for x, y, nm, dx, dy, ha, va in kota:
-        ax.plot(x, y, "s", color=K, ms=3.4)
-        ax.text(x + dx, y + dy, nm, fontsize=6.4, ha=ha, va=va)
-
-    ax.set_xlabel("Bujur (°BT)"); ax.set_ylabel("Lintang (°)")
-    ax.set_xticks([100, 110, 120, 130, 140])
-    ax.set_yticks([-10, -5, 0, 5])
-    ax.grid(True, lw=0.3, color=G3)
-    ax.set_title("Sketsa tatanan tektonik Indonesia (tidak berskala peta)",
-                 fontsize=8)
-    simpan(fig, "gbr-7-1-tektonik-indonesia.png")
-
-
-def g72():
+def g73():
     fig, ax = plt.subplots(figsize=(6.2, 2.9))
     bersih(ax); ax.set_aspect("auto")
     ax.set_xlim(0, 700); ax.set_ylim(300, -60)
@@ -807,7 +738,7 @@ def g72():
         ax.spines[s].set_visible(True)
     ax.text(660, 292, "berlanjut sampai\n$\\approx$ 660 km", fontsize=6.0,
             ha="right", va="bottom")
-    simpan(fig, "gbr-7-2-benioff.png")
+    simpan(fig, "gbr-7-3-benioff.png")
 
 
 def g81():

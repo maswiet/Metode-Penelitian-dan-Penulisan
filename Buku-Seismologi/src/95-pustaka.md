@@ -23,6 +23,9 @@ BSN, Jakarta.
 Ben-Menahem, A. (1961). Radiation of seismic surface waves from finite moving
 sources. *Bulletin of the Seismological Society of America*, 51, 401–435.
 
+Bird, P. (2003). An updated digital model of plate boundaries.
+*Geochemistry, Geophysics, Geosystems*, 4(3), 1027.
+
 Beyreuther, M., Barsch, R., Krischer, L., Megies, T., Behr, Y. &
 Wassermann, J. (2010). ObsPy: a Python toolbox for seismology.
 *Seismological Research Letters*, 81, 530–533.
@@ -108,6 +111,21 @@ Tohoku University*, Ser. 5, Geophysics, 9, 1–46.
 Irsyam, M. dkk. (2020). Development of the 2017 national seismic hazard maps
 of Indonesia. *Earthquake Spectra*, 36(S1), 112–136.
 
+Igel, H., Schreiber, K. U., Flaws, A., Schuberth, B., Velikoseltsev, A. &
+Cochard, A. (2005). Rotational motions induced by the M8.1 Tokachi-oki
+earthquake, September 25, 2003. *Geophysical Research Letters*, 32, L08309.
+
+Igel, H., Cochard, A., Wassermann, J., Flaws, A., Schreiber, U.,
+Velikoseltsev, A. & Pham Dinh, N. (2007). Broad-band observations of
+earthquake-induced rotational ground motions. *Geophysical Journal
+International*, 168, 182–196.
+
+Igel, H., Schreiber, K. U., Gebauer, A., Bernauer, F., Egdorf, S.,
+Simonelli, A., Lin, C.-J., Wassermann, J., Donner, S., Hadziioannou, C.,
+Yuan, S., Brotzer, A., Kodet, J., Tanimoto, T., Hugentobler, U. &
+Wells, J.-P. R. (2021). ROMY: a multicomponent ring laser for geodesy and
+geophysics. *Geophysical Journal International*, 225, 684–698.
+
 Kanamori, H. (1972). Mechanism of tsunami earthquakes. *Physics of the Earth
 and Planetary Interiors*, 6, 346–359.
 
@@ -190,6 +208,10 @@ USGS Open-File Report 93-322, Albuquerque.
 Pusat Studi Gempa Nasional (2017). *Peta Sumber dan Bahaya Gempa Indonesia
 Tahun 2017*. Kementerian Pekerjaan Umum dan Perumahan Rakyat, Bandung.
 
+Pusat Studi Gempa Nasional (2024). *Basis data sumber sesar aktif Indonesia:
+401 sumber sesar (jalur, poligon, dan parameter)*. Kementerian Pekerjaan Umum
+dan Perumahan Rakyat, Bandung.
+
 Rawlinson, N., Pozgay, S. & Fishwick, S. (2010). Seismic tomography: a window
 into deep Earth. *Physics of the Earth and Planetary Interiors*, 178,
 101–135.
@@ -239,6 +261,12 @@ Tsuji, T., Yamamoto, K., Matsuoka, T., Yamada, Y., Onishi, K.,
 Bahar, A. dkk. (2009). Earthquake fault of the 26 May 2006 Yogyakarta
 earthquake observed by SAR interferometry. *Earth, Planets and Space*, 61,
 e29–e32.
+
+Suryanto, W., Igel, H., Wassermann, J., Cochard, A., Schuberth, B.,
+Vollmer, D., Scherbaum, F., Schreiber, U. & Velikoseltsev, A. (2006). First
+comparison of array-derived rotational ground motions with direct ring laser
+measurements. *Bulletin of the Seismological Society of America*, 96,
+2059–2071.
 
 Utsu, T., Ogata, Y. & Matsu'ura, R. S. (1995). The centenary of the Omori
 formula for a decay law of aftershock activity. *Journal of Physics of the
@@ -300,6 +328,9 @@ berubah, yang dicantumkan adalah nama lembaganya.
 - **International Seismological Centre (ISC)** — buletin gempa global.
 - **Global CMT Project** — katalog tensor momen.
 - **USGS Earthquake Hazards Program** — katalog gempa dan ShakeMap.
+- **Natural Earth** — bayangan relief dan garis pantai dunia yang dipakai
+  sebagai latar peta pada Bab 7 (berkas GRAY_HR_SR_OB dan
+  ne_10m_coastline; domain publik).
 
 Pengguna data wajib memeriksa dan mencantumkan ketentuan sitasi masing-masing
 penyedia data.

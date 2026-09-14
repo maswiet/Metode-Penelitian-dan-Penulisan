@@ -147,7 +147,9 @@ $$T_R=\frac{1}{\lambda}, \qquad P=1-e^{-\lambda t}$$
 | kelengkapan katalog | catalogue completeness |
 | kelambatan | slowness |
 | keterarahan rupture | rupture directivity |
+| komponen rotasional | rotational component |
 | kopel ganda | double couple |
+| laser cincin | ring laser gyroscope |
 | likuefaksi | liquefaction |
 | magnitudo momen | moment magnitude |
 | mekanisme sumber | source mechanism / focal mechanism |
@@ -164,12 +166,14 @@ $$T_R=\frac{1}{\lambda}, \qquad P=1-e^{-\lambda t}$$
 | rasio Poisson | Poisson's ratio |
 | relokasi beda-ganda | double-difference relocation |
 | rentang dinamik | dynamic range |
+| seismologi rotasional | rotational seismology |
 | sesar aktif | active fault |
 | sesar geser / naik / turun | strike-slip / reverse / normal fault |
 | spektrum tanggapan | response spectrum |
 | sudut kritis | critical angle |
 | sudut tinggal landas | take-off angle |
 | tanggapan instrumen | instrument response |
+| sumber sesar | fault source |
 | tegangan lepas | stress drop |
 | tensor momen | moment tensor |
 | teori bingkas elastik | elastic rebound theory |
@@ -207,6 +211,7 @@ Bab 6–14 dan seluruh lampiran adalah tambahan penyunting.
 | Bab 1 | Inti dalam pada kedalaman ~5000 km | 5150 km | Nilai PREM |
 | Bab 1 | Gempa terdalam 720 km | ~700 km | Nilai baku katalog modern |
 | Bab 1 | Tabel sejarah berakhir 1954 | Ditambah Tabel 1.2 sampai 2023 | Melengkapi perkembangan modern |
+| Bab 1 | — | Ditambah Kotak 1.1 tentang komponen rotasional | Pengamatan rotasi baru terbuka pada dasawarsa 2000-an |
 | Bab 2 | Umpan balik positif elektronis | Umpan balik gaya (negatif) | Teknik yang benar-benar dipakai |
 | Bab 2 | — | Ditambah Subbab 2.6–2.9 | Instrumentasi digital modern |
 | Bab 3 | Kedalaman batas inti 2900 km | 2891 km | Nilai PREM |
@@ -220,6 +225,9 @@ Bab 6–14 dan seluruh lampiran adalah tambahan penyunting.
 | Bab 4 | Skala MSK dipakai sampai sekarang | MMI dan SIG-BMKG | Praktik BMKG |
 | Bab 4 | CMTS memerlukan superkomputer | Rutin dan otomatis | Perkembangan komputasi |
 | Bab 5 | Berakhir pada polarisasi S | Ditambah tensor momen dan penerapan | Melengkapi bab |
+| Bab 7 | — | Gambar 7.1 dan 7.2 dibuat dari data PuSGeN 2024 dan Bird (2003) | Menggantikan sketsa tanpa skala dengan peta berdata |
+| Bab 7 | 295 sesar aktif (edisi 2017) | 401 sumber sesar (edisi 2024) | Pemutakhiran basis data PuSGeN |
+| Bab 7 | — | $M_\text{maks}$ 65,0 pada segmen Salak dibaca 6,5 | Nilai pada basis data tidak mungkin secara fisis |
 
 ## D.3 Yang sengaja dipertahankan
 

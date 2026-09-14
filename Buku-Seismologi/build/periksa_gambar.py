@@ -146,11 +146,12 @@ def main():
     gaya.simpan = cegat
     import figs_bab1_3 as A
     import figs_bab4_14 as B
-    for mod in (A, B):
+    import figs_peta as C
+    for mod in (A, B, C):
         mod.simpan = cegat
 
     fungsi = []
-    for mod in (A, B):
+    for mod in (A, B, C):
         for nm in dir(mod):
             if nm.startswith("g") and nm[1:2].isdigit():
                 fungsi.append((nm, getattr(mod, nm)))
