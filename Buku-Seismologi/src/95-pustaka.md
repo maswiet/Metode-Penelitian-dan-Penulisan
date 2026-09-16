@@ -14,21 +14,21 @@ Planetary Sciences*, 47, 361–388.
 Anggraini, A. (2013). *The 26 May 2006 Yogyakarta earthquake, aftershocks and
 interactions*. Disertasi doktor, Universität Potsdam, Potsdam.
 
-Båth, M. (1979). *Introduction to Seismology*, 2nd ed. Birkhäuser, Basel.
-
 Badan Standardisasi Nasional. *SNI 1726: Tata cara perencanaan ketahanan gempa
 untuk struktur bangunan gedung dan nongedung* (edisi terbaru yang berlaku).
 BSN, Jakarta.
 
+Båth, M. (1979). *Introduction to Seismology*, 2nd ed. Birkhäuser, Basel.
+
 Ben-Menahem, A. (1961). Radiation of seismic surface waves from finite moving
 sources. *Bulletin of the Seismological Society of America*, 51, 401–435.
-
-Bird, P. (2003). An updated digital model of plate boundaries.
-*Geochemistry, Geophysics, Geosystems*, 4(3), 1027.
 
 Beyreuther, M., Barsch, R., Krischer, L., Megies, T., Behr, Y. &
 Wassermann, J. (2010). ObsPy: a Python toolbox for seismology.
 *Seismological Research Letters*, 81, 530–533.
+
+Bird, P. (2003). An updated digital model of plate boundaries.
+*Geochemistry, Geophysics, Geosystems*, 4(3), 1027.
 
 Bodin, T., Sambridge, M., Rawlinson, N. & Arroucau, P. (2012).
 Transdimensional tomography with unknown data noise. *Geophysical Journal
@@ -108,9 +108,6 @@ Seismology*. Springer, Dordrecht.
 Honda, H. (1957). The mechanism of the earthquakes. *Science Reports of the
 Tohoku University*, Ser. 5, Geophysics, 9, 1–46.
 
-Irsyam, M. dkk. (2020). Development of the 2017 national seismic hazard maps
-of Indonesia. *Earthquake Spectra*, 36(S1), 112–136.
-
 Igel, H., Schreiber, K. U., Flaws, A., Schuberth, B., Velikoseltsev, A. &
 Cochard, A. (2005). Rotational motions induced by the M8.1 Tokachi-oki
 earthquake, September 25, 2003. *Geophysical Research Letters*, 32, L08309.
@@ -125,6 +122,13 @@ Simonelli, A., Lin, C.-J., Wassermann, J., Donner, S., Hadziioannou, C.,
 Yuan, S., Brotzer, A., Kodet, J., Tanimoto, T., Hugentobler, U. &
 Wells, J.-P. R. (2021). ROMY: a multicomponent ring laser for geodesy and
 geophysics. *Geophysical Journal International*, 225, 684–698.
+
+Irsyam, M. dkk. (2020). Development of the 2017 national seismic hazard maps
+of Indonesia. *Earthquake Spectra*, 36(S1), 112–136.
+
+Ishii, M. & Dziewoński, A. M. (2002). The innermost inner core of the earth:
+evidence for a change in anisotropic behavior at the radius of about 300 km.
+*Proceedings of the National Academy of Sciences*, 99, 14026–14030.
 
 Kanamori, H. (1972). Mechanism of tsunami earthquakes. *Physics of the Earth
 and Planetary Interiors*, 6, 346–359.
@@ -186,6 +190,10 @@ Engineering Research Institute, Oakland.
 McNutt, S. R. (2005). Volcanic seismology. *Annual Review of Earth and
 Planetary Sciences*, 33, 461–491.
 
+Morelli, A., Dziewoński, A. M. & Woodhouse, J. H. (1986). Anisotropy of the
+inner core inferred from PKIKP travel times. *Geophysical Research Letters*,
+13, 1545–1548.
+
 Mousavi, S. M., Ellsworth, W. L., Zhu, W., Chuang, L. Y. & Beroza, G. C.
 (2020). Earthquake transformer: an attentive deep-learning model for
 simultaneous earthquake detection and phase picking. *Nature Communications*,
@@ -204,6 +212,10 @@ Association*, 83, 9–27.
 
 Peterson, J. (1993). *Observations and Modeling of Seismic Background Noise*.
 USGS Open-File Report 93-322, Albuquerque.
+
+Phạm, T.-S. & Tkalčić, H. (2023). Up-to-fivefold reverberating waves through
+the Earth's center and distinctly anisotropic innermost inner core. *Nature
+Communications*, 14, 754.
 
 Pusat Studi Gempa Nasional (2017). *Peta Sumber dan Bahaya Gempa Indonesia
 Tahun 2017*. Kementerian Pekerjaan Umum dan Perumahan Rakyat, Bandung.
@@ -226,12 +238,12 @@ of the Seismological Society of America*, 25, 1–32.
 Ritsema, A. R. (1957). On the focal mechanism of southeast Asian earthquakes.
 *Publications of the Dominion Observatory*, 20, 341–368.
 
+Satake, K. (2015). Tsunamis. Dalam *Treatise on Geophysics*, 2nd ed., Vol. 4,
+477–504. Elsevier, Amsterdam.
+
 SESAME Project (2004). *Guidelines for the Implementation of the H/V Spectral
 Ratio Technique on Ambient Vibrations*. European Commission Research General
 Directorate.
-
-Satake, K. (2015). Tsunamis. Dalam *Treatise on Geophysics*, 2nd ed., Vol. 4,
-477–504. Elsevier, Amsterdam.
 
 Shapiro, N. M. & Campillo, M. (2004). Emergence of broadband Rayleigh waves
 from correlations of the ambient seismic noise. *Geophysical Research
@@ -257,16 +269,16 @@ Surono, Jousset, P., Pallister, J. dkk. (2012). The 2010 explosive eruption of
 Java's Merapi volcano — a '100-year' event. *Journal of Volcanology and
 Geothermal Research*, 241–242, 121–135.
 
-Tsuji, T., Yamamoto, K., Matsuoka, T., Yamada, Y., Onishi, K.,
-Bahar, A. dkk. (2009). Earthquake fault of the 26 May 2006 Yogyakarta
-earthquake observed by SAR interferometry. *Earth, Planets and Space*, 61,
-e29–e32.
-
 Suryanto, W., Igel, H., Wassermann, J., Cochard, A., Schuberth, B.,
 Vollmer, D., Scherbaum, F., Schreiber, U. & Velikoseltsev, A. (2006). First
 comparison of array-derived rotational ground motions with direct ring laser
 measurements. *Bulletin of the Seismological Society of America*, 96,
 2059–2071.
+
+Tsuji, T., Yamamoto, K., Matsuoka, T., Yamada, Y., Onishi, K.,
+Bahar, A. dkk. (2009). Earthquake fault of the 26 May 2006 Yogyakarta
+earthquake observed by SAR interferometry. *Earth, Planets and Space*, 61,
+e29–e32.
 
 Utsu, T., Ogata, Y. & Matsu'ura, R. S. (1995). The centenary of the Omori
 formula for a decay law of aftershock activity. *Journal of Physics of the
@@ -296,6 +308,10 @@ Wichmann, A. (1918). *Die Erdbeben des Indischen Archipels bis zum Jahre
 
 Wiemer, S. (2001). A software package to analyze seismicity: ZMAP.
 *Seismological Research Letters*, 72, 373–382.
+
+Woodhouse, J. H., Giardini, D. & Li, X.-D. (1986). Evidence for inner core
+anisotropy from free oscillations. *Geophysical Research Letters*, 13,
+1549–1552.
 
 Wyss, M. & Brune, J. N. (1968). Seismic moment, stress, and source dimensions
 for earthquakes in the California–Nevada region. *Journal of Geophysical

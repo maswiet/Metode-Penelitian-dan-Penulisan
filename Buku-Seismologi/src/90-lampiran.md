@@ -129,6 +129,8 @@ $$T_R=\frac{1}{\lambda}, \qquad P=1-e^{-\lambda t}$$
 
 | Indonesia | Inggris |
 |:--|:--|
+| anisotropi inti dalam | inner core anisotropy |
+| bagian terdalam inti dalam | innermost inner core |
 | bidang nodal | nodal plane |
 | bola fokus | focal sphere |
 | celah azimut | azimuthal gap |
@@ -212,6 +214,7 @@ Bab 6–14 dan seluruh lampiran adalah tambahan penyunting.
 | Bab 1 | Gempa terdalam 720 km | ~700 km | Nilai baku katalog modern |
 | Bab 1 | Tabel sejarah berakhir 1954 | Ditambah Tabel 1.2 sampai 2023 | Melengkapi perkembangan modern |
 | Bab 1 | — | Ditambah Kotak 1.1 tentang komponen rotasional | Pengamatan rotasi baru terbuka pada dasawarsa 2000-an |
+| Bab 1 | Uraian bagian dalam bumi berakhir pada batas inti | Ditambah Catatan Pemutakhiran 1.3 | Inti dalam (1936), anisotropinya (1986), dan bagian terdalamnya (2002, 2023) |
 | Bab 2 | Umpan balik positif elektronis | Umpan balik gaya (negatif) | Teknik yang benar-benar dipakai |
 | Bab 2 | — | Ditambah Subbab 2.6–2.9 | Instrumentasi digital modern |
 | Bab 3 | Kedalaman batas inti 2900 km | 2891 km | Nilai PREM |
@@ -219,6 +222,7 @@ Bab 6–14 dan seluruh lampiran adalah tambahan penyunting.
 | Bab 3 | $t_{PP}=2t_P(\Delta/2)=3t_P(\Delta/3)$ | Dua relasi terpisah | Kesamaan berantai keliru secara matematis |
 | Bab 3 | Osilasi sferoidal terpanjang 56 menit | 53,9 menit ($_0S_2$) | Nilai terukur |
 | Bab 3 | Tabel Jeffreys–Bullen sebagai rujukan | iasp91, ak135, PREM | Model baku sekarang |
+| Bab 3, 6 | Anisotropi hanya dibahas untuk mantel dan kerak | Ditambah anisotropi inti dalam | Melengkapi rujukan silang ke Catatan Pemutakhiran 1.3 |
 | Bab 4 | Magnitudo maksimum ~8, jenuh di atasnya | Magnitudo momen $M_w$ | Penjenuhan diatasi Kanamori (1977) |
 | Bab 4 | $\log E$ dari $m_b$ dan $M_s$ (dua rumus) | $\log_{10}E_s = 11{,}8+1{,}5M_s$ (erg) | Hubungan Gutenberg–Richter baku |
 | Bab 4 | "$M_s = 6{,}8$ gempa terbesar yang mungkin" | Dikoreksi | Pernyataan tidak benar |
