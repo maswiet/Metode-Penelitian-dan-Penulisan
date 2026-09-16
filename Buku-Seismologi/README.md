@@ -6,7 +6,7 @@ Geofisika, Departemen Fisika FMIPA UGM) yang disunting, dilengkapi, dan
 dimutakhirkan.
 
 **Keluaran:** [`Pengantar-Seismologi.docx`](Pengantar-Seismologi.docx) —
-satu berkas Word siap cetak, ukuran B5 (176 × 250 mm), ± 210 halaman,
+satu berkas Word siap cetak, ukuran B5 (176 × 250 mm), ± 211 halaman,
 14 bab + 4 lampiran, 56 gambar, 22 tabel, dan daftar pustaka.
 
 ## Isi
@@ -93,10 +93,19 @@ soffice --headless --convert-to pdf --outdir build ../Pengantar-Seismologi.docx
    acuan. Satu nilai pada basis data PuSGeN dibetulkan: $M_\text{maks}$
    segmen Salak (JAV18) tercantum 65,0 dan dibaca 6,5 — lihat Catatan
    Pemutakhiran 7.1.
-6. **Data yang perlu diperiksa sebelum cetak.** Angka kelembagaan yang
+6. **Izin yang perlu dipastikan sebelum cetak.** Gambar 6.1 **digambar
+   ulang** (bukan disalin) dan disederhanakan menjadi hitam-putih dari
+   Gambar 5.10 Lühr, Koulakov & Suryanto (2023), bab dalam buku *Merapi
+   Volcano* terbitan Springer. Salah seorang penulis bab itu adalah penulis
+   buku ini, tetapi hak cipta bab ada pada penerbit. Walaupun gambar ini
+   karya turunan yang digambar dari nol dan bukan reproduksi, sebaiknya
+   status izinnya dipastikan kepada Springer dan kepada kedua penulis lain
+   sebelum naskah dikunci. Jika reproduksi gambar aslinya yang berwarna
+   lebih disukai, izin formal Springer wajib diperoleh terlebih dahulu.
+7. **Data yang perlu diperiksa sebelum cetak.** Angka kelembagaan yang
    berubah dari waktu ke waktu — jumlah sensor BMKG, versi SNI 1726 yang
    berlaku, dan rincian skala SIG-BMKG — sebaiknya dipastikan kembali ke
    sumber resmi terbaru pada saat naskah dikunci.
-7. **Gambar 5.10** dihitung langsung dari himpunan data Tabel 5.1 (bahan ajar
+8. **Gambar 5.10** dihitung langsung dari himpunan data Tabel 5.1 (bahan ajar
    asli Waluyo) melalui pencarian sistematis atas strike, dip, dan rake;
    penyelesaian terbaik mencocokkan 45 dari 49 polaritas.

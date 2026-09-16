@@ -184,6 +184,13 @@ Brotopuspito, K. S. dkk. (2013). Fluid ascent and magma storage beneath Gunung
 Merapi revealed by multi-scale seismic imaging. *Journal of Volcanology and
 Geothermal Research*, 261, 7–19.
 
+Lühr, B. G., Koulakov, I. & Suryanto, W. (2023). Crustal structure and
+ascent of fluids and melts beneath Merapi: insights from geophysical
+investigations. Dalam R. Gertisser, V. R. Troll, T. R. Walter,
+I G. M. A. Nandaka & A. Ratdomopurbo (ed.), *Merapi Volcano: Geology,
+Eruptive Activity, and Monitoring of a High-Risk Volcano*, Active Volcanoes
+of the World, hlm. 111–136. Springer, Cham.
+
 McGuire, R. K. (2004). *Seismic Hazard and Risk Analysis*. Earthquake
 Engineering Research Institute, Oakland.
 

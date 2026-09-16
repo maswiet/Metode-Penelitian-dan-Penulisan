@@ -652,71 +652,179 @@ def g514():
 
 # ================================================================ Bab 6-14
 def g61():
-    """Sketsa penampang tektonik Jawa Tengah dari palung sampai busur."""
-    fig, ax = plt.subplots(figsize=(6.4, 3.0))
-    bersih(ax); ax.set_aspect("auto")
-    ax.set_xlim(0, 640); ax.set_ylim(225, -52)
-    putih = dict(fc="white", ec="none", pad=1.0, alpha=0.9)
+    """Penampang tafsiran Jawa Tengah dari tomografi MERAMEX.
 
-    # permukaan, laut, dan daratan
-    ax.plot([0, 640], [0, 0], color=K, lw=1.2)
-    ax.fill_between([0, 250], -12, 0, color="#eef2f5")
-    ax.text(110, -20, "Samudra Hindia", fontsize=6.6, ha="center")
-    ax.text(570, -20, "Pulau Jawa", fontsize=6.6, ha="center")
+    Digambar ulang dalam hitam-putih dan disederhanakan dari Gambar 5.10
+    Lühr, Koulakov & Suryanto (2023). Geometri palung-ke-busur, bidang
+    Moho, batas atas lempeng menunjam, jalur volatil, kantong magma felsik,
+    dan lensa sedimen mengikuti gambar asli; sebaran hiposenter dan titik
+    lelehan parsial didigitalkan ulang dari gambar itu (lihat
+    ../data/merapi-lintasan-titik.csv).
+    """
+    import csv
+    import os
+    from matplotlib.patches import Ellipse
+    from matplotlib.lines import Line2D
 
+    DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
+                        "data")
+    X0, X1 = 100.0, 380.0
+    LEBIH = 6.3                      # skala tegak elevasi dilebihkan
+    ELEV = 3.2                       # elevasi tertinggi yang ditampilkan (km)
+    DALAM = 120.0
+
+    titik = {"gempa": [], "lelehan": []}
+    with open(os.path.join(DATA, "merapi-lintasan-titik.csv")) as f:
+        for r in csv.DictReader(f):
+            titik[r["Jenis"]].append((float(r["Jarak_km"]),
+                                      float(r["Kedalaman_km"])))
+    gempa = np.array(titik["gempa"])
+    lelehan = np.array(titik["lelehan"])
+
+    # --- geometri utama (km)
+    topo = np.array([(100, -21.5), (112, -19.5), (124, -17.0), (140, -12.0),
+                     (152, -10.6), (164, -10.0), (176, -6.0), (186, -2.6),
+                     (197, -0.8), (206, 0.0), (380, 0.0)])
+    moho = np.array([(178, -19.0), (200, -21.0), (220, -24.0), (240, -27.0),
+                     (260, -31.0), (280, -32.5), (300, -32.2), (330, -30.1),
+                     (360, -28.1), (380, -27.5)])
+    slab = np.array([(100, -60.0), (112, -62.5), (124, -66.0), (140, -72.0),
+                     (152, -77.0), (164, -82.0), (180, -88.0), (192, -96.0),
+                     (204, -106.0), (214, -114.0), (220, -120.0)])
+    TEBAL = 26.0
+
+    # --- tata letak: dua sumbu bertumpuk, patahan skala tegak terlihat
+    lebar_ax = 0.905
+    t_bawah = 2.34
+    t_atas = ELEV * LEBIH / DALAM * t_bawah
+    sela = 0.035
+    H = t_atas + sela + t_bawah + 0.74
+    fig = plt.figure(figsize=(5.28, H))
+    axb = fig.add_axes([0.088, 0.545 / H, lebar_ax, t_bawah / H])
+    axa = fig.add_axes([0.088, (0.545 + t_bawah + sela) / H, lebar_ax,
+                        t_atas / H], sharex=axb)
+
+    # ---------------- panel bawah: kerak, mantel, lempeng menunjam
+    axb.set_xlim(X0, X1); axb.set_ylim(-DALAM, 0)
+    # kerak: antara permukaan (atau muka laut) dan Moho
+    xg = np.linspace(X0, X1, 600)
+    permukaan = np.interp(xg, topo[:, 0], topo[:, 1])
+    moho_i = np.interp(xg, moho[:, 0], moho[:, 1])
+    axb.fill_between(xg, moho_i, permukaan, color="#f1f1f1", zorder=0.6)
+    # laut dan cekungan busur muka
+    axb.fill_between(xg, permukaan, 0, where=permukaan < 0, color="#dfe6ea",
+                     zorder=0.7)
     # lempeng menunjam
-    sx = np.array([215, 260, 320, 390, 460, 530, 600])
-    sy = np.array([6, 25, 60, 105, 150, 190, 218])
-    ax.plot(sx, sy, color=K, lw=1.6)
-    ax.plot(sx, sy - 28, color=K, lw=1.0)
-    ax.fill_between(sx, sy - 28, sy, color=G3, alpha=0.6)
-    ax.annotate("lempeng menunjam\n(Indo-Australia)", xy=(345, 92),
-                xytext=(120, 118), fontsize=6.6, ha="center", va="center",
-                arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
+    axb.fill_between(slab[:, 0], slab[:, 1] - TEBAL, slab[:, 1], color=G3,
+                     zorder=0.8)
+    axb.plot(slab[:, 0], slab[:, 1], color=K, lw=1.5, zorder=2.2)
+    axb.plot(slab[:, 0], slab[:, 1] - TEBAL, color=K, lw=0.9, zorder=2.2)
+    axb.plot(topo[:, 0], topo[:, 1], color=K, lw=1.0, zorder=2.2)
+    axb.plot([X0, X1], [0, 0], color=G2, lw=0.6, zorder=1.4)
+    axb.plot(moho[:, 0], moho[:, 1], color=K, lw=1.2, zorder=2.2)
 
-    # kegempaan zona Wadati-Benioff
-    rng = np.random.default_rng(7)
-    for _ in range(85):
-        t = rng.uniform(0, 1)
-        x = np.interp(t, np.linspace(0, 1, 7), sx)
-        y = np.interp(t, np.linspace(0, 1, 7), sy) - rng.uniform(0, 26)
-        ax.plot(x + rng.normal(0, 6), y + rng.normal(0, 5), "o", ms=1.6,
-                color=G1, alpha=0.75)
+    # kotak resolusi tinggi tomografi derau ambien
+    axb.plot([207, 380, 380, 207, 207], [0, 0, -20, -20, 0], color=K, lw=0.8,
+             ls=(0, (1.0, 1.4)), zorder=2.4)
 
-    # Moho
-    ax.plot([250, 636], [30, 30], color=K, lw=1.0, ls=(0, (4, 2.5)))
-    ax.text(632, 24, "Moho $\\approx$ 30 km", fontsize=6.2, ha="right",
-            va="bottom", bbox=putih)
+    # jalur volatil: dua lengkung menaik dari lempeng menunjam
+    jalur = [[(194, -103), (201, -94), (209, -82), (218, -70)],
+             [(214, -104), (223, -88), (230, -72), (233, -57), (234, -44),
+              (241, -31), (249, -24), (256, -18), (260, -14)]]
+    for pts in jalur:
+        pts = np.array(pts, float)
+        t = np.linspace(0, 1, len(pts))
+        tt = np.linspace(0, 1, 160)
+        xx = np.interp(tt, t, pts[:, 0]); yy = np.interp(tt, t, pts[:, 1])
+        axb.plot(xx, yy, color=K, lw=0.9, ls=(0, (2.2, 1.4)), zorder=3.0)
+        for a in (0.42, 0.78, 1.0):
+            k = int(a * (len(tt) - 1))
+            axb.annotate("", xy=(xx[k], yy[k]),
+                         xytext=(xx[k - 6], yy[k - 6]),
+                         arrowprops=dict(arrowstyle="-|>", lw=0.0, color=K,
+                                         mutation_scale=7), zorder=3.1)
 
-    # gunung api dan jalur fluida
-    ax.add_patch(Polygon([[452, 0], [470, -28], [488, 0]], fc=G3, ec=K,
-                         lw=1.0))
-    ax.text(470, -34, "Merapi", fontsize=6.8, ha="center", va="bottom")
-    ax.annotate("", xy=(468, -6), xytext=(408, 104),
-                arrowprops=dict(arrowstyle="-|>", lw=1.2, color=G1,
-                                connectionstyle="arc3,rad=0.28",
-                                mutation_scale=9))
-    ax.text(398, 72, "fluida naik", fontsize=6.4, color=G1, rotation=-62,
-            ha="center", va="center", bbox=putih)
+    # hiposenter dan lelehan parsial
+    axb.scatter(gempa[:, 0], gempa[:, 1], s=4.2, color=G1, lw=0, zorder=2.8)
+    axb.scatter(lelehan[:, 0], lelehan[:, 1], s=7.0, facecolor=K,
+                edgecolor="white", lw=0.35, zorder=3.4)
 
-    # zona sumber gempa Yogyakarta 2006
-    ax.plot(398, 12, "x", color=K, ms=6, mew=1.6)
-    ax.annotate("zona sumber\ngempa 2006", xy=(398, 12), xytext=(300, -32),
-                fontsize=6.4, ha="center", va="center",
-                arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
+    # kantong magma felsik dan lensa sedimen
+    for cx, cy, w, h in [(228.4, -1.8, 5.0, 1.4), (256.5, -3.2, 10.5, 4.0),
+                         (288.1, -6.9, 25.0, 4.2)]:
+        axb.add_patch(Ellipse((cx, cy), w, h, facecolor=G1, edgecolor=K,
+                              lw=0.5, zorder=3.6))
+    axb.add_patch(Ellipse((294.6, -1.2), 23.7, 2.4, facecolor="white",
+                          edgecolor=K, lw=0.5, hatch="....", zorder=3.5))
 
-    ax.annotate("palung", xy=(216, 4), xytext=(168, -34), fontsize=6.6,
-                ha="center", va="center",
-                arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
+    # label di dalam panel
+    putih = dict(fc="white", ec="none", pad=1.0, alpha=0.86)
+    axb.text(126, -7.5, "Samudra Hindia\ndan busur muka", fontsize=5.6,
+             ha="center", va="center", zorder=4, bbox=putih)
+    axb.text(340, -37.0, "Moho $≈$ 30 km", fontsize=5.8, ha="center",
+             va="center", zorder=4)
+    axb.text(134, -88, "lempeng menunjam\n(Indo-Australia)", fontsize=5.8,
+             ha="center", va="center", rotation=-22, zorder=4)
+    axb.text(193, -91, "dehidrasi", fontsize=5.6, ha="center", va="center",
+             rotation=-42, zorder=4, bbox=putih)
+    axb.text(268, -47, "naiknya fluida\ndan lelehan", fontsize=5.6,
+             ha="center", va="center", zorder=4, bbox=putih)
+    axb.text(330, -13, "resolusi tinggi\n(tomografi derau ambien)",
+             fontsize=5.3, ha="center", va="center", style="italic",
+             color=G1, zorder=4, bbox=putih)
+    axb.text(305, -72, "mantel atas\n(baji mantel)", fontsize=5.6,
+             ha="center", va="center", color=G1, zorder=4)
 
-    ax.set_ylabel("Kedalaman (km)")
-    ax.set_xlabel("Jarak dari palung (km)")
-    ax.set_yticks([0, 50, 100, 150, 200])
-    ax.set_xticks([0, 200, 400, 600])
-    for sp in ("left", "bottom"):
-        ax.spines[sp].set_visible(True)
+    axb.set_xlabel("Jarak sepanjang lintasan MERAMEX (km)", fontsize=7.5)
+    axb.set_ylabel("Kedalaman (km)", fontsize=7.5)
+    axb.set_yticks([0, -20, -40, -60, -80, -100, -120])
+    axb.set_yticklabels([0, 20, 40, 60, 80, 100, 120], fontsize=6.4)
+    axb.set_xticks(np.arange(100, 381, 40))
+    axb.tick_params(labelsize=6.4, length=2.4, width=0.6)
+    for sp in ("top",):
+        axb.spines[sp].set_visible(False)
+    for sp in axb.spines.values():
+        sp.set_linewidth(0.7)
+
+    # ---------------- panel atas: topografi dilebihkan
+    axa.set_ylim(0, ELEV)
+    gunung = np.array([(206, 0), (240, 0.30), (252, 0.62), (261, 1.5),
+                       (266, 2.95), (271, 1.6), (278, 0.80), (284, 0.95),
+                       (289, 0.55), (300, 0.32), (320, 0.18), (380, 0.10)])
+    axa.fill_between(gunung[:, 0], 0, gunung[:, 1], color=G3, zorder=1)
+    axa.plot(gunung[:, 0], gunung[:, 1], color=K, lw=0.9, zorder=2)
+    axa.plot([X0, 206], [0, 0], color=G2, lw=0.6, zorder=2)
+    axa.annotate("Merapi", xy=(266, 2.9), xytext=(240, 2.5), fontsize=6.4,
+                 ha="right", va="center",
+                 arrowprops=dict(arrowstyle="-", lw=0.5, color=K,
+                                 shrinkA=1, shrinkB=1))
+    axa.text(310, 1.9, "Pulau Jawa", fontsize=6.4, ha="center", va="center")
+    axa.text(101, 2.6, "elevasi dilebihkan $\\times$6", fontsize=5.2,
+             ha="left", va="center", style="italic", color=G1)
+    axa.set_yticks([3]); axa.set_yticklabels([3], fontsize=6.4)
+    axa.tick_params(labelsize=6.4, length=2.4, width=0.6,
+                    labelbottom=False)
+    for sp in ("top", "right"):
+        axa.spines[sp].set_visible(False)
+    for sp in axa.spines.values():
+        sp.set_linewidth(0.7)
+
+    from matplotlib.patches import Patch
+    kunci = [Line2D([], [], marker="o", ls="", ms=2.1, color=G1,
+                    label="hiposenter"),
+             Line2D([], [], marker="o", ls="", ms=2.7, color=K,
+                    label="lelehan parsial"),
+             Line2D([], [], color=K, lw=0.9, ls=(0, (2.2, 1.4)),
+                    label="jalur fluida dan volatil"),
+             Patch(facecolor=G1, edgecolor=K, lw=0.5,
+                   label="kantong magma felsik"),
+             Patch(facecolor="white", edgecolor=K, lw=0.5, hatch="....",
+                   label="sedimen")]
+    fig.legend(handles=kunci, loc="lower center", ncol=5, frameon=False,
+               fontsize=5.2, handlelength=1.5, columnspacing=0.9,
+               handletextpad=0.45, borderaxespad=0.0,
+               bbox_to_anchor=(0.53, 0.004))
     simpan(fig, "gbr-6-1-meramex.png")
-
 
 
 def g73():

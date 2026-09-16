@@ -13,6 +13,7 @@ disimpan bersama naskah.
 | `relief-indonesia.png` | bayangan relief 1 menit busur, 3120 × 1860 piksel | Natural Earth `GRAY_HR_SR_OB` |
 | `relief-indonesia.json` | batas geografis dan ukuran piksel berkas di atas | — |
 | `garis-pantai.csv` | 521 bagian garis pantai | Natural Earth `ne_10m_coastline` |
+| `merapi-lintasan-titik.csv` | 58 hiposenter dan 22 titik lelehan parsial pada penampang MERAMEX, hasil digitalisasi ulang Gambar 5.10 | Lühr dkk. (2023) |
 | `sumber-pusgen2024/` | berkas asli PuSGeN 2024 seperti diterima | PuSGeN 2024 |
 
 Data Natural Earth berada pada domain publik. Data PuSGeN dan Bird (2003)
@@ -33,3 +34,15 @@ sini karena besarnya:
 `build/wkb.py` adalah pembaca geometri GeoPackage (header GPKG + WKB) yang
 ditulis sendiri, sehingga berkas `.gpkg` PuSGeN dapat dibaca tanpa memerlukan
 pustaka GIS.
+
+## Catatan tentang `merapi-lintasan-titik.csv`
+
+Berkas ini memuat koordinat titik yang **didigitalkan ulang** dari Gambar 5.10
+Lühr, Koulakov & Suryanto (2023) dengan cara mendeteksi warna penandanya pada
+hasil rasterisasi halaman, lalu mengubah koordinat piksel menjadi koordinat
+data memakai posisi tanda sumbu. Yang disimpan hanyalah **posisi titik**
+(fakta pengukuran), bukan gambar aslinya. Titik-titik yang bertumpuk pada
+gambar asli menyatu menjadi satu titik di sini, sehingga jumlahnya lebih
+sedikit daripada aslinya. Geometri garis — topografi, Moho, batas lempeng
+menunjam, dan jalur volatil — ditulis langsung di dalam
+`build/figs_bab4_14.py` pada fungsi `g61()`.

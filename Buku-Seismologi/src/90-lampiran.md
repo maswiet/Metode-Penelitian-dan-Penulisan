@@ -223,6 +223,7 @@ Bab 6–14 dan seluruh lampiran adalah tambahan penyunting.
 | Bab 3 | Osilasi sferoidal terpanjang 56 menit | 53,9 menit ($_0S_2$) | Nilai terukur |
 | Bab 3 | Tabel Jeffreys–Bullen sebagai rujukan | iasp91, ak135, PREM | Model baku sekarang |
 | Bab 3, 6 | Anisotropi hanya dibahas untuk mantel dan kerak | Ditambah anisotropi inti dalam | Melengkapi rujukan silang ke Catatan Pemutakhiran 1.3 |
+| Bab 6 | Gambar 6.1 berupa sketsa tanpa skala | Digambar ulang dari Gambar 5.10 Lühr dkk. (2023) | Penampang berdata dan berskala menggantikan sketsa |
 | Bab 4 | Magnitudo maksimum ~8, jenuh di atasnya | Magnitudo momen $M_w$ | Penjenuhan diatasi Kanamori (1977) |
 | Bab 4 | $\log E$ dari $m_b$ dan $M_s$ (dua rumus) | $\log_{10}E_s = 11{,}8+1{,}5M_s$ (erg) | Hubungan Gutenberg–Richter baku |
 | Bab 4 | "$M_s = 6{,}8$ gempa terbesar yang mungkin" | Dikoreksi | Pernyataan tidak benar |
