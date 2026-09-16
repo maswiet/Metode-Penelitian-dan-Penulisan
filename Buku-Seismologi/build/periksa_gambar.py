@@ -15,6 +15,7 @@ import sys
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
+import matplotlib.text
 import matplotlib.pyplot as plt
 
 import gaya
@@ -68,9 +69,14 @@ def periksa(fig, nama):
     kotak = []
     for t, ax in daftar:
         try:
-            bb = t.get_window_extent(renderer=rend)
+            # untuk anotasi, get_window_extent menyertakan anak panahnya,
+            # sehingga dipakai kotak batas teksnya saja
+            bb = matplotlib.text.Text.get_window_extent(t, renderer=rend)
         except Exception:
-            continue
+            try:
+                bb = t.get_window_extent(renderer=rend)
+            except Exception:
+                continue
         if bb.width <= 0 or bb.height <= 0:
             continue
         kotak.append(((bb.x0, bb.y0, bb.x1, bb.y1), t, ax))

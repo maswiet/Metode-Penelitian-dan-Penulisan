@@ -6,7 +6,7 @@ Geofisika, Departemen Fisika FMIPA UGM) yang disunting, dilengkapi, dan
 dimutakhirkan.
 
 **Keluaran:** [`Pengantar-Seismologi.docx`](Pengantar-Seismologi.docx) —
-satu berkas Word siap cetak, ukuran B5 (176 × 250 mm), ± 211 halaman,
+satu berkas Word siap cetak, ukuran B5 (176 × 250 mm), ± 212 halaman,
 14 bab + 4 lampiran, 56 gambar, 22 tabel, dan daftar pustaka.
 
 ## Isi

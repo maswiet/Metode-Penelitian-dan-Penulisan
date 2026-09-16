@@ -180,12 +180,42 @@ def jaga_gambar(doc):
     print(f"  {n} paragraf bergambar dijaga bersama keterangannya")
 
 
+def pisah_dua_lajur(doc):
+    """Tabel dua lajur (tajuknya berulang) diberi garis tegak di tengah."""
+    n = 0
+    for tbl in doc.tables:
+        k = len(tbl.columns)
+        if k < 4 or k % 2 or not tbl.rows:
+            continue
+        tajuk = [c.text.strip() for c in tbl.rows[0].cells]
+        h = k // 2
+        if tajuk[:h] != tajuk[h:] or not any(tajuk):
+            continue
+        for row in tbl.rows:
+            try:
+                cell = row.cells[h - 1]
+            except IndexError:
+                continue
+            tcPr = cell._tc.get_or_add_tcPr()
+            for lama in tcPr.findall(qn("w:tcBorders")):
+                tcPr.remove(lama)
+            b = OxmlElement("w:tcBorders")
+            kanan = el("w:right", val="single", sz="6", space="0",
+                       color="808080")
+            b.append(kanan)
+            tcPr.append(b)
+        n += 1
+    if n:
+        print(f"  {n} tabel dua lajur diberi garis pemisah")
+
+
 def main():
     if not os.path.exists(DOCX):
         sys.exit("berkas .docx belum dibuat")
     doc = Document(DOCX)
     pisah_bagian(doc)
     jaga_gambar(doc)
+    pisah_dua_lajur(doc)
     rapikan_tabel(doc)
     kecilkan_font_tabel(doc)
     doc.save(DOCX)

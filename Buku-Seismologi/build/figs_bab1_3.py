@@ -261,7 +261,7 @@ def g23():
         return 1.0 / np.sqrt((wn**2 - w**2)**2 + 4 * e**2 * wn**2 * w**2)
 
     def nama(e):
-        teks = f"{e:.1f}".replace(".", ",")
+        teks = f"{e:.1f}".replace(".", "{,}")
         return (rf"$\varepsilon = {teks}$"
                 + ("  (kritis)" if e == 1.0 else ""))
 
@@ -339,32 +339,57 @@ def g24():
 
 # ---------------------------------------------------------------- Gambar 2.5
 def g25():
-    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.7))
+    """Tanggapan amplitudo seismometer: skala linear dan idealisasi asimtotik."""
+    fig, axes = plt.subplots(1, 2, figsize=(5.28, 2.5),
+                             constrained_layout=True)
     wn = 1.0
+    kasus = [(0.2, "-", 1.25), (0.5, (0, (4.2, 1.5)), 1.0),
+             (0.707, (0, (2.2, 1.1)), 1.35),
+             (1.0, (0, (3.2, 1.1, 0.6, 1.1)), 1.0),
+             (2.0, (0, (0.7, 1.5)), 1.0)]
+
     ax = axes[0]
     w = np.linspace(0.001, 4.0, 900)
-    for e in [0.2, 0.5, 0.707, 1.0, 2.0]:
+    for e, ls, lw in kasus:
         H = w**2 / np.sqrt((wn**2 - w**2)**2 + 4 * e**2 * wn**2 * w**2)
-        ax.plot(w, H, color=K, lw=1.1)
+        nm = r"$\varepsilon = 0{,}707$ (kritis)" if abs(e - 0.707) < 1e-6 \
+            else r"$\varepsilon = %s$" % ("%g" % e).replace(".", "{,}")
+        ax.plot(w, H, color=K, lw=lw, ls=ls, label=nm)
     ax.axhline(1, color=G2, ls=":", lw=0.8)
     ax.axvline(1, color=G2, ls=":", lw=0.8)
-    ax.text(0.35, 2.35, r"$\varepsilon$ kecil", fontsize=7)
-    ax.text(3.0, 1.09, "1", fontsize=7)
+    ax.annotate("resonansi pada\nredaman kecil", xy=(1.02, 2.56),
+                xytext=(0.06, 2.93), fontsize=5.8, ha="left", va="top",
+                color=G1,
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                shrinkA=1, shrinkB=2))
     ax.set_xlabel(r"$\omega/\omega_n$"); ax.set_ylabel(r"$|Z_0/X_0|$")
-    ax.set_ylim(0, 2.7); ax.set_xlim(0, 4)
-    ax.set_title("(a) skala linear", fontsize=8.5)
+    ax.set_ylim(0, 2.95); ax.set_xlim(0, 4)
+    ax.set_xticks([0, 1, 2, 3, 4])
+    ax.set_title("(a) skala linear", fontsize=8.0)
+    ax.legend(loc="upper right", fontsize=5.4, frameon=False,
+              handlelength=2.6, labelspacing=0.22, borderaxespad=0.25)
+
     ax = axes[1]
-    w = np.logspace(-1.5, 1.5, 800)
+    w = np.logspace(-1.65, 1.65, 800)
     H = w**2 / np.sqrt((wn**2 - w**2)**2 + 4 * 0.707**2 * wn**2 * w**2)
+    ax.loglog([0.02, 1], [0.02**2, 1], color=G2, ls="--", lw=0.9)
+    ax.loglog([1, 50], [1, 1], color=G2, ls="--", lw=0.9)
     ax.loglog(w, H, color=K, lw=1.4)
-    ax.loglog([0.03, 1], [0.03**2, 1], color=G2, ls="--", lw=0.9)
-    ax.loglog([1, 32], [1, 1], color=G2, ls="--", lw=0.9)
-    ax.text(0.09, 0.02, "+12 dB/oktaf", fontsize=6.8, color=G1, rotation=42)
-    ax.text(3.0, 1.25, "0 dB/oktaf", fontsize=6.8, color=G1)
     ax.axvline(1, color=G2, ls=":", lw=0.8)
-    ax.text(1.08, 0.003, r"$\omega_n$", fontsize=8)
+    ax.annotate(r"$+12$ dB/oktaf  ($\propto \omega^{2}$)",
+                xy=(0.13, 0.0169), xytext=(0.031, 0.62), fontsize=5.6,
+                color=G1, ha="left", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                shrinkA=1, shrinkB=2))
+    ax.annotate("0 dB/oktaf (datar)", xy=(9.0, 1.0), xytext=(2.2, 0.10),
+                fontsize=5.6, color=G1, ha="left", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                shrinkA=1, shrinkB=2))
+    ax.text(1.18, 8.0e-4, r"$\omega_n$", fontsize=7.5, ha="left", va="bottom")
+    ax.set_xlim(0.022, 45); ax.set_ylim(5.5e-4, 2.4)
     ax.set_xlabel(r"$\omega/\omega_n$"); ax.set_ylabel(r"$|Z_0/X_0|$")
-    ax.set_title("(b) idealisasi asimtotik", fontsize=8.5)
+    ax.set_title(r"(b) idealisasi asimtotik ($\varepsilon = 0{,}707$)",
+                 fontsize=8.0)
     simpan(fig, "gbr-2-5-tanggapan-seismometer.png")
 
 
@@ -415,63 +440,147 @@ def g27():
 
 # ---------------------------------------------------------------- Gambar 2.8
 def g28():
-    fig, axes = plt.subplots(1, 3, figsize=(6.4, 2.5))
+    """Tiga cara menggantung massa dan akibatnya pada perioda bebas."""
+    fig, axes = plt.subplots(1, 3, figsize=(5.28, 2.78))
+    fig.subplots_adjust(left=0.008, right=0.992, top=0.855, bottom=0.005,
+                        wspace=0.04)
     for ax in axes:
         bersih(ax); ax.set_xlim(0, 5); ax.set_ylim(0, 5)
+
+    def langit(ax, x0, x1, y=4.55):
+        ax.plot([x0, x1], [y, y], color=K, lw=1.2)
+        for xh in np.arange(x0 + 0.1, x1, 0.32):
+            ax.plot([xh, xh - 0.18], [y, y - 0.22], color=G2, lw=0.7)
+
+    def pegas(ax, p0, p1, n=11, amp=0.14, lw=1.0):
+        p0 = np.asarray(p0, float); p1 = np.asarray(p1, float)
+        t = np.linspace(0, 1, 240)
+        d = p1 - p0; L = np.hypot(*d)
+        u = d / L; v = np.array([-u[1], u[0]])
+        pts = p0 + np.outer(t, d) + np.outer(
+            amp * np.sin(2 * np.pi * n * t) * np.sin(np.pi * t), v)
+        ax.plot(pts[:, 0], pts[:, 1], color=K, lw=lw)
+
+    def massa(ax, c, r, fs=6.8):
+        ax.add_patch(Circle(c, r, fc=FILL, ec=K, lw=1.2, zorder=3))
+        ax.text(c[0], c[1], "$m$", fontsize=fs, ha="center", va="center",
+                zorder=4)
+
+    def rumus(ax, teks, catatan, fs=6.6):
+        ax.text(2.5, 1.06, teks, fontsize=fs, ha="center", va="center")
+        ax.text(2.5, 0.38, catatan, fontsize=5.4, ha="center", va="center",
+                color=G1, linespacing=1.3)
+
+    def arah(ax, x, y, tegak, teks, pj=0.44):
+        dx, dy = (0.0, pj) if tegak else (pj, 0.0)
+        ax.annotate("", xy=(x + dx, y + dy), xytext=(x - dx, y - dy),
+                    arrowprops=dict(arrowstyle="<|-|>", lw=0.8, color=G1,
+                                    mutation_scale=6))
+        ax.text(x, y - (pj + 0.14), teks, fontsize=5.3, color=G1,
+                ha="center", va="top", linespacing=1.2)
+
+    # ---- (a) pendulum vertikal sederhana
     ax = axes[0]
-    ax.plot([0.8, 4.2], [4.5, 4.5], color=K, lw=1.2)
-    for xh in np.arange(0.9, 4.3, 0.38):
-        ax.plot([xh, xh - 0.2], [4.5, 4.25], color=G2, lw=0.7)
-    ys = np.linspace(4.5, 3.0, 180)
-    ax.plot(2.5 + 0.16 * np.sin(np.linspace(0, 12 * np.pi, 180)), ys,
-            color=K, lw=1.0)
-    ax.add_patch(Circle((2.5, 2.6), 0.38, fc=FILL, ec=K, lw=1.2))
-    ax.set_title("(a) pendulum vertikal\nsederhana", fontsize=7.5)
+    langit(ax, 1.05, 3.95)
+    pegas(ax, (2.5, 4.55), (2.5, 3.05), n=9)
+    massa(ax, (2.5, 2.66), 0.39)
+    ax.text(2.80, 3.85, "$k$", fontsize=7, ha="left", va="center")
+    arah(ax, 1.00, 2.96, True, "gerakan\ntanah")
+    ax.set_title("(a) pendulum vertikal\nsederhana", fontsize=7.2)
+    rumus(ax, r"$T_0 = 2\pi\sqrt{\delta/g}$",
+          "perioda panjang menuntut regangan\n"
+          r"statis besar: $T_0 = 10$ s $\Rightarrow \delta \approx 25$ m")
+
+    # ---- (b) suspensi LaCoste
     ax = axes[1]
-    ax.plot([0.6, 4.4], [4.5, 4.5], color=K, lw=1.2)
-    for xh in np.arange(0.7, 4.4, 0.38):
-        ax.plot([xh, xh - 0.2], [4.5, 4.25], color=G2, lw=0.7)
-    ax.plot([1.0, 4.0], [2.2, 2.2], color=K, lw=1.6)
-    ax.add_patch(Circle((4.0, 2.2), 0.32, fc=FILL, ec=K, lw=1.2))
-    ax.add_patch(Circle((1.0, 2.2), 0.09, fc=K, ec=K))
-    xs = np.linspace(1.05, 3.1, 160)
-    ax.plot(xs, np.linspace(4.5, 2.35, 160) +
-            0.13 * np.sin(np.linspace(0, 13 * np.pi, 160)), color=K, lw=1.0)
-    ax.text(1.9, 3.1, "pegas\npanjang-nol", fontsize=6.2, color=G1)
-    ax.set_title("(b) suspensi LaCoste", fontsize=7.5)
+    langit(ax, 0.75, 4.25)
+    ax.plot([1.05, 3.60], [2.45, 2.45], color=K, lw=1.7)
+    massa(ax, (3.98, 2.45), 0.36, fs=6.4)
+    ax.add_patch(Circle((1.05, 2.45), 0.10, fc=K, ec=K, zorder=4))
+    ax.text(1.05, 2.16, "sumbu putar", fontsize=5.3, color=G1, ha="center",
+            va="top")
+    pegas(ax, (1.62, 4.55), (3.05, 2.45), n=10, amp=0.11)
+    ax.add_patch(Circle((3.05, 2.45), 0.07, fc=K, ec=K, zorder=4))
+    ax.annotate("pegas\npanjang-nol", xy=(2.45, 3.45), xytext=(3.62, 3.80),
+                fontsize=5.3, color=G1, ha="center", va="center",
+                linespacing=1.2,
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                shrinkA=1, shrinkB=2))
+    arah(ax, 0.55, 3.62, True, "gerakan\ntanah")
+    ax.set_title("(b) suspensi LaCoste\n(astatik)", fontsize=7.2)
+    rumus(ax, r"$T_0$ panjang tanpa" "\n" r"pegas panjang",
+          "gaya pemulih hampir dihapus oleh\n"
+          "bobot, sehingga perioda dapat disetel")
+
+    # ---- (c) pendulum garden-gate
     ax = axes[2]
-    ax.plot([2.4, 2.4], [0.8, 4.5], color=K, lw=1.4)
-    ax.plot([2.4, 4.1], [3.9, 3.35], color=K, lw=1.4)
-    ax.add_patch(Circle((4.1, 3.35), 0.3, fc=FILL, ec=K, lw=1.2))
-    ax.plot([2.4, 4.1], [1.3, 3.2], color=G1, lw=0.9, ls="--")
-    a = Arc((2.4, 4.5), 1.4, 1.4, theta1=250, theta2=285, color=G1, lw=0.8)
-    ax.add_patch(a)
-    ax.text(2.62, 4.05, r"$\theta$ kecil", fontsize=6.2, color=G1)
-    ax.set_title("(c) pendulum\n$garden$-$gate$ (horizontal)", fontsize=7.5)
+    A = np.array([3.05, 4.55]); B = np.array([2.29, 1.50])
+    ax.plot([A[0], B[0]], [A[1], B[1]], color=K, lw=1.6)
+    ax.plot([A[0], A[0]], [A[1], 1.50], color=G2, lw=0.7, ls=":")
+    ax.add_patch(Arc(A, 1.5, 1.5, theta1=256, theta2=270, color=G1, lw=0.9))
+    ax.text(A[0] - 0.36, A[1] - 0.74, r"$\theta$", fontsize=7.5, color=G1,
+            ha="right", va="center")
+    C = A + 0.40 * (B - A)
+    Mx, My = 4.22, C[1]
+    massa(ax, (Mx, My), 0.34, fs=6.4)
+    ax.plot([C[0], Mx - 0.34], [C[1], My], color=K, lw=1.6)
+    ax.add_patch(Circle(C, 0.07, fc=K, ec=K, zorder=4))
+    ax.add_patch(Arc((C[0], My), 2.0 * (Mx - C[0]), 0.62, theta1=-40,
+                     theta2=40, color=G1, lw=0.8, ls="--"))
+    arah(ax, Mx, 2.42, False, "gerakan tanah", pj=0.50)
+    ax.set_title("(c) pendulum $garden$-$gate$\n(horizontal)", fontsize=7.2)
+    rumus(ax, r"$T_0 = 2\pi\sqrt{l/(g\sin\theta)}$",
+          r"sumbu dimiringkan sedikit dari tegak;" "\n"
+          r"$\theta$ kecil memberi perioda panjang", fs=6.2)
     simpan(fig, "gbr-2-8-konfigurasi.png")
 
 
 # ---------------------------------------------------------------- Gambar 2.9
 def g29():
-    fig, ax = plt.subplots(figsize=(6.4, 2.5))
-    ax.set_xlim(0, 15.6); ax.set_ylim(0, 4.2); bersih(ax); ax.set_aspect("auto")
-    lab = ["Gerakan\ntanah", "Sensor\n(pita lebar /\nakselerometer)",
-           "Digitizer\n24 bit\n+ GNSS", "Telemetri\n(VSAT, seluler,\nserat)",
-           "Pusat data\nminiSEED +\nStationXML", "Pengolahan\notomatis\n(SeisComP)",
+    """Rantai perekaman: tujuh mata rantai dengan anak panah yang terlihat."""
+    fig, ax = plt.subplots(figsize=(5.28, 2.05))
+    fig.subplots_adjust(left=0.004, right=0.996, top=0.996, bottom=0.004)
+    ax.set_xlim(0, 100); ax.set_ylim(9, 100)
+    bersih(ax); ax.set_aspect("auto")
+
+    lab = ["Gerakan\ntanah", "Sensor\npita lebar /\nakselerometer",
+           "Digitizer\n24 bit\n+ GNSS", "Telemetri\nVSAT, seluler,\nserat",
+           "Pusat data\nminiSEED +\nStationXML",
+           "Pengolahan\notomatis\n(SeisComP)",
            "Katalog,\nShakeMap,\nperingatan"]
-    xs = np.linspace(1.1, 14.5, 7)
-    for x, t in zip(xs, lab):
-        kotak(ax, x, 2.6, 2.05, 1.25, t, fs=6.3,
-              fc=FILL if "Sensor" in t or "Digitizer" in t else "white")
-    for i in range(6):
-        panah(ax, (xs[i] + 1.05, 2.6), (xs[i + 1] - 1.05, 2.6), lw=0.9)
     ket = ["besaran\nfisis", "tegangan\nanalog", "cacahan\n(counts)",
            "paket\ndata", "berkas\nterarsip", "parameter\ngempa"]
-    for i, t in enumerate(ket):
-        ax.text((xs[i] + xs[i + 1]) / 2, 1.45, t, fontsize=5.6, ha="center",
-                va="top", color=G1, style="italic")
-    ax.text(7.8, 0.32, "Kualitas rekaman ditentukan oleh mata rantai terlemah",
-            fontsize=6.8, ha="center", color=G1)
+
+    y0, y1 = 42.0, 78.0
+    w, sela = 11.95, 2.60
+    x = 0.3
+    tengah = []
+    for i, t in enumerate(lab):
+        fc = FILL if i in (1, 2) else "white"
+        ax.add_patch(Rectangle((x, y0), w, y1 - y0, fc=fc, ec=K, lw=0.9,
+                               zorder=2))
+        ax.text(x + w / 2, (y0 + y1) / 2, t, fontsize=5.4, ha="center",
+                va="center", zorder=3, linespacing=1.24)
+        if i < 6:
+            tengah.append(x + w + sela / 2)
+            panah(ax, (x + w + 0.25, (y0 + y1) / 2),
+                  (x + w + sela - 0.25, (y0 + y1) / 2), lw=1.0)
+        x += w + sela
+
+    # besaran yang mengalir pada setiap sambungan
+    for xb, t in zip(tengah, ket):
+        ax.plot([xb, xb], [y0 - 1.5, 30.0], color=G2, lw=0.55, zorder=1)
+        ax.text(xb, 27.5, t, fontsize=5.0, ha="center", va="top", color=G1,
+                style="italic", linespacing=1.22)
+
+    def kurung(x0, x1, y, teks):
+        ax.plot([x0, x0, x1, x1], [y - 2.8, y, y, y - 2.8], color=G1, lw=0.6)
+        ax.text((x0 + x1) / 2, y + 1.8, teks, fontsize=5.2, ha="center",
+                va="bottom", color=G1, style="italic")
+    kurung(0.3 + (w + sela), 0.3 + 3 * (w + sela) + w, 86.0,
+           "perangkat di lapangan")
+    kurung(0.3 + 4 * (w + sela), 0.3 + 6 * (w + sela) + w, 86.0,
+           "di pusat data")
     simpan(fig, "gbr-2-9-rantai.png")
 
 
@@ -546,32 +655,78 @@ def g31():
 
 # ---------------------------------------------------------------- Gambar 3.2
 def g32():
-    fig, ax = plt.subplots(figsize=(4.6, 3.2))
-    bersih(ax); ax.set_xlim(0, 10); ax.set_ylim(0, 7)
-    ax.axhline(3.5, color=K, lw=1.3)
-    ax.fill_between([0, 10], 0, 3.5, color=FILL)
-    ax.text(0.3, 3.75, "medium 1: $v_{p1}, v_{s1}$", fontsize=7)
-    ax.text(0.3, 3.0, "medium 2: $v_{p2}, v_{s2}\\ (>v_1)$", fontsize=7)
-    O = (5.0, 3.5)
-    panah(ax, (1.6, 6.6), O, lw=1.4)
-    ax.text(2.4, 6.2, "P datang", fontsize=7)
-    panah(ax, O, (8.4, 6.6), lw=1.2)
-    ax.text(7.6, 6.3, "P pantul", fontsize=6.8)
-    panah(ax, O, (7.3, 6.85), lw=1.0, ls="--")
-    ax.text(6.15, 6.75, "SV pantul", fontsize=6.8)
-    panah(ax, O, (7.9, 0.8), lw=1.2)
-    ax.text(8.0, 1.35, "P bias", fontsize=6.8)
-    panah(ax, O, (6.6, 0.6), lw=1.0, ls="--")
-    ax.text(5.6, 0.75, "SV bias", fontsize=6.8)
-    ax.plot([5, 5], [0.3, 6.9], color=G2, ls=":", lw=0.9)
-    ax.text(5.06, 6.75, "normal", fontsize=6.2, color=G1)
-    ax.add_patch(Arc(O, 2.0, 2.0, theta1=112, theta2=90, color=G1, lw=0.8))
-    ax.text(4.45, 4.62, "$i_1$", fontsize=8)
-    ax.add_patch(Arc(O, 2.0, 2.0, theta1=90, theta2=112 + 45, color="none"))
-    ax.add_patch(Arc(O, 2.4, 2.4, theta1=68, theta2=90, color=G1, lw=0.8))
-    ax.text(5.5, 4.72, "$r_1$", fontsize=8)
-    ax.add_patch(Arc(O, 2.4, 2.4, theta1=270, theta2=292, color=G1, lw=0.8))
-    ax.text(5.5, 2.25, "$i_1'$", fontsize=8)
+    """Pantulan dan pembiasan pada bidang batas beserta konversi mode."""
+    fig, ax = plt.subplots(figsize=(5.34, 3.99))
+    fig.subplots_adjust(left=0.004, right=0.996, top=0.996, bottom=0.004)
+    bersih(ax); ax.set_xlim(0, 10); ax.set_ylim(0, 7.4)
+    ax.axhline(3.5, color=K, lw=1.3, zorder=2)
+    ax.fill_between([0, 10], 0, 3.5, color=FILL, zorder=0)
+    O = np.array([5.0, 3.5])
+    putih = dict(fc="white", ec="none", pad=1.0, alpha=0.9)
+
+    # kecepatan yang dipakai (km/s) dan sudut menurut hukum Snell
+    vp1, vs1, vp2, vs2 = 6.0, 3.46, 8.0, 4.60
+    i1 = np.radians(40.0)
+    p = np.sin(i1) / vp1                        # parameter gelombang
+    sudut = {}
+    for nama, v, atas in [("P pantul", vp1, True), ("SV pantul", vs1, True),
+                          ("P bias", vp2, False), ("SV bias", vs2, False)]:
+        sudut[nama] = (np.arcsin(np.clip(p * v, -1, 1)), atas)
+
+    def sinar(a, atas, R=3.3):
+        """Titik ujung sinar yang membentuk sudut a dengan normal."""
+        dy = R * np.cos(a) * (1 if atas else -1)
+        return O + np.array([R * np.sin(a), dy])
+
+    # sinar datang
+    P_in = O + np.array([-3.3 * np.sin(i1), 3.3 * np.cos(i1)])
+    panah(ax, P_in, O, lw=1.4)
+    ax.text(P_in[0] - 0.1, P_in[1] + 0.12, "P datang", fontsize=7,
+            ha="left", va="bottom")
+
+    for nama, lw, ls, dx, dy, ha in [
+            ("P pantul", 1.2, "-", 0.14, 0.14, "left"),
+            ("SV pantul", 1.0, "--", -0.05, 0.22, "center"),
+            ("P bias", 1.2, "-", 0.16, -0.10, "left"),
+            ("SV bias", 1.0, "--", -0.02, -0.26, "center")]:
+        a, atas = sudut[nama]
+        Q = sinar(a, atas)
+        panah(ax, O, Q, lw=lw, ls=ls)
+        ax.text(Q[0] + dx, Q[1] + dy, nama, fontsize=6.6, ha=ha,
+                va="bottom" if atas else "top", bbox=putih, zorder=4)
+
+    # normal
+    ax.plot([5, 5], [0.35, 7.05], color=G2, ls=":", lw=0.9)
+    ax.text(5.10, 0.40, "normal", fontsize=6.2, color=G1, va="bottom",
+            bbox=putih, zorder=4)
+
+    # busur sudut: digambar dari arah normal ke arah sinar
+    def busur(a, atas, R, teks, geser=1.0, bagi=0.5):
+        t0 = 90.0 if atas else 270.0
+        t1 = t0 - np.degrees(a) if atas else t0 + np.degrees(a)
+        ax.add_patch(Arc(O, 2 * R, 2 * R, theta1=min(t0, t1),
+                         theta2=max(t0, t1), color=G1, lw=0.8))
+        am = a * bagi
+        q = O + geser * R * np.array([np.sin(am),
+                                      np.cos(am) * (1 if atas else -1)])
+        ax.text(q[0], q[1], teks, fontsize=8, ha="center", va="center",
+                bbox=putih, zorder=4)
+
+    # sudut datang di sisi kiri normal
+    ax.add_patch(Arc(O, 2.8, 2.8, theta1=90, theta2=90 + np.degrees(i1),
+                     color=G1, lw=0.8))
+    am = i1 / 2
+    ax.text(O[0] - 1.4 * np.sin(am), O[1] + 1.4 * np.cos(am), "$i_1$",
+            fontsize=8, ha="center", va="center", bbox=putih, zorder=4)
+    busur(sudut["P pantul"][0], True, 1.75, "$i_1$", 1.18, bagi=0.80)
+    busur(sudut["P bias"][0], False, 1.5, "$i_2$", 1.18)
+
+    ax.text(0.25, 4.55, "medium 1: $v_{p1}$, $v_{s1}$", fontsize=7,
+            bbox=putih, zorder=4)
+    ax.text(0.25, 2.52, "medium 2: $v_{p2} > v_{p1}$", fontsize=7,
+            bbox=putih, zorder=4)
+    ax.text(9.75, 3.62, r"$\dfrac{\sin i_1}{v_{p1}} = \dfrac{\sin i_2}{v_{p2}}$",
+            fontsize=7, ha="right", va="bottom", bbox=putih, zorder=4)
     simpan(fig, "gbr-3-2-snell.png")
 
 
@@ -634,28 +789,67 @@ def g34():
 
 # ---------------------------------------------------------------- Gambar 3.5
 def g35():
-    fig, ax = plt.subplots(figsize=(5.2, 2.9))
-    bersih(ax); ax.set_xlim(0, 12); ax.set_ylim(0, 5.6); ax.set_aspect("auto")
-    ax.axhline(4.8, color=K, lw=1.2)
-    ax.axhline(2.0, color=K, lw=1.4)
-    ax.fill_between([0, 12], 0, 2.0, color=FILL)
-    ax.text(0.2, 2.2, "$v_1$", fontsize=8)
-    ax.text(0.2, 1.4, "$v_2 > v_1$", fontsize=8)
-    S = (1.4, 4.8)
-    ax.add_patch(Circle(S, 0.13, fc=K))
-    ax.text(1.4, 5.1, "sumber", fontsize=6.5, ha="center")
-    ic = 3.6
-    ax.plot([S[0], ic], [4.8, 2.0], color=K, lw=1.3)
-    ax.plot([ic, 9.6], [2.0, 2.0], color=K, lw=1.6)
-    for xx in np.linspace(4.2, 9.4, 6):
-        ax.plot([xx, xx + 2.2], [2.0, 4.8], color=K, lw=0.8)
-        th = np.linspace(0, np.pi, 60)
-    ax.plot([9.6, 11.4], [2.0, 4.8], color=K, lw=1.3)
-    ax.plot([S[0], 11.0], [4.8, 4.8], color=G2, lw=0.9, ls="--")
-    ax.text(6.4, 4.95, "gelombang langsung", fontsize=6.3, color=G1)
-    ax.text(6.0, 1.65, "menjalar dengan $v_2$", fontsize=6.3, color=G1)
-    ax.text(9.0, 3.2, "muka gelombang\nkepala", fontsize=6.3, color=G1)
-    ax.text(2.05, 3.3, "$i_c$", fontsize=8)
+    """Gelombang kepala: sinar kritis, muka gelombangnya, dan perbandingannya
+    dengan muka gelombang langsung pada saat yang sama."""
+    v1, v2 = 2.0, 4.0
+    ic = np.arcsin(v1 / v2)                    # 30 derajat
+    ys, yi = 4.8, 2.0                          # permukaan dan bidang batas
+    h = ys - yi
+    S = np.array([1.4, ys])
+    xk = S[0] + h * np.tan(ic)                 # titik kritis di bidang batas
+    xf = 9.6                                   # muka gelombang kepala
+    fig, ax = plt.subplots(figsize=(5.34, 2.46))
+    fig.subplots_adjust(left=0.004, right=0.996, top=0.996, bottom=0.004)
+    bersih(ax); ax.set_xlim(0, 12.4); ax.set_ylim(0.6, 5.9)
+    putih = dict(fc="white", ec="none", pad=1.0, alpha=0.9)
+
+    ax.plot([0, 12.4], [ys, ys], color=K, lw=1.1)
+    ax.plot([0, 12.4], [yi, yi], color=K, lw=1.4)
+    ax.fill_between([0, 12.4], 0.6, yi, color=FILL)
+    ax.text(0.20, yi + 0.28, "$v_1$", fontsize=8, bbox=putih)
+    ax.text(0.20, yi - 0.66, "$v_2 > v_1$", fontsize=8, bbox=putih)
+    ax.text(0.20, ys - 0.18, "permukaan", fontsize=6.0, color=G1,
+            ha="left", va="top")
+
+    ax.add_patch(Circle(S, 0.12, fc=K, zorder=5))
+    ax.text(S[0] - 0.12, ys + 0.16, "sumber", fontsize=6.4, ha="left",
+            va="bottom")
+
+    # sinar kritis turun, lalu gelombang kepala menjalar di bidang batas
+    ax.plot([S[0], xk], [ys, yi], color=K, lw=1.0)
+    ax.plot([xk, xf], [yi, yi], color=K, lw=2.1)
+    ax.add_patch(Arc((S[0], ys), 1.9, 1.9, theta1=270,
+                     theta2=270 + np.degrees(ic), color=G1, lw=0.8))
+    ax.text(S[0] + 0.52, ys - 1.02, "$i_c$", fontsize=8, bbox=putih)
+
+    # sinar gelombang kepala, semuanya keluar pada sudut kritis
+    u = np.array([np.sin(ic), np.cos(ic)])
+    for xi in np.arange(xk + 0.55, xf - 0.05, 0.85):
+        srt = (xf - xi) / 2.0
+        Q = np.array([xi, yi]) + srt * u
+        ax.plot([xi, Q[0]], [yi, Q[1]], color=K, lw=0.7)
+
+    # muka gelombang kepala: tegak lurus sinar-sinar itu
+    x_atas = xf - h / np.tan(ic)
+    ax.plot([xf, x_atas], [yi, ys], color=K, lw=2.1)
+    ax.annotate("muka gelombang kepala", xy=(5.85, 4.20), xytext=(3.35, 5.45),
+                fontsize=6.2, color=G1, ha="center", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                shrinkA=1, shrinkB=2))
+
+    # muka gelombang langsung pada saat yang sama: busur berpusat di sumber
+    t = (h / np.cos(ic)) / v1 + (xf - xk) / v2
+    R = v1 * t
+    th = np.linspace(-np.arcsin(h / R), 0.0, 240)
+    ax.plot(S[0] + R * np.cos(th), ys + R * np.sin(th), color=K, lw=2.1,
+            ls=(0, (3.2, 1.6)))
+    ax.annotate("muka gelombang langsung\n(kecepatan $v_1$)",
+                xy=(7.75, 4.35), xytext=(10.2, 5.25), fontsize=6.2, color=G1,
+                ha="center", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                shrinkA=1, shrinkB=2))
+    ax.text(6.55, yi - 0.66, "menjalar dengan $v_2$", fontsize=6.2, color=G1,
+            bbox=putih)
     simpan(fig, "gbr-3-5-headwave.png")
 
 
@@ -869,24 +1063,41 @@ def g310():
 
 # --------------------------------------------------------------- Gambar 3.11
 def g311():
-    fig, axes = plt.subplots(3, 1, figsize=(5.2, 3.2), sharex=True)
+    """Kecepatan fase dan kecepatan grup dari interferensi dua frekuensi."""
+    fig, axes = plt.subplots(3, 1, figsize=(5.28, 3.3), sharex=True)
+    fig.subplots_adjust(left=0.035, right=0.985, top=0.965, bottom=0.115,
+                        hspace=0.42)
     x = np.linspace(0, 60, 2500)
     y1 = np.sin(2 * np.pi * x / 6.0)
     y2 = np.sin(2 * np.pi * x / 6.7)
-    for ax, y, lab in [(axes[0], y1, "(a) satu frekuensi"),
-                       (axes[1], y2, "(b) frekuensi sedikit berbeda"),
-                       (axes[2], y1 + y2, "(c) hasil interferensi")]:
+    for ax, y, lab, ylim in [
+            (axes[0], y1, "(a) satu frekuensi", 1.75),
+            (axes[1], y2, "(b) frekuensi sedikit berbeda", 1.75),
+            (axes[2], y1 + y2, "(c) hasil interferensi", 3.6)]:
         ax.plot(x, y, color=K, lw=0.9)
-        ax.set_yticks([]); ax.set_title(lab, fontsize=7.6, loc="left")
-        for s in ["top", "right", "left"]:
-            ax.spines[s].set_visible(False)
+        ax.set_yticks([]); ax.set_ylim(-ylim, ylim)
+        ax.text(0.0, ylim * 0.97, lab, fontsize=7.0, ha="left", va="top")
+        for sp in ("top", "right", "left"):
+            ax.spines[sp].set_visible(False)
+        ax.spines["bottom"].set_linewidth(0.7)
+        if ax is not axes[2]:
+            ax.tick_params(bottom=False, labelbottom=False)
     env = 2 * np.abs(np.cos(np.pi * x * (1 / 6.0 - 1 / 6.7)))
     axes[2].plot(x, env, color=G1, lw=0.9, ls="--")
     axes[2].plot(x, -env, color=G1, lw=0.9, ls="--")
-    axes[2].annotate("amplop menjalar\ndengan kecepatan grup $U$",
-                     xy=(21, 1.9), xytext=(30, 2.6), fontsize=6.4, color=G1,
-                     arrowprops=dict(arrowstyle="->", lw=0.7, color=G1))
-    axes[2].set_xlabel("Jarak")
+    axes[2].annotate("amplop menjalar dengan kecepatan grup $U$",
+                     xy=(20.9, 2.02), xytext=(30.5, 3.15), fontsize=6.2,
+                     color=G1, ha="center", va="center",
+                     arrowprops=dict(arrowstyle="->", lw=0.7, color=G1,
+                                     shrinkA=1, shrinkB=2))
+    axes[2].annotate("puncak menjalar dengan kecepatan fase $c$",
+                     xy=(9.0, -1.55), xytext=(30.0, -2.80), fontsize=6.2,
+                     color=G1, ha="center", va="center",
+                     bbox=dict(fc="white", ec="none", pad=1.0, alpha=0.9),
+                     arrowprops=dict(arrowstyle="->", lw=0.7, color=G1,
+                                     shrinkA=1, shrinkB=2))
+    axes[2].set_xlabel("Jarak", fontsize=7.5)
+    axes[2].tick_params(labelsize=6.6)
     simpan(fig, "gbr-3-11-grup-fase.png")
 
 

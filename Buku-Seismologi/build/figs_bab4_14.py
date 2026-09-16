@@ -134,32 +134,38 @@ def g45():
 
 # ================================================================ Bab 5
 def g51():
-    fig, axes = plt.subplots(1, 3, figsize=(6.4, 2.4))
+    """Teori bingkas elastik: keadaan awal, regangan, dan pelepasan."""
+    fig, axes = plt.subplots(1, 3, figsize=(5.28, 2.32))
+    fig.subplots_adjust(left=0.01, right=0.99, top=0.855, bottom=0.115,
+                        wspace=0.06)
+    ket = ["keadaan awal", "regangan terakumulasi", "pelepasan mendadak"]
     for i, (ax, lab) in enumerate(zip(axes, ["(a)", "(b)", "(c)"])):
-        bersih(ax); ax.set_xlim(0, 6); ax.set_ylim(0, 5)
-        ax.add_patch(Rectangle((0.4, 0.6), 5.2, 3.8, fc=FILL, ec=K, lw=1.0))
-        for y in np.linspace(1.1, 3.9, 6):
+        bersih(ax); ax.set_xlim(0, 6); ax.set_ylim(0, 5.6)
+        ax.add_patch(Rectangle((0.4, 0.95), 5.2, 3.55, fc=FILL, ec=K,
+                               lw=1.0))
+        for y in np.linspace(1.4, 4.05, 6):
             if i == 0:
                 ax.plot([0.4, 5.6], [y, y], color=K, lw=0.9)
             elif i == 1:
                 xx = np.linspace(0.4, 5.6, 200)
-                ax.plot(xx, y + 0.42 * np.tanh((xx - 3.0) * 1.4) *
-                        (1 if True else 1) * 0.0 +
-                        0.38 * np.tanh((xx - 3.0) * 1.2), color=K, lw=0.9)
+                ax.plot(xx, y + 0.34 * np.tanh((xx - 3.0) * 1.2), color=K,
+                        lw=0.9)
             else:
-                xx1 = np.linspace(0.4, 3.0, 100)
-                xx2 = np.linspace(3.0, 5.6, 100)
-                ax.plot(xx1, y - 0.42 + 0.0 * xx1, color=K, lw=0.9)
-                ax.plot(xx2, y + 0.42 + 0.0 * xx2, color=K, lw=0.9)
+                ax.plot(np.linspace(0.4, 3.0, 60), np.full(60, y - 0.36),
+                        color=K, lw=0.9)
+                ax.plot(np.linspace(3.0, 5.6, 60), np.full(60, y + 0.36),
+                        color=K, lw=0.9)
         if i == 2:
-            ax.plot([3.0, 3.0], [0.6, 4.4], color=K, lw=1.6)
-            ax.text(3.12, 4.55, "sesar", fontsize=6.5)
-        panah(ax, (0.15, 4.75), (1.6, 4.75), lw=1.0)
-        panah(ax, (5.85, 0.25), (4.4, 0.25), lw=1.0)
-        ax.set_title(lab, fontsize=8.5)
-    axes[0].text(3.0, 0.15, "keadaan awal", fontsize=6.5, ha="center")
-    axes[1].text(3.0, 0.15, "regangan terakumulasi", fontsize=6.5, ha="center")
-    axes[2].text(3.0, 0.15, "pelepasan mendadak", fontsize=6.5, ha="center")
+            ax.plot([3.0, 3.0], [0.95, 4.5], color=K, lw=1.7)
+            ax.annotate("sesar pecah", xy=(3.0, 3.6), xytext=(4.98, 4.70),
+                        fontsize=6.0, ha="right", va="center",
+                        arrowprops=dict(arrowstyle="->", lw=0.6, color=K,
+                                        shrinkA=1, shrinkB=2))
+        # arah gerak blok: di atas ke kanan, di bawah ke kiri
+        panah(ax, (1.30, 4.82), (2.80, 4.82), lw=1.0)
+        panah(ax, (4.70, 0.62), (3.20, 0.62), lw=1.0)
+        ax.text(0.40, 4.82, lab, fontsize=8.0, ha="left", va="center")
+        ax.text(3.0, 5.35, ket[i], fontsize=6.4, ha="center", va="center")
     simpan(fig, "gbr-5-1-bingkas.png")
 
 
@@ -283,21 +289,21 @@ def _gambar_kurva(ax, vecs, equal_area, **kw):
         ax.plot(sgm[:, 0], sgm[:, 1], **kw)
 
 
-def _stereonet(ax, equal_area=True, n=9):
+def _stereonet(ax, equal_area=True, n=9, langkah=10, warna=G2):
     """Jaring stereo setengah bola bawah (meridian + lingkaran kecil)."""
     ax.add_patch(Circle((0, 0), 1.0, fc="white", ec=K, lw=1.3, zorder=0))
     # meridian: bidang berjurus utara-selatan dengan berbagai dip
-    for dip in range(10, 180, 10):
+    for dip in range(langkah, 180, langkah):
         if dip == 90:
-            ax.plot([0, 0], [-1, 1], color=G2, lw=0.45)
+            ax.plot([0, 0], [-1, 1], color=warna, lw=0.45)
             continue
         stk, dd = (0, dip) if dip < 90 else (180, 180 - dip)
         p = _bidang(stk, dd, equal_area, npts=300)
-        ax.plot(p[:, 0], p[:, 1], color=G2, lw=0.45)
+        ax.plot(p[:, 0], p[:, 1], color=warna, lw=0.45)
     # lingkaran kecil: kerucut terhadap sumbu horizontal utara-selatan
-    for alfa in range(10, 180, 10):
+    for alfa in range(langkah, 180, langkah):
         v = _lingkaran_kecil([0.0, 1.0, 0.0], alfa)
-        _gambar_kurva(ax, v, equal_area, color=G2, lw=0.45)
+        _gambar_kurva(ax, v, equal_area, color=warna, lw=0.45)
     ax.plot([-1, 1], [0, 0], color=G1, lw=0.6)
     ax.plot([0, 0], [-1, 1], color=G1, lw=0.6)
 
@@ -370,23 +376,79 @@ def _bidang(strike, dip, equal_area=True, npts=200):
 
 
 def g58():
-    fig, axes = plt.subplots(1, 2, figsize=(5.6, 2.9))
+    """Orientasi sebuah bidang dalam ruang dan jejaknya pada proyeksi."""
+    fig, axes = plt.subplots(1, 2, figsize=(5.28, 2.62))
+    fig.subplots_adjust(left=0.01, right=0.99, top=0.855, bottom=0.02,
+                        wspace=0.08)
+
+    # ---- kiri: bidang miring di dalam belahan bawah bola fokus
     ax = axes[0]
-    bersih(ax); ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.4, 1.4)
-    ax.add_patch(Ellipse((0, 0), 2.0, 0.7, fc="none", ec=K, lw=1.1))
-    ax.add_patch(Wedge((0, 0), 1.0, 180, 360, fc="#f7f7f7", ec=K, lw=1.1))
-    ax.add_patch(Polygon([[-0.85, 0.18], [0.75, -0.15], [0.45, -0.85],
-                          [-1.0, -0.4]], fc=G3, ec=K, lw=1.0, alpha=0.85))
-    ax.text(-0.5, -0.35, "bidang OAB", fontsize=7)
-    ax.set_title("kiri: orientasi bidang dalam ruang", fontsize=7.6)
+    bersih(ax); ax.set_xlim(-1.45, 1.45); ax.set_ylim(-1.30, 1.15)
+    putih = dict(fc="white", ec="none", pad=0.8, alpha=0.9)
+    # bidang mendatar (cakram) digambar sebagai elips
+    ax.add_patch(Ellipse((0, 0), 2.2, 0.66, fc="white", ec=G1, lw=0.9,
+                         zorder=1))
+    # belahan bawah bola
+    th = np.linspace(np.pi, 2 * np.pi, 200)
+    ax.plot(1.1 * np.cos(th), 0.33 * np.sin(th) - 0.0, color=G1, lw=0.9,
+            zorder=1)
+    ax.plot(1.1 * np.cos(th), 1.1 * np.sin(th), color=G1, lw=0.9, zorder=1)
+    # jejak bidang sesar: garis jurus pada cakram + bidang miring ke bawah
+    st = np.radians(30.0)                       # jurus dari utara
+    d = np.radians(40.0)                        # kemiringan
+    ux, uy = np.sin(st), np.cos(st)             # arah jurus pada peta
+    ax.plot([-1.1 * ux, 1.1 * ux], [-1.1 * uy * 0.3, 1.1 * uy * 0.3],
+            color=K, lw=1.6, zorder=4)
+    # bidang miring digambar sebagai jajar genjang yang menurun
+    nx, ny = np.cos(st), -np.sin(st)            # arah kemiringan pada peta
+    turun = np.array([nx * np.cos(d) * 0.95, -np.sin(d) * 0.95])
+    P = np.array([[-1.05 * ux, -1.05 * uy * 0.3],
+                  [1.05 * ux, 1.05 * uy * 0.3]])
+    poli = np.vstack([P, P[::-1] + turun])
+    ax.add_patch(Polygon(poli, closed=True, fc=G3, ec=K, lw=1.0, alpha=0.9,
+                         zorder=3))
+    ax.annotate("jurus (strike)", xy=(0.80 * ux, 0.80 * uy * 0.3),
+                xytext=(0.98, 0.86), fontsize=6.0, ha="center", va="center",
+                bbox=putih, zorder=6,
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=K,
+                                shrinkA=1, shrinkB=2))
+    ax.annotate("kemiringan (dip)", xy=(0.30 + turun[0] * 0.55,
+                                        turun[1] * 0.55),
+                xytext=(0.80, -1.16), fontsize=6.0, ha="center", va="center",
+                bbox=putih, zorder=6,
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=K,
+                                shrinkA=1, shrinkB=2))
+    ax.annotate("bidang mendatar", xy=(-0.60, 0.26), xytext=(-0.42, 0.72),
+                fontsize=5.8, color=G1, ha="center", va="center", bbox=putih,
+                zorder=6,
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                shrinkA=1, shrinkB=2))
+    ax.text(-1.30, -1.20, "N", fontsize=7.0, ha="center", va="center")
+    ax.annotate("", xy=(-1.30, -0.86), xytext=(-1.30, -1.10),
+                arrowprops=dict(arrowstyle="-|>", lw=0.8, color=K,
+                                mutation_scale=7))
+    ax.set_title("(a) bidang di dalam ruang", fontsize=7.6)
+
+    # ---- kanan: jejaknya pada proyeksi belahan bawah
     ax = axes[1]
-    bersih(ax); ax.set_xlim(-1.2, 1.2); ax.set_ylim(-1.25, 1.25)
-    _stereonet(ax, equal_area=True)
+    bersih(ax); ax.set_xlim(-1.30, 1.30); ax.set_ylim(-1.32, 1.22)
+    _stereonet(ax, equal_area=True, langkah=20, warna=G3)
     p = _bidang(30, 40)
-    ax.plot(p[:, 0], p[:, 1], color=K, lw=1.6)
-    ax.text(0, 1.06, "N", fontsize=7.5, ha="center")
-    ax.text(-1.15, -1.12, "strike $=30°$\ndip $=40°$", fontsize=6.8)
-    ax.set_title("kanan: garis meridian pada proyeksi", fontsize=7.6)
+    ax.plot(p[:, 0], p[:, 1], color="white", lw=3.2, zorder=3.5)
+    ax.plot(p[:, 0], p[:, 1], color=K, lw=1.9, zorder=4)
+    # lingkaran luar digambar ulang agar tidak terhapus halo putih
+    ax.add_patch(Circle((0, 0), 1.0, fc="none", ec=K, lw=1.3, zorder=4.5))
+    ax.text(0, 1.06, "N", fontsize=7.0, ha="center", va="bottom")
+    ax.text(1.06, 0, "E", fontsize=7.0, ha="left", va="center")
+    ax.annotate("jejak bidang", xy=(p[len(p) // 2, 0], p[len(p) // 2, 1]),
+                xytext=(0.62, -0.92), fontsize=6.0, ha="center", va="center",
+                bbox=dict(fc="white", ec="none", pad=0.8, alpha=0.9),
+                zorder=6,
+                arrowprops=dict(arrowstyle="->", lw=0.6, color=K,
+                                shrinkA=1, shrinkB=2))
+    ax.text(-1.24, -1.24, "jurus $=30°$\nkemiringan $=40°$", fontsize=6.2,
+            ha="left", va="bottom")
+    ax.set_title("(b) jejaknya pada proyeksi", fontsize=7.6)
     simpan(fig, "gbr-5-8-bidang.png")
 
 
@@ -586,28 +648,69 @@ def g512():
 
 
 def g513():
-    fig, axes = plt.subplots(1, 2, figsize=(5.4, 2.9))
-    for ax, tipe, lab in [(axes[0], "single", "(a) kopel tunggal"),
-                          (axes[1], "double", "(b) kopel ganda")]:
-        bersih(ax); ax.set_xlim(-1.3, 1.3); ax.set_ylim(-1.3, 1.3)
-        ax.add_patch(Circle((0, 0), 1.0, fc="none", ec=K, lw=1.3))
-        for a in [45, 135]:
+    """Arah polarisasi gelombang S pada permukaan bola fokus.
+
+    Bidang gambar memuat normal bidang sesar dan arah gelincir, sehingga
+    kedua bidang nodal gelombang P tampak sebagai dua garis tengah yang
+    saling tegak lurus dan sumbu P serta T terletak pada diagonalnya.
+    Anak panah adalah arah polarisasi S, yang menyinggung permukaan bola.
+    Untuk kopel ganda amplitudonya sebanding dengan $\cos 2\theta$: medan
+    mengumpul pada sumbu tarikan dan menyebar dari sumbu tekanan. Untuk
+    kopel tunggal medannya bersifat dipol: satu titik pengumpul dan satu
+    titik penyebar.
+    """
+    fig, axes = plt.subplots(1, 2, figsize=(5.28, 2.62))
+    fig.subplots_adjust(left=0.01, right=0.99, top=0.885, bottom=0.015,
+                        wspace=0.06)
+    putih = dict(fc="white", ec="none", pad=0.8, alpha=0.92)
+
+    for ax, tipe, lab in [(axes[0], "tunggal", "(a) kopel tunggal"),
+                          (axes[1], "ganda", "(b) kopel ganda")]:
+        bersih(ax); ax.set_xlim(-1.64, 1.64); ax.set_ylim(-1.40, 1.40)
+        ax.add_patch(Circle((0, 0), 1.0, fc="none", ec=K, lw=1.2, zorder=2))
+        # dua bidang nodal gelombang P sebagai garis tengah
+        for a in (0.0, 90.0):
             r = np.radians(a)
-            ax.plot([-np.cos(r), np.cos(r)], [-np.sin(r), np.sin(r)],
-                    color=K, lw=1.0, ls="--")
-        for rr in [0.35, 0.65, 0.9]:
-            for a in np.arange(0, 360, 30):
+            ax.plot([-1.12 * np.cos(r), 1.12 * np.cos(r)],
+                    [-1.12 * np.sin(r), 1.12 * np.sin(r)], color=G1,
+                    lw=0.9, ls="--", zorder=1)
+
+        th = np.arange(0, 360, 15)
+        for a in th:
+            r = np.radians(a)
+            x, y = np.cos(r), np.sin(r)
+            tx, ty = -np.sin(r), np.cos(r)      # arah singgung
+            amp = np.cos(r) if tipe == "tunggal" else np.cos(2 * r)
+            if abs(amp) < 0.06:
+                continue
+            L = 0.16 + 0.20 * abs(amp)
+            sgn = np.sign(amp)
+            p0 = np.array([x, y]) * 1.0 - 0.5 * L * sgn * np.array([tx, ty])
+            p1 = np.array([x, y]) * 1.0 + 0.5 * L * sgn * np.array([tx, ty])
+            ax.annotate("", xy=p1, xytext=p0,
+                        arrowprops=dict(arrowstyle="-|>", lw=0.85, color=K,
+                                        mutation_scale=6.5,
+                                        shrinkA=0, shrinkB=0), zorder=5)
+
+        if tipe == "tunggal":
+            for a, t, dy in [(90, "mengumpul", 0.20), (270, "menyebar", -0.20)]:
                 r = np.radians(a)
-                x, y = rr * np.cos(r), rr * np.sin(r)
-                if tipe == "single":
-                    dx, dy = -np.sin(r), np.cos(r)
-                else:
-                    dx, dy = np.cos(2 * r), -np.sin(2 * r)
-                    n = np.hypot(dx, dy)
-                    dx, dy = dx / n, dy / n
-                ax.plot([x - 0.07 * dx, x + 0.07 * dx],
-                        [y - 0.07 * dy, y + 0.07 * dy], color=K, lw=0.9)
-        ax.set_title(lab, fontsize=8.2)
+                ax.add_patch(Circle((np.cos(r), np.sin(r)), 0.055, fc=K,
+                                    ec="white", lw=0.5, zorder=6))
+                ax.text(np.cos(r), np.sin(r) + dy * 1.6, t, fontsize=6.0,
+                        ha="center", va="center", bbox=putih, zorder=7)
+            ax.text(1.52, 0.10, "garis\nnodal", fontsize=5.8, color=G1,
+                    ha="right", va="bottom", bbox=putih, zorder=7)
+        else:
+            for a, t in [(45, "T"), (225, "T"), (135, "P"), (315, "P")]:
+                r = np.radians(a)
+                ax.add_patch(Circle((np.cos(r), np.sin(r)), 0.055, fc=K,
+                                    ec="white", lw=0.5, zorder=6))
+                ax.text(1.30 * np.cos(r), 1.30 * np.sin(r), t, fontsize=7.0,
+                        ha="center", va="center", zorder=7)
+            ax.text(1.52, 0.10, "garis\nnodal", fontsize=5.8, color=G1,
+                    ha="right", va="bottom", bbox=putih, zorder=7)
+        ax.set_title(lab, fontsize=8.0)
     simpan(fig, "gbr-5-13-polarisasi-s.png")
 
 
@@ -954,60 +1057,147 @@ def g92():
 
 
 def g101():
-    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.8))
+    """Alur PSHA dan bentuk kurva bahaya."""
+    fig, axes = plt.subplots(1, 2, figsize=(5.28, 2.42))
+    fig.subplots_adjust(left=0.012, right=0.965, top=0.855, bottom=0.185,
+                        wspace=0.20)
+
+    # ---- (a) alur kerja
     ax = axes[0]
-    bersih(ax); ax.set_xlim(0, 10); ax.set_ylim(0, 6.5); ax.set_aspect("auto")
-    kotak(ax, 1.5, 5.2, 2.4, 1.0, "Model sumber\n(sesar, megathrust,\nlatar)",
-          fs=6.2)
-    kotak(ax, 1.5, 2.6, 2.4, 1.0, "Distribusi $M$\n(Gutenberg–Richter)",
-          fs=6.2)
-    kotak(ax, 5.0, 3.9, 2.2, 1.0, "GMPE\n$+$ sebaran", fs=6.4, fc=FILL)
-    kotak(ax, 8.4, 3.9, 2.4, 1.0, "Kurva bahaya\n$\\lambda(Y>y)$", fs=6.4)
-    panah(ax, (2.75, 5.0), (3.9, 4.2), lw=0.8)
-    panah(ax, (2.75, 2.8), (3.9, 3.6), lw=0.8)
-    panah(ax, (6.15, 3.9), (7.2, 3.9), lw=0.8)
-    ax.text(5.0, 0.9, "integrasi atas semua $m$, $r$, dan sumber",
-            fontsize=6.4, ha="center", color=G1, style="italic")
-    ax.set_title("(a) alur PSHA", fontsize=8.2)
+    bersih(ax); ax.set_xlim(0, 10); ax.set_ylim(0, 10); ax.set_aspect("auto")
+    tahap = [("Model sumber\nsesar, megathrust,\nlatar", 8.75),
+             ("Distribusi magnitudo\n(Gutenberg-Richter)", 6.55),
+             ("GMPE\n$+$ sebaran", 4.35),
+             ("Kurva bahaya\n$\\lambda(Y>y)$", 2.30)]
+    for i, (t, y) in enumerate(tahap):
+        kotak(ax, 5.0, y, 6.6, 1.72, t, fs=6.0,
+              fc=FILL if i == 2 else "white")
+        if i < 3:
+            panah(ax, (5.0, y - 0.90), (5.0, tahap[i + 1][1] + 0.90),
+                  lw=0.9)
+    ax.text(0.5, -0.035, "GMPE diintegrasikan atas semua magnitudo $m$,\n"
+            "jarak $r$, dan seluruh sumber", transform=ax.transAxes,
+            fontsize=5.6, color=G1, ha="center", va="top", style="italic",
+            linespacing=1.25)
+    ax.set_title("(a) alur PSHA", fontsize=8.0)
+
+    # ---- (b) kurva bahaya dengan angka yang wajar
     ax = axes[1]
-    y = np.logspace(-2, 0.35, 300)
-    lam = 0.06 * y**(-2.4) * np.exp(-y * 1.1)
+    y = np.logspace(np.log10(0.02), np.log10(1.6), 400)
+    lam = 0.35 * (y / 0.05)**(-2.3) * np.exp(-(y / 1.2)**2)
     ax.loglog(y, lam, color=K, lw=1.5)
-    for lv, lab in [(1 / 475, "475 tahun\n(10% / 50 th)"),
-                    (1 / 2475, "2.475 tahun\n(2% / 50 th)")]:
+    putih = dict(fc="white", ec="none", pad=1.0, alpha=0.92)
+    tanda = [(1 / 475, "475 tahun", "10 % dalam 50 th", (0.40, 1.35)),
+             (1 / 2475, "2.475 tahun", "2 % dalam 50 th", (0.40, 0.048))]
+    for lv, nm, ket, xy in tanda:
         ax.axhline(lv, color=G1, ls=":", lw=0.9)
-        yy = np.interp(lv, lam[::-1], y[::-1])
-        ax.plot(yy, lv, "o", color=K, ms=4)
-        ax.text(0.012, lv * 1.25, lab, fontsize=6.2)
-    ax.set_xlabel("PGA (g)")
-    ax.set_ylabel("Laju tahunan terlampaui")
-    ax.grid(True, lw=0.3, color=G3, which="both")
-    ax.set_title("(b) kurva bahaya", fontsize=8.2)
+        yy = np.exp(float(np.interp(np.log(lv), np.log(lam[::-1]),
+                                    np.log(y[::-1]))))
+        ax.plot(yy, lv, "o", color=K, ms=3.6, zorder=4)
+        ax.annotate("%s: $\\approx %s$ g\n(%s)"
+                    % (nm, ("%.2f" % yy).replace(".", "{,}"), ket),
+                    xy=(yy, lv), xytext=xy, fontsize=5.5, ha="left",
+                    va="center", color=G1, linespacing=1.25, bbox=putih,
+                    zorder=6,
+                    arrowprops=dict(arrowstyle="->", lw=0.6, color=G1,
+                                    shrinkA=1, shrinkB=3))
+    ax.set_xlim(0.02, 1.8); ax.set_ylim(1.2e-4, 6.0)
+    ax.set_xlabel("PGA (g)", fontsize=7.5)
+    ax.set_ylabel("Laju tahunan terlampaui", fontsize=7.5)
+    ax.tick_params(labelsize=6.4)
+    ax.grid(True, lw=0.35, color=G3, which="major")
+    ax.set_title("(b) kurva bahaya", fontsize=8.0)
     simpan(fig, "gbr-10-1-psha.png")
 
 
 def g111():
-    fig, ax = plt.subplots(figsize=(6.2, 2.8))
+    """Pendangkalan tsunami: tiga potret gelombang yang sama, dan hubungan
+    kuantitatif di belakangnya.
+
+    Kecepatan memakai rumus perairan dangkal $c=\sqrt{gh}$ dan amplitudo
+    memakai hukum Green $A \propto h^{-1/4}$; perioda dianggap tetap
+    $T = 20$ menit sehingga $\lambda = cT$. Tinggi ketiga potret berbanding
+    tepat menurut hukum Green; lebarnya dipadatkan agar potret di dekat
+    pantai tetap terlihat.
+    """
+    g = 9.81
+    T = 20 * 60.0
+    fig = plt.figure(figsize=(5.28, 4.15))
+    axa = fig.add_axes([0.055, 0.565, 0.925, 0.375])
+    axb = fig.add_axes([0.095, 0.085, 0.815, 0.345])
+
+    # ---------------- (a) penampang dan tiga potret
+    ax = axa
     bersih(ax); ax.set_aspect("auto")
-    ax.set_xlim(0, 100); ax.set_ylim(-6, 3.6)
-    x = np.linspace(0, 100, 800)
-    depth = np.where(x < 70, -5.0, -5.0 + 4.9 * ((x - 70) / 30)**2)
-    ax.fill_between(x, depth, 0, color="#eef2f5")
-    ax.plot(x, depth, color=K, lw=1.2)
-    ax.fill_between(x, -6, depth, color=G3)
-    amp = 0.28 * (np.clip(-depth, 0.15, 5) / 5.0)**(-0.25)
-    lam = np.clip(-depth, 0.15, 5)**0.5
-    y = amp * np.sin(2 * np.pi * np.cumsum(1 / (lam * 9)) * (x[1] - x[0]))
-    ax.plot(x, y * 1.0, color=K, lw=1.1)
-    ax.axhline(0, color=G2, lw=0.6, ls=":")
-    ax.annotate("sumber:\npergeseran dasar laut", xy=(6, -4.6),
-                xytext=(4, 2.4), fontsize=6.4,
-                arrowprops=dict(arrowstyle="->", lw=0.7))
-    ax.text(35, 1.6, "laut dalam: cepat ($\\approx$ 700 km/jam),\n"
-                     "panjang gelombang besar, tinggi kecil", fontsize=6.4)
-    ax.text(84, 1.9, "pantai:\nlambat, tinggi", fontsize=6.4, ha="center")
-    ax.text(50, -5.5, "$c=\\sqrt{gh}$", fontsize=8, ha="center")
-    ax.set_ylabel("Tinggi / kedalaman (tidak berskala)")
+    ax.set_xlim(0, 100); ax.set_ylim(-5.6, 5.4)
+    xs = np.array([0, 50, 62, 74, 84, 90, 95, 100], float)
+    ds = np.array([-4.6, -4.6, -3.7, -2.4, -1.35, -0.8, 0.4, 2.4])
+    x = np.linspace(0, 100, 1200)
+    dg = np.interp(x, xs, ds)
+    ax.fill_between(x, dg, 0, where=dg < 0, color="#e9eef2", zorder=0)
+    ax.fill_between(x, -5.6, dg, color=G3, zorder=1)
+    ax.plot(x, dg, color=K, lw=1.1, zorder=2)
+    ax.plot([0, 94.6], [0, 0], color=G2, lw=0.6, ls=":", zorder=1.5)
+
+    putih = dict(fc="white", ec="none", pad=1.0, alpha=0.92)
+    # tiga kedalaman yang dijadikan contoh
+    potret = [(20.0, 4000.0, 16.0), (69.0, 125.0, 4.2), (86.0, 12.0, 1.7)]
+    A0 = 0.52
+    for xc, hh, w in potret:
+        A = A0 * (4000.0 / hh)**0.25
+        xx = np.linspace(xc - 2.6 * w, xc + 2.6 * w, 400)
+        yy = A * np.exp(-((xx - xc) / w)**2)
+        pakai = (xx >= 0) & (xx <= 94.0)
+        ax.plot(xx[pakai], yy[pakai], color=K, lw=1.2, zorder=3)
+        c = np.sqrt(g * hh)
+        ax.text(xc, A + 0.55,
+                "$h = %.0f$ m\n$c = %.0f$ km/jam\n$\\lambda = %.0f$ km"
+                % (hh, c * 3.6, c * T / 1e3), fontsize=5.3, ha="center",
+                va="bottom", bbox=putih, zorder=5, linespacing=1.25)
+
+
+    ax.annotate("sumber: pergeseran dasar laut", xy=(5.0, -4.55),
+                xytext=(3.0, -2.6), fontsize=6.0, ha="left", va="center",
+                arrowprops=dict(arrowstyle="->", lw=0.7, color=K,
+                                shrinkA=1, shrinkB=2))
+    ax.text(97.5, 3.1, "pantai", fontsize=6.0, ha="center", va="center",
+            color=G1)
+    panah(ax, (8.0, 3.75), (40.0, 3.75), lw=0.9)
+    ax.text(24.0, 3.95, "arah penjalaran", fontsize=5.8, ha="center",
+            va="bottom", color=G1)
+    ax.set_title("(a) tiga potret gelombang yang sama: perioda tetap, "
+                 r"$\lambda$ menyusut, amplitudo naik", fontsize=7.2)
+
+    # ---------------- (b) hubungan kuantitatif
+    ax = axb
+    hh = np.logspace(np.log10(5), np.log10(6000), 400)
+    cc = np.sqrt(g * hh) * 3.6
+    l1, = ax.loglog(hh, cc, color=K, lw=1.5,
+                    label=r"$c=\sqrt{gh}$ (km/jam)")
+    ax.set_xlabel("Kedalaman laut $h$ (m)", fontsize=7.5)
+    ax.set_ylabel("$c$ (km/jam)", fontsize=7.5)
+    ax.set_xlim(5, 6000); ax.set_ylim(20, 1400)
+    ax.tick_params(labelsize=6.4)
+    ax.grid(True, lw=0.3, color=G3, which="both")
+    ax2 = ax.twinx()
+    l2, = ax2.plot(hh, (4000.0 / hh)**0.25, color=K, lw=1.3,
+                   ls=(0, (3.0, 1.4)), label=r"$A/A_{4000}$ (hukum Green)")
+    ax2.set_yscale("log")
+    ax2.tick_params(labelbottom=False, bottom=False)
+    ax2.set_ylabel(r"$A/A_{4000}$", fontsize=7.5)
+    ax2.set_ylim(0.8, 6.0)
+    ax2.set_yticks([1, 2, 3, 4, 5])
+    ax2.set_yticklabels(["1", "2", "3", "4", "5"], fontsize=6.4)
+    ax2.minorticks_off()
+    for hv in (4000.0, 125.0, 12.0):
+        ax.plot([hv], [np.sqrt(g * hv) * 3.6], "o", color=K, ms=3.4,
+                zorder=5)
+        ax2.plot([hv], [(4000.0 / hv)**0.25], "s", color=K, ms=3.0,
+                 zorder=5)
+    ax.text(900.0, 175.0, r"$c=\sqrt{gh}$", fontsize=6.6, ha="center",
+            va="top", bbox=dict(fc="white", ec="none", pad=1.0, alpha=0.9))
+    ax2.text(45.0, 4.1, r"$A/A_{4000}$" "\n" "(hukum Green)", fontsize=6.2,
+             ha="center", va="bottom", linespacing=1.2)
     simpan(fig, "gbr-11-1-tsunami.png")
 
 
