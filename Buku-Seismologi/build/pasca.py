@@ -165,11 +165,27 @@ def kecilkan_font_tabel(doc):
                             r.append(el(tag, val=ukuran))
 
 
+def jaga_gambar(doc):
+    """Setel keepNext pada paragraf bergambar agar keterangannya tidak
+    terpisah ke halaman berikutnya."""
+    n = 0
+    for par in doc.paragraphs:
+        if par._p.findall(".//" + qn("w:drawing")):
+            ppr = par._p.get_or_add_pPr()
+            for tag in ("w:keepNext", "w:keepLines"):
+                for lama in ppr.findall(qn(tag)):
+                    ppr.remove(lama)
+                ppr.insert(0, OxmlElement(tag))
+            n += 1
+    print(f"  {n} paragraf bergambar dijaga bersama keterangannya")
+
+
 def main():
     if not os.path.exists(DOCX):
         sys.exit("berkas .docx belum dibuat")
     doc = Document(DOCX)
     pisah_bagian(doc)
+    jaga_gambar(doc)
     rapikan_tabel(doc)
     kecilkan_font_tabel(doc)
     doc.save(DOCX)

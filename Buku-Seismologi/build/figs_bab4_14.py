@@ -612,25 +612,41 @@ def g513():
 
 
 def g514():
+    """Bola fokus lima gempa penting di Indonesia, satu panel per gempa."""
     from obspy.imaging.beachball import beach
-    fig, ax = plt.subplots(figsize=(6.2, 2.7))
-    bersih(ax); ax.set_aspect("auto")
-    ax.set_xlim(0, 6); ax.set_ylim(-0.5, 1.5)
-    dat = [((329, 8, 110), "Aceh 2004\n$M_w$ 9,1\nnaik"),
-           ((48, 89, -178), "Yogyakarta 2006\n$M_w$ 6,3\ngeser"),
-           ((290, 12, 96), "Pangandaran 2006\n$M_w$ 7,7\nnaik lambat"),
-           ((104, 65, 74), "Lombok 5 Ags 2018\n$M_w$ 6,9\nnaik"),
-           ((350, 67, -172), "Palu 2018\n$M_w$ 7,5\ngeser mengiri")]
-    for i, (mt, lab) in enumerate(dat):
-        x = 0.6 + i * 1.2
-        b = beach(mt, width=0.72, facecolor=G1, edgecolor=K, linewidth=0.9,
-                  xy=(x, 0.75), axes=ax)
+    dat = [((329, 8, 110), "Aceh 2004", "$M_w$ 9,1", "naik", "(megathrust)"),
+           ((48, 89, -178), "Yogyakarta 2006", "$M_w$ 6,3", "geser",
+            "(sesar kerak)"),
+           ((289, 10, 95), "Pangandaran 2006", "$M_w$ 7,7", "naik",
+            "(gempa tsunami)"),
+           ((95, 30, 85), "Lombok 5 Ags 2018", "$M_w$ 6,9", "naik",
+            "(belakang busur)"),
+           ((350, 67, -172), "Palu 2018", "$M_w$ 7,5", "geser mengiri",
+            "(Palu\u2013Koro)")]
+    n = len(dat)
+    fig = plt.figure(figsize=(5.28, 1.70))
+    lebar = 1.0 / n
+    for i, (mt, nama, mag, mek, ket) in enumerate(dat):
+        # setiap bola fokus mendapat sumbu sendiri yang berskala sama,
+        # sehingga bentuknya benar-benar bulat
+        ax = fig.add_axes([(i + 0.045) * lebar, 0.315, lebar * 0.91,
+                           0.485])
+        b = beach(mt, width=2.0, xy=(0, 0), facecolor=G1, edgecolor=K,
+                  linewidth=0.8, nofill=False)
         ax.add_collection(b)
-        ax.text(x, -0.02, lab, fontsize=6.2, ha="center", va="top")
-    ax.text(3.0, 1.42,
-            "Parameter mekanisme bersifat indikatif; gunakan katalog "
-            "GCMT/USGS/BMKG untuk kerja kuantitatif.",
-            fontsize=5.8, ha="center", color=G1, style="italic")
+        ax.set_xlim(-1.08, 1.08); ax.set_ylim(-1.08, 1.08)
+        ax.set_aspect("equal")
+        ax.set_xticks([]); ax.set_yticks([])
+        for sp in ax.spines.values():
+            sp.set_visible(False)
+        fig.text((i + 0.5) * lebar, 0.285,
+                 "%s\n%s\n%s\n%s" % (nama, mag, mek, ket),
+                 fontsize=5.6, ha="center", va="top", linespacing=1.3)
+    fig.text(0.5, 0.995, "Utara di atas; kuadran gelap adalah kuadran "
+             "tekanan.\nParameter bersifat indikatif \u2014 untuk kerja "
+             "kuantitatif pakai katalog GCMT, USGS, atau BMKG.",
+             fontsize=5.2, ha="center", va="top", color=G1, style="italic",
+             linespacing=1.35)
     simpan(fig, "gbr-5-14-beachball-indonesia.png")
 
 
