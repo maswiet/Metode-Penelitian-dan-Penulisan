@@ -1,0 +1,87 @@
+{
+  "qc": {
+    "input": 25280,
+    "after_missing": 25280,
+    "after_duplicates": 25278,
+    "removed": 2
+  },
+  "n_events": 277,
+  "features": [
+    "east_km",
+    "north_km",
+    "depth",
+    "t_days"
+  ],
+  "learning_rate": {
+    "alpha_by_epoch": {
+      "0": 0.01,
+      "5": 0.0003125,
+      "10": 9.765625e-06,
+      "20": 9.5367431640625e-09,
+      "50": 8.881784197001253e-18,
+      "100": 7.888609052210118e-33
+    },
+    "labels_identical_25_vs_100_epochs": true,
+    "max_prototype_shift_after_epoch25": 2.0672635825391694e-09
+  },
+  "stability_k8": {
+    "order_shuffle": {
+      "ari_mean": 0.923219759026621,
+      "ari_std": 0.01848827395683599,
+      "ari_min": 0.8416441138309164,
+      "ari_max": 0.9782237626029574
+    },
+    "initialisation": {
+      "radial": {
+        "ari_mean": 1.0,
+        "ari_std": 0.0,
+        "n": 1
+      },
+      "random": {
+        "ari_mean": 0.4980694373933652,
+        "ari_std": 0.0916132230008733,
+        "n": 20
+      },
+      "kmeans++": {
+        "ari_mean": 0.3583387847777274,
+        "ari_std": 0.07205836809958867,
+        "n": 20
+      },
+      "pca": {
+        "ari_mean": 0.5411944250391755,
+        "ari_std": 0.0,
+        "n": 1
+      }
+    },
+    "bootstrap_wta": {
+      "ari_mean": 0.5745152375434585,
+      "ari_std": 0.11191843271089186,
+      "ari_min": 0.3655670356251024,
+      "ari_max": 0.8429931544210211,
+      "ari_p05": 0.4259982888994082,
+      "n_boot": 100
+    },
+    "bootstrap_kmeans": {
+      "ari_mean": 0.8288506413446808,
+      "ari_std": 0.14595540545471763,
+      "ari_min": 0.45020504803280414,
+      "ari_max": 0.9655883952687259,
+      "ari_p05": 0.48286746800237823,
+      "n_boot": 100
+    }
+  },
+  "wta_vs_kmeans_ari": 0.3360584481988256,
+  "metric": {
+    "ranges": {
+      "east_km": 394.77853677384206,
+      "north_km": 436.6232170359144,
+      "depth": 302.0,
+      "t_days": 725.2060300925926
+    },
+    "days_per_km_depth": 2.4013444705052738,
+    "days_per_km_horizontal": 1.6609424368584158,
+    "depth_km_per_10km_horizontal": 6.916718768419477,
+    "horizontal_axis_count": 2,
+    "implied_horizontal_weight": 2.0
+  }
+}

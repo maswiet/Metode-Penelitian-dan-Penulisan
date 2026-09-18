@@ -1,0 +1,115 @@
+{
+  "completeness": {
+    "mc_modern": {
+      "mc": 3.600000000000001,
+      "R": 93.95399898754633,
+      "b": 1.1232817959221983,
+      "n": 2184,
+      "reached_target": true
+    },
+    "mc_pre_sequence": {
+      "mc": 3.7000000000000006,
+      "R": 90.6597775903579,
+      "b": 1.148547390157362,
+      "n": 128,
+      "reached_target": true
+    },
+    "mc_common_adopted": 4.0
+  },
+  "declustering": {
+    "b_used": 1.0682856730098649,
+    "threshold": -2.294655405354975,
+    "n_clustered": 399,
+    "n_background": 256,
+    "frac_clustered": 0.6091603053435114
+  },
+  "omori": {
+    "p": 0.9464233555166485,
+    "c": 0.18953104744109622,
+    "K": 52.632423794096816,
+    "n": 449,
+    "loglik": 322.00355414007413
+  },
+  "rate_comparison": [
+    {
+      "period": "Sep-Dec 2018",
+      "n": 87,
+      "n_background": 69,
+      "rate_per_year": 262.61776859504135,
+      "background_rate_per_year": 208.28305785123968,
+      "ratio_to_pre": 46.84330417097108,
+      "p_value": 8.307047457194917e-89
+    },
+    {
+      "period": "Jan-Jul 2019",
+      "n": 47,
+      "n_background": 40,
+      "rate_per_year": 81.3590047393365,
+      "background_rate_per_year": 69.24170616113743,
+      "ratio_to_pre": 14.512059204680096,
+      "p_value": 6.499425819523158e-31
+    },
+    {
+      "period": "Aug 2019-Jul 2020",
+      "n": 40,
+      "n_background": 33,
+      "rate_per_year": 40.02739726027397,
+      "background_rate_per_year": 33.022602739726025,
+      "ratio_to_pre": 7.139713184931507,
+      "p_value": 6.20268367284414e-17
+    },
+    {
+      "period": "Aug 2020-Jul 2021",
+      "n": 13,
+      "n_background": 13,
+      "rate_per_year": 13.044642857142856,
+      "background_rate_per_year": 13.044642857142856,
+      "ratio_to_pre": 2.326781529017857,
+      "p_value": 0.009238056814787596
+    },
+    {
+      "period": "Aug 2021-Dec 2023",
+      "n": 41,
+      "n_background": 32,
+      "rate_per_year": 16.978741496598637,
+      "background_rate_per_year": 13.251700680272108,
+      "ratio_to_pre": 3.0285092917375285,
+      "p_value": 4.206704036125354e-07
+    }
+  ],
+  "pre_sequence_rate_per_year": 5.606303253855143,
+  "triggering_distance": [
+    {
+      "band_km": "0-25",
+      "n_pre": 1,
+      "n_post": 36,
+      "ratio": 338.0750675675676,
+      "p_value": 8.430993559025305e-36,
+      "frac_triggered": 0.3333333333333333
+    },
+    {
+      "band_km": "25-50",
+      "n_pre": 19,
+      "n_post": 85,
+      "ratio": 42.01225254860123,
+      "p_value": 1.7277163948378652e-67,
+      "frac_triggered": 0.12941176470588237
+    },
+    {
+      "band_km": "50-75",
+      "n_pre": 18,
+      "n_post": 12,
+      "ratio": 6.2606493993994,
+      "p_value": 1.0324429734122486e-05,
+      "frac_triggered": 0.16666666666666666
+    },
+    {
+      "band_km": "75-100",
+      "n_pre": 10,
+      "n_post": 2,
+      "ratio": 1.8781948198198197,
+      "p_value": 0.3236484579485699,
+      "frac_triggered": 0.0
+    }
+  ]
+}
