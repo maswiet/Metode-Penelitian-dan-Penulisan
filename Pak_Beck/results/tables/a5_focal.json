@@ -1,0 +1,40 @@
+{
+  "n_solutions_file": 25,
+  "search": "Mw >= 5.5, 1976-2025, 115-117.5E, 9.5-7.5S",
+  "n_in_study_window": 8,
+  "by_zone_style": {
+    "normal": {
+      "intermediate (25-75 km)": 0,
+      "near field (<=25 km)": 1
+    },
+    "thrust": {
+      "intermediate (25-75 km)": 6,
+      "near field (<=25 km)": 1
+    }
+  },
+  "kagan_by_zone": [
+    {
+      "zone": "intermediate (25-75 km)",
+      "n": 6,
+      "mean_kagan": 39.63748412180544,
+      "median_kagan": 41.33522616113516,
+      "max_kagan": 72.3536971975487
+    },
+    {
+      "zone": "near field (<=25 km)",
+      "n": 2,
+      "mean_kagan": 84.89236382246804,
+      "median_kagan": 84.89236382246804,
+      "max_kagan": 84.89236382246804
+    }
+  ],
+  "kagan_random_reference": {
+    "mean": 73.42474088358729,
+    "median": 77.30101955688355
+  },
+  "matching": {
+    "n": 8,
+    "n_matched": 8,
+    "criterion": "within 120 s and 60 km of the CMT centroid"
+  }
+}

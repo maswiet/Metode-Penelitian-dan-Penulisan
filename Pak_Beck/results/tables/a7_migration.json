@@ -1,0 +1,147 @@
+{
+  "n": 1582,
+  "mc": 3.7,
+  "K": 3,
+  "mainshock": {
+    "dt": "2018-08-05 11:46:35",
+    "lat": -8.37,
+    "lon": 116.48,
+    "mw": 6.79469
+  },
+  "kruskal_time": {
+    "H": 104.20515015946148,
+    "p": 2.3558039732715183e-23
+  },
+  "segments": [
+    {
+      "group": 0,
+      "n": 625,
+      "n_sequence": 387,
+      "lat": -8.242592000000002,
+      "lon": 116.243664,
+      "dist_mainshock_km": 29.612481126812465,
+      "median_date": "2018-08-11",
+      "median_date_sequence": "2018-08-06",
+      "mw_max": 6.79469,
+      "frac_default_depth": 0.5456,
+      "b": 0.989888724121225,
+      "sigma_b": 0.03189597238302632,
+      "n_above_mc": 625
+    },
+    {
+      "group": 1,
+      "n": 259,
+      "n_sequence": 178,
+      "lat": -8.665250965250966,
+      "lon": 116.2711583011583,
+      "dist_mainshock_km": 40.065844834176666,
+      "median_date": "2018-08-07",
+      "median_date_sequence": "2018-08-06",
+      "mw_max": 5.19544,
+      "frac_default_depth": 0.36293436293436293,
+      "b": 1.7946669400848383,
+      "sigma_b": 0.09852163894291034,
+      "n_above_mc": 259
+    },
+    {
+      "group": 2,
+      "n": 698,
+      "n_sequence": 391,
+      "lat": -8.338452722063037,
+      "lon": 116.80687679083096,
+      "dist_mainshock_km": 36.132036905724284,
+      "median_date": "2018-08-25",
+      "median_date_sequence": "2018-08-20",
+      "mw_max": 6.70488,
+      "frac_default_depth": 0.6590257879656161,
+      "b": 1.0019617600231026,
+      "sigma_b": 0.03139071724358824,
+      "n_above_mc": 698
+    }
+  ],
+  "pairwise": [
+    {
+      "group_a": 0,
+      "group_b": 1,
+      "median_shift_days": -0.12252314814850251,
+      "mannwhitney_p": 0.0012443541925272492,
+      "delta_b": -0.8047782159636133,
+      "utsu_p": 5.207242375899315e-14,
+      "q_time": 0.0012443541925272492,
+      "q_b": 1.240566436858253e-13
+    },
+    {
+      "group_a": 0,
+      "group_b": 2,
+      "median_shift_days": 13.641168981481314,
+      "mannwhitney_p": 7.116879605989707e-26,
+      "delta_b": -0.012073035901877582,
+      "utsu_p": 0.3590713121325365,
+      "q_time": 1.067531940898456e-25,
+      "q_b": 0.35907131213253657
+    },
+    {
+      "group_a": 1,
+      "group_b": 2,
+      "median_shift_days": 13.763692129629817,
+      "mannwhitney_p": 4.2383269062995474e-30,
+      "delta_b": 0.7927051800617357,
+      "utsu_p": 8.270442912388353e-14,
+      "q_time": 1.2714980718898644e-29,
+      "q_b": 1.240566436858253e-13
+    }
+  ],
+  "migration": {
+    "strike_azimuth_deg": 87.0262697678867,
+    "spearman_rho_alongstrike": -0.4051677402056147,
+    "p_alongstrike": 4.514967527853099e-39,
+    "spearman_rho_longitude": 0.3977139716055043,
+    "p_longitude": 1.3821607097323989e-37,
+    "direction": "eastward",
+    "n": 956
+  },
+  "migration_windows": [
+    {
+      "days": "0-3",
+      "n": 130,
+      "median_along_km": 5.421641545579298,
+      "median_lon": 116.435,
+      "median_lat": -8.46
+    },
+    {
+      "days": "3-7",
+      "n": 28,
+      "median_along_km": -10.858616662562998,
+      "median_lon": 116.58500000000001,
+      "median_lat": -8.315000000000001
+    },
+    {
+      "days": "7-14",
+      "n": 284,
+      "median_along_km": 28.179646588009167,
+      "median_lon": 116.22,
+      "median_lat": -8.26
+    },
+    {
+      "days": "14-21",
+      "n": 54,
+      "median_along_km": 25.1075675687333,
+      "median_lon": 116.25,
+      "median_lat": -8.344999999999999
+    },
+    {
+      "days": "21-35",
+      "n": 345,
+      "median_along_km": -30.708746722889586,
+      "median_lon": 116.76,
+      "median_lat": -8.35
+    },
+    {
+      "days": "35-64",
+      "n": 115,
+      "median_along_km": -9.108201855650737,
+      "median_lon": 116.56,
+      "median_lat": -8.24
+    }
+  ]
+}
