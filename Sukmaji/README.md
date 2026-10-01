@@ -1,4 +1,4 @@
-# Putusan brutal
+# Putusan meta reviewer
 
 Naskah **“Structural Architecture and Shallow Hydrothermal Geometry of the Nested Summit Crater of Slamet Volcano, Indonesia, Using UAV Photogrammetry”** mempunyai dataset visual yang menarik dan berpotensi menjadi dokumentasi awal penting bagi puncak Slamet. Namun, **jangan dikirim ke *Journal of Volcanology and Geothermal Research* dalam bentuk sekarang**. :chatgpt-content-reference{index="0"}
 
