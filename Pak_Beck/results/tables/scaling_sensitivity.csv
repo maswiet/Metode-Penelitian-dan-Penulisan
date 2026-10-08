@@ -1,0 +1,8 @@
+scaling,weights,ari_vs_minmax
+minmax,equal,1.0
+zscore,equal,0.8880517540616297
+robust,equal,0.7152788875194018
+mahalanobis,equal,0.8773182970661849
+minmax,time x0.5,0.4657273185874013
+minmax,time x2,0.8431405313012242
+minmax,horizontal x0.5,0.8516133876447731
