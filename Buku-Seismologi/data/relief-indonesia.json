@@ -1,0 +1,11 @@
+{
+ "sumber": "Natural Earth GRAY_HR_SR_OB (1:10 juta, 1 menit busur)",
+ "extent_lon_lat": [
+  91.0,
+  143.0,
+  -14.0,
+  17.0
+ ],
+ "ukuran_piksel_derajat": 0.016666666666666666,
+ "lisensi": "domain publik"
+}
