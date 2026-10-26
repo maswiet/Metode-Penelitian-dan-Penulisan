@@ -1,0 +1,18 @@
+{
+  "analysis_date": "2026-10-26",
+  "archive_layout": "AM/<station>/EHZ.D/AM.<station>.00.EHZ.D.2023.<DOY>",
+  "catalog_file": "bulletin 2023.csv",
+  "catalog_sha256": "89c75225aff860327e7268f0fa6a57f453651d6032cfee9b6f148be0aee411bc",
+  "catalog_total_rows": 84402,
+  "parent_date_population": "2023-08-16 through 2023-09-12, 2023-10-27 and 2023-10-30; UTC archive dates",
+  "catalog_timezone": "WIB inferred from two independent earthquake time anchors and consistent with existing Dairoh README",
+  "subsecond_interpretation": "eventdate_microsecond / 100 seconds, inferred from 0..99 values",
+  "upstream_repository": "https://github.com/mgalcode/IAS-Capon",
+  "upstream_commit": "f9290415279a6cc372d4fc0d9eafa2d9bf4c0352",
+  "upstream_function": "subroutines.py::IAS_Capon",
+  "implementation": "independent vectorized NumPy port of numerical procedure, not execution of original Python 2/scipy.weave source",
+  "waveform_beam_extension": "fixed-direction, fixed-weight frequency-domain MVDR; delay-sum provided as reference",
+  "HDF_used": false,
+  "response_removed": false,
+  "gain_calibration_available": false
+}

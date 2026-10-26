@@ -1,0 +1,76 @@
+{
+  "source_line": "48673",
+  "eventdate_wib": "2023-08-27 03.47.13",
+  "start_utc": "2023-08-26T20:47:13.880000+00:00",
+  "eventtype": "MP",
+  "duration": "7.72",
+  "EHZ_healthy_channels": "5",
+  "EHZ_signal_3of5": "True",
+  "EHZ_signal_5of5": "True",
+  "EHZ_best_triplet_correlation": "0.8463588953018188",
+  "EHZ_peak_delay_seconds": "12.84",
+  "EHZ_UGM01_snr": "8.637602806091309",
+  "EHZ_UGM02_snr": "3.829798698425293",
+  "EHZ_UGM03_snr": "7.662480354309082",
+  "EHZ_UGM04_snr": "4.567658424377441",
+  "EHZ_UGM05_snr": "3.9914228916168213",
+  "HDF_healthy_channels": "5",
+  "HDF_signal_3of5": "False",
+  "HDF_signal_5of5": "False",
+  "HDF_best_triplet_correlation": "0.0",
+  "HDF_peak_delay_seconds": "67.92",
+  "HDF_UGM01_snr": "1.1014363765716553",
+  "HDF_UGM02_snr": "1.262441873550415",
+  "HDF_UGM03_snr": "1.597935438156128",
+  "HDF_UGM04_snr": "1.0733239650726318",
+  "HDF_UGM05_snr": "1.2735528945922852",
+  "either_3of5": "True",
+  "either_5of5": "True",
+  "both_5of5": "False",
+  "visual_review": "coherent transient visible; catalog source association unconfirmed",
+  "review_note": "No obvious flatline/gap/clipping in reviewed plotted window. Source type not independently confirmed.",
+  "catalog_association_ambiguous": "False",
+  "cut_end_relative_s": "",
+  "event_id": "20230826T204713_MP_row48673",
+  "clip_start_utc": "2023-08-26T20:46:13.880000Z",
+  "clip_end_utc": "2023-08-26T20:50:13.880000Z",
+  "fit_start_relative_s": 4.84,
+  "fit_end_relative_s": 36.84,
+  "sx_s_km": 0.19999999999998863,
+  "sy_s_km": -0.25000000000000977,
+  "backazimuth_deg": 141.3401917459126,
+  "apparent_velocity_km_s": 3.123475237772116,
+  "snapshots": 15,
+  "snr": {
+    "mv_noise": 22.075810889590734,
+    "ds_noise": 26.518134665943016,
+    "mvdr_event_rms_snr": 1.053071586707339,
+    "ds_event_rms_snr": 4.014232968698842
+  },
+  "loading_sensitivity": [
+    {
+      "dl": 10.0,
+      "baz_deg": 141.3401917459126,
+      "sx": 0.19999999999998863,
+      "sy": -0.25000000000000977
+    },
+    {
+      "dl": 100.0,
+      "baz_deg": 246.0375110254215,
+      "sx": -0.9000000000000075,
+      "sy": -0.40000000000000924
+    }
+  ],
+  "flags": [
+    "diagonal-loading-sensitive",
+    "weak-MVDR-event-RMS"
+  ],
+  "source_confirmed": false,
+  "other_catalog_events_in_cut": [
+    {
+      "source_line": 48672,
+      "relative_time_s": 116.56,
+      "eventtype": "MP"
+    }
+  ]
+}

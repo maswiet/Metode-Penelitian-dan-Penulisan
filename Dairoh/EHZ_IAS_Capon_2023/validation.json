@@ -1,0 +1,15 @@
+{
+  "scalar_vs_vector_max_error": 2.842170943040401e-14,
+  "injected_slowness_s_per_km": [
+    0.25,
+    0.4
+  ],
+  "recovered_slowness_s_per_km": [
+    0.2500000000000009,
+    0.400000000000001
+  ],
+  "recovered_baz_deg": 32.00538320808352,
+  "mvdr_truth_correlation": 0.9975111180335862,
+  "snapshots": 39,
+  "status": "PASS"
+}

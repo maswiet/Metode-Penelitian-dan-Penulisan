@@ -1,0 +1,78 @@
+{
+  "source_line": "41962",
+  "eventdate_wib": "2023-09-12 18.09.13",
+  "start_utc": "2023-09-12T11:09:13.640000+00:00",
+  "eventtype": "TECT",
+  "duration": "131.64",
+  "EHZ_healthy_channels": "5",
+  "EHZ_signal_3of5": "True",
+  "EHZ_signal_5of5": "True",
+  "EHZ_best_triplet_correlation": "0.9628663659095764",
+  "EHZ_peak_delay_seconds": "3.16",
+  "EHZ_UGM01_snr": "17.741046905517578",
+  "EHZ_UGM02_snr": "25.194053649902344",
+  "EHZ_UGM03_snr": "24.639589309692383",
+  "EHZ_UGM04_snr": "24.425020217895508",
+  "EHZ_UGM05_snr": "20.899084091186523",
+  "HDF_healthy_channels": "5",
+  "HDF_signal_3of5": "False",
+  "HDF_signal_5of5": "False",
+  "HDF_best_triplet_correlation": "0.0",
+  "HDF_peak_delay_seconds": "215.6",
+  "HDF_UGM01_snr": "0.9581780433654785",
+  "HDF_UGM02_snr": "1.4598472118377686",
+  "HDF_UGM03_snr": "1.2080509662628174",
+  "HDF_UGM04_snr": "1.5209245681762695",
+  "HDF_UGM05_snr": "1.474939227104187",
+  "either_3of5": "True",
+  "either_5of5": "True",
+  "both_5of5": "False",
+  "visual_review": "coherent transient visible; catalog source association unconfirmed",
+  "review_note": "No obvious flatline/gap/clipping in reviewed plotted window. Source type not independently confirmed.",
+  "catalog_association_ambiguous": "False",
+  "cut_end_relative_s": "",
+  "event_id": "20230912T110913_TECT_row41962",
+  "clip_start_utc": "2023-09-12T11:08:13.640000Z",
+  "clip_end_utc": "2023-09-12T11:13:25.280000Z",
+  "fit_start_relative_s": 0.0,
+  "fit_end_relative_s": 32.0,
+  "sx_s_km": -1.0658141036401503e-14,
+  "sy_s_km": 0.09999999999998899,
+  "backazimuth_deg": 359.9999999999939,
+  "apparent_velocity_km_s": 10.000000000001101,
+  "snapshots": 15,
+  "snr": {
+    "mv_noise": 74.54130048725554,
+    "ds_noise": 65.96820752671762,
+    "mvdr_event_rms_snr": 7.822496729327668,
+    "ds_event_rms_snr": 11.532396378963139
+  },
+  "loading_sensitivity": [
+    {
+      "dl": 10.0,
+      "baz_deg": 359.9999999999939,
+      "sx": -1.0658141036401503e-14,
+      "sy": 0.09999999999998899
+    },
+    {
+      "dl": 100.0,
+      "baz_deg": 359.9999999999959,
+      "sx": -1.0658141036401503e-14,
+      "sy": 0.1499999999999888
+    }
+  ],
+  "flags": [],
+  "source_confirmed": false,
+  "other_catalog_events_in_cut": [
+    {
+      "source_line": 41960,
+      "relative_time_s": 251.32,
+      "eventtype": "ROCKFALL"
+    },
+    {
+      "source_line": 41961,
+      "relative_time_s": 140.88,
+      "eventtype": "ROCKFALL"
+    }
+  ]
+}

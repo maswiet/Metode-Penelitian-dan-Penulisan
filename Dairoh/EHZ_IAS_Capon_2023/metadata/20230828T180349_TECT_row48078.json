@@ -1,0 +1,69 @@
+{
+  "source_line": "48078",
+  "eventdate_wib": "2023-08-29 01.03.49",
+  "start_utc": "2023-08-28T18:03:49.480000+00:00",
+  "eventtype": "TECT",
+  "duration": "99.32",
+  "EHZ_healthy_channels": "5",
+  "EHZ_signal_3of5": "True",
+  "EHZ_signal_5of5": "True",
+  "EHZ_best_triplet_correlation": "0.9277884364128113",
+  "EHZ_peak_delay_seconds": "3.24",
+  "EHZ_UGM01_snr": "10.70799732208252",
+  "EHZ_UGM02_snr": "14.960701942443848",
+  "EHZ_UGM03_snr": "12.633138656616211",
+  "EHZ_UGM04_snr": "15.525650978088379",
+  "EHZ_UGM05_snr": "14.75461196899414",
+  "HDF_healthy_channels": "5",
+  "HDF_signal_3of5": "False",
+  "HDF_signal_5of5": "False",
+  "HDF_best_triplet_correlation": "0.0",
+  "HDF_peak_delay_seconds": "87.4",
+  "HDF_UGM01_snr": "1.4554044008255005",
+  "HDF_UGM02_snr": "1.1110903024673462",
+  "HDF_UGM03_snr": "1.41183602809906",
+  "HDF_UGM04_snr": "1.4347813129425049",
+  "HDF_UGM05_snr": "1.0099081993103027",
+  "either_3of5": "True",
+  "either_5of5": "True",
+  "both_5of5": "False",
+  "visual_review": "coherent transient visible; catalog source association unconfirmed",
+  "review_note": "No obvious flatline/gap/clipping in reviewed plotted window. Source type not independently confirmed.",
+  "catalog_association_ambiguous": "False",
+  "cut_end_relative_s": "",
+  "event_id": "20230828T180349_TECT_row48078",
+  "clip_start_utc": "2023-08-28T18:02:49.480000Z",
+  "clip_end_utc": "2023-08-28T18:07:28.800000Z",
+  "fit_start_relative_s": 0.0,
+  "fit_end_relative_s": 32.0,
+  "sx_s_km": 0.049999999999989164,
+  "sy_s_km": -1.0658141036401503e-14,
+  "backazimuth_deg": 90.00000000001221,
+  "apparent_velocity_km_s": 20.000000000004334,
+  "snapshots": 15,
+  "snr": {
+    "mv_noise": 32.40840555692042,
+    "ds_noise": 30.435479290279737,
+    "mvdr_event_rms_snr": 6.065197875985715,
+    "ds_event_rms_snr": 7.748243077829271
+  },
+  "loading_sensitivity": [
+    {
+      "dl": 10.0,
+      "baz_deg": 90.00000000001221,
+      "sx": 0.049999999999989164,
+      "sy": -1.0658141036401503e-14
+    },
+    {
+      "dl": 100.0,
+      "baz_deg": 135.00000000001222,
+      "sx": 0.049999999999989164,
+      "sy": -0.05000000000001048
+    }
+  ],
+  "flags": [
+    "BAZ-poorly-resolved-near-zero-slowness"
+  ],
+  "source_confirmed": false,
+  "other_catalog_events_in_cut": []
+}

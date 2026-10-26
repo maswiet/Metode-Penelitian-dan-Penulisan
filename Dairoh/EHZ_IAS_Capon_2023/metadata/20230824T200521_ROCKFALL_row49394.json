@@ -1,0 +1,81 @@
+{
+  "source_line": "49394",
+  "eventdate_wib": "2023-08-25 03.05.21",
+  "start_utc": "2023-08-24T20:05:21.160000+00:00",
+  "eventtype": "ROCKFALL",
+  "duration": "86.92",
+  "EHZ_healthy_channels": "5",
+  "EHZ_signal_3of5": "True",
+  "EHZ_signal_5of5": "True",
+  "EHZ_best_triplet_correlation": "0.8937487006187439",
+  "EHZ_peak_delay_seconds": "37.4",
+  "EHZ_UGM01_snr": "6.628760814666748",
+  "EHZ_UGM02_snr": "3.4647397994995117",
+  "EHZ_UGM03_snr": "6.546187877655029",
+  "EHZ_UGM04_snr": "4.649738311767578",
+  "EHZ_UGM05_snr": "3.489280939102173",
+  "HDF_healthy_channels": "5",
+  "HDF_signal_3of5": "False",
+  "HDF_signal_5of5": "False",
+  "HDF_best_triplet_correlation": "0.0",
+  "HDF_peak_delay_seconds": "15.6",
+  "HDF_UGM01_snr": "1.4028152227401733",
+  "HDF_UGM02_snr": "1.2255866527557373",
+  "HDF_UGM03_snr": "1.477512240409851",
+  "HDF_UGM04_snr": "1.3850438594818115",
+  "HDF_UGM05_snr": "1.2335879802703857",
+  "either_3of5": "True",
+  "either_5of5": "True",
+  "both_5of5": "False",
+  "visual_review": "coherent transient visible; catalog source association unconfirmed",
+  "review_note": "No obvious flatline/gap/clipping in reviewed plotted window. Source type not independently confirmed.",
+  "catalog_association_ambiguous": "False",
+  "cut_end_relative_s": "",
+  "event_id": "20230824T200521_ROCKFALL_row49394",
+  "clip_start_utc": "2023-08-24T20:04:21.160000Z",
+  "clip_end_utc": "2023-08-24T20:08:48.080000Z",
+  "fit_start_relative_s": 29.4,
+  "fit_end_relative_s": 61.4,
+  "sx_s_km": -1.0658141036401503e-14,
+  "sy_s_km": -1.6500000000000048,
+  "backazimuth_deg": 180.00000000000037,
+  "apparent_velocity_km_s": 0.6060606060606043,
+  "snapshots": 15,
+  "snr": {
+    "mv_noise": 31.815494786095766,
+    "ds_noise": 40.656925088434384,
+    "mvdr_event_rms_snr": 0.8475323393395107,
+    "ds_event_rms_snr": 2.084639320313175
+  },
+  "loading_sensitivity": [
+    {
+      "dl": 10.0,
+      "baz_deg": 226.54815769897795,
+      "sx": -1.900000000000004,
+      "sy": -1.8000000000000043
+    },
+    {
+      "dl": 100.0,
+      "baz_deg": 225.76389846092997,
+      "sx": -1.900000000000004,
+      "sy": -1.850000000000004
+    }
+  ],
+  "flags": [
+    "diagonal-loading-sensitive",
+    "weak-MVDR-event-RMS"
+  ],
+  "source_confirmed": false,
+  "other_catalog_events_in_cut": [
+    {
+      "source_line": 49392,
+      "relative_time_s": 153.48,
+      "eventtype": "MP"
+    },
+    {
+      "source_line": 49393,
+      "relative_time_s": 105.2,
+      "eventtype": "MP"
+    }
+  ]
+}

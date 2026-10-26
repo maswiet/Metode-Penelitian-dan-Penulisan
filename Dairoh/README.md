@@ -1,5 +1,10 @@
 # Ringkasan Workflow Beamforming, XGBoost, dan Validasi BPPTKG — Event Merapi 2023
 
+<!-- EHZ_IAS_CAPON_2023 -->
+## Analisis EHZ IAS-Capon — 26 Oktober 2026
+
+**[Buka hasil baru: 40 potongan EHZ, 17 kandidat utama, time series dan spectrogram beam](EHZ_IAS_Capon_2023/README.md).** Hasil ini memakai IAS-Capon NumPy untuk estimasi arah dan rekonstruksi MVDR terpisah. Eksperimen lama di bawah tetap dipertahankan.
+
 **Penyusun:** Wiwit Suryanto & AI Agent
 
 **Data:** potongan event Merapi dari Raspberry Shake small-aperture array UGM dan bulletin BPPTKG 2023  

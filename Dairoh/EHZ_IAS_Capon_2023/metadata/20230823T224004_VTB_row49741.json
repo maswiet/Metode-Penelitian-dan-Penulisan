@@ -1,0 +1,98 @@
+{
+  "source_line": "49741",
+  "eventdate_wib": "2023-08-24 05.40.04",
+  "start_utc": "2023-08-23T22:40:04.360000+00:00",
+  "eventtype": "VTB",
+  "duration": "16.64",
+  "EHZ_healthy_channels": "5",
+  "EHZ_signal_3of5": "True",
+  "EHZ_signal_5of5": "True",
+  "EHZ_best_triplet_correlation": "0.7448928952217102",
+  "EHZ_peak_delay_seconds": "26.48",
+  "EHZ_UGM01_snr": "3.737804412841797",
+  "EHZ_UGM02_snr": "6.379775047302246",
+  "EHZ_UGM03_snr": "5.436180114746094",
+  "EHZ_UGM04_snr": "7.359712600708008",
+  "EHZ_UGM05_snr": "3.453995704650879",
+  "HDF_healthy_channels": "5",
+  "HDF_signal_3of5": "False",
+  "HDF_signal_5of5": "False",
+  "HDF_best_triplet_correlation": "0.0",
+  "HDF_peak_delay_seconds": "49.48",
+  "HDF_UGM01_snr": "2.3330063819885254",
+  "HDF_UGM02_snr": "2.4739112854003906",
+  "HDF_UGM03_snr": "2.3944454193115234",
+  "HDF_UGM04_snr": "2.2617621421813965",
+  "HDF_UGM05_snr": "2.4955806732177734",
+  "either_3of5": "True",
+  "either_5of5": "True",
+  "both_5of5": "False",
+  "visual_review": "coherent transient visible; catalog source association unconfirmed",
+  "review_note": "No obvious flatline/gap/clipping in reviewed plotted window. Source type not independently confirmed.",
+  "catalog_association_ambiguous": "False",
+  "cut_end_relative_s": "",
+  "event_id": "20230823T224004_VTB_row49741",
+  "clip_start_utc": "2023-08-23T22:39:04.360000Z",
+  "clip_end_utc": "2023-08-23T22:43:04.360000Z",
+  "fit_start_relative_s": 18.48,
+  "fit_end_relative_s": 50.480000000000004,
+  "sx_s_km": -0.1000000000000103,
+  "sy_s_km": 0.9999999999999858,
+  "backazimuth_deg": 354.2894068624997,
+  "apparent_velocity_km_s": 0.9950371902100021,
+  "snapshots": 15,
+  "snr": {
+    "mv_noise": 37.04248924031161,
+    "ds_noise": 34.360756499888566,
+    "mvdr_event_rms_snr": 2.876446670818126,
+    "ds_event_rms_snr": 4.430213149024831
+  },
+  "loading_sensitivity": [
+    {
+      "dl": 10.0,
+      "baz_deg": 354.2894068624997,
+      "sx": -0.1000000000000103,
+      "sy": 0.9999999999999858
+    },
+    {
+      "dl": 100.0,
+      "baz_deg": 354.2894068624997,
+      "sx": -0.1000000000000103,
+      "sy": 0.9999999999999858
+    }
+  ],
+  "flags": [],
+  "source_confirmed": false,
+  "other_catalog_events_in_cut": [
+    {
+      "source_line": 49736,
+      "relative_time_s": 171.92,
+      "eventtype": "MP"
+    },
+    {
+      "source_line": 49737,
+      "relative_time_s": 156.88,
+      "eventtype": "VTB"
+    },
+    {
+      "source_line": 49738,
+      "relative_time_s": 132.08,
+      "eventtype": "ROCKFALL"
+    },
+    {
+      "source_line": 49739,
+      "relative_time_s": 111.68,
+      "eventtype": "MP"
+    },
+    {
+      "source_line": 49740,
+      "relative_time_s": 85.84,
+      "eventtype": "MP"
+    },
+    {
+      "source_line": 49742,
+      "relative_time_s": -50.36,
+      "eventtype": "ROCKFALL"
+    }
+  ]
+}

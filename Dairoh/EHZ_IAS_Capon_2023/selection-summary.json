@@ -1,0 +1,31 @@
+{
+  "processed": 40,
+  "recommended": 17,
+  "review": 23,
+  "by_catalog_type": {
+    "TECT": {
+      "processed": 8,
+      "recommended": 8
+    },
+    "VTB": {
+      "processed": 17,
+      "recommended": 9
+    },
+    "ROCKFALL": {
+      "processed": 11,
+      "recommended": 0
+    },
+    "MP": {
+      "processed": 4,
+      "recommended": 0
+    }
+  },
+  "criteria": {
+    "beam_event_rms_snr_min": 3,
+    "volcanic_baz_deg": "350\u2013360 or 0\u201310, following parent Dairoh README",
+    "TECT_direction": "no BAZ constraint; near-zero-slowness BAZ warning is advisory for TECT",
+    "loading_stability": "slowness changes <=0.25 s/km for dl 10 and 100 relative to dl 1",
+    "cut_end": "median across-station 1 s RMS/noise-RMS <=2 over last 20 s",
+    "catalog_source_confirmed": false
+  }
+}
