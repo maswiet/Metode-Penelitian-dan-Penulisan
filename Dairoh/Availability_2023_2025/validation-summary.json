@@ -1,0 +1,13 @@
+{
+  "audited_mseed_files_2023_2024": 6969,
+  "status_counts": {
+    "MSEED_header_verified": 6902,
+    "empty_file": 67
+  },
+  "files_with_reader_warnings": 2,
+  "unique_paths_and_inventory_counts": "PASS",
+  "merged_intervals_ordered_nonoverlapping": "PASS",
+  "RA461_HDF_independent_process_recheck": "231 nonempty files, exact agreement in interval unions",
+  "2023_previous_UGM_result": "Total common duration agrees within sub-millisecond rounding; full UTC days remain 7",
+  "2025": "Reuses prior validated audit, no additional amplitude/payload checks"
+}

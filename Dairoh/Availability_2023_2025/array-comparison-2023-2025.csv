@@ -1,0 +1,28 @@
+year,array,stations_required,channels,status,missing,verified_seconds,equivalent_days,percent_of_year,days_with_coverage,segments,complete_utc_days
+2023,UGM,5,EHZ,verified_header_coverage,[],2335870.355979681,27.035536527542604,7.406996308915782,29,954,7
+2023,UGM,5,HDF,verified_header_coverage,[],2335829.906977415,27.035068367794157,7.4068680459710015,29,1022,7
+2023,UGM,5,10channels,verified_header_coverage,[],2335786.7149600983,27.03456846018632,7.406731084982554,29,1126,7
+2023,DUK,5,EHZ,not_evaluable_missing_station,"['DUK01.EHZ', 'DUK02.EHZ', 'DUK03.EHZ', 'DUK04.EHZ', 'DUK05.EHZ']",,,,,,
+2023,DUK,5,HDF,not_evaluable_missing_station,"['DUK01.HDF', 'DUK02.HDF', 'DUK03.HDF', 'DUK04.HDF', 'DUK05.HDF']",,,,,,
+2023,DUK,5,10channels,not_evaluable_missing_station,"['DUK01.EHZ', 'DUK01.HDF', 'DUK02.EHZ', 'DUK02.HDF', 'DUK03.EHZ', 'DUK03.HDF', 'DUK04.EHZ', 'DUK04.HDF', 'DUK05.EHZ', 'DUK05.HDF']",,,,,,
+2024,UGM,4,EHZ,verified_header_coverage,[],8627029.838760614,99.84988239306267,27.28138863198433,108,2295,0
+2024,UGM,4,HDF,verified_header_coverage,[],8627998.773769379,99.86109691862707,27.284452710007397,108,2436,0
+2024,UGM,4,8channels,verified_header_coverage,[],8626525.626853704,99.84404660710307,27.27979415494619,108,3076,0
+2024,UGM,5,EHZ,not_evaluable_missing_station,['UGM05.EHZ'],,,,,,
+2024,UGM,5,HDF,not_evaluable_missing_station,['UGM05.HDF'],,,,,,
+2024,UGM,5,10channels,not_evaluable_missing_station,"['UGM05.EHZ', 'UGM05.HDF']",,,,,,
+2024,DUK,3,EHZ,verified_header_coverage,[],4326320.842698336,50.07315790160111,13.68119068349757,56,167,0
+2024,DUK,3,HDF,verified_header_coverage,[],6958054.069195747,80.53303320828411,22.003560985869978,90,279,3
+2024,DUK,3,6channels,verified_header_coverage,[],4326165.489797592,50.07135983562028,13.680699408639422,56,210,0
+2024,DUK,4,EHZ,verified_header_coverage,[],4267256.572097778,49.389543658539104,13.49441083566642,54,189,0
+2024,DUK,4,HDF,not_evaluable_missing_station,['DUK04.HDF'],,,,,,
+2024,DUK,4,8channels,not_evaluable_missing_station,['DUK04.HDF'],,,,,,
+2024,DUK,5,EHZ,not_evaluable_missing_station,['DUK05.EHZ'],,,,,,
+2024,DUK,5,HDF,not_evaluable_missing_station,"['DUK04.HDF', 'DUK05.HDF']",,,,,,
+2024,DUK,5,10channels,not_evaluable_missing_station,"['DUK04.HDF', 'DUK05.EHZ', 'DUK05.HDF']",,,,,,
+2025,UGM,5,EHZ,verified_header_coverage,[],8294059.786065102,95.99606233871646,26.30029105170314,114,21800,0
+2025,UGM,5,HDF,verified_header_coverage,[],8293781.904059172,95.99284611179597,26.299409893642732,114,23278,0
+2025,UGM,5,10channels,verified_header_coverage,[],8292543.407977104,95.97851166640167,26.295482648329227,114,26804,0
+2025,DUK,5,EHZ,verified_header_coverage,[],10285985.317980528,119.050755995145,32.61664547812192,127,466,0
+2025,DUK,5,HDF,verified_header_coverage,[],10285999.673015833,119.05092214138695,32.61669099764026,127,428,0
+2025,DUK,5,10channels,verified_header_coverage,[],10285782.27285552,119.04840593582779,32.61600162625419,127,573,0

@@ -1,0 +1,32 @@
+{
+  "simple_files_checked": 25,
+  "simple_mismatches": 0,
+  "complex_files": [
+    {
+      "file": "ME.BASE.00.ENN.2025.304.data",
+      "records": 2279,
+      "max_timestamp_difference_seconds": 0.0
+    },
+    {
+      "file": "ME.BASE.00.ENN.2025.303.data",
+      "records": 2197,
+      "max_timestamp_difference_seconds": 2.384185791015625e-07
+    },
+    {
+      "file": "ME.BASE.00.ENE.2025.303.data",
+      "records": 2020,
+      "max_timestamp_difference_seconds": 0.0
+    },
+    {
+      "file": "ME.BASE.00.ENE.2025.304.data",
+      "records": 1990,
+      "max_timestamp_difference_seconds": 0.0
+    },
+    {
+      "file": "ME.BASE.00.ENN.2025.305.data",
+      "records": 1859,
+      "max_timestamp_difference_seconds": 2.384185791015625e-07
+    }
+  ],
+  "status": "PASS"
+}

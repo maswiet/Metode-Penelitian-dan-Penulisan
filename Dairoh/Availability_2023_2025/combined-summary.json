@@ -1,0 +1,892 @@
+{
+  "networks": [
+    {
+      "year": 2023,
+      "network": "AM",
+      "stations": 10,
+      "streams": 20,
+      "files": 3987,
+      "bytes": 62487667712,
+      "first_filename_date": "2023-01-01",
+      "last_filename_date": "2023-12-31"
+    },
+    {
+      "year": 2024,
+      "network": "AM",
+      "stations": 1,
+      "streams": 2,
+      "files": 2,
+      "bytes": 1024,
+      "first_filename_date": "2024-12-27",
+      "last_filename_date": "2024-12-27"
+    },
+    {
+      "year": 2024,
+      "network": "ME",
+      "stations": 12,
+      "streams": 27,
+      "files": 2980,
+      "bytes": 47414866432,
+      "first_filename_date": "2024-01-01",
+      "last_filename_date": "2024-12-30"
+    },
+    {
+      "year": 2025,
+      "network": "AM",
+      "stations": 12,
+      "streams": 28,
+      "files": 6910,
+      "bytes": 105792667648,
+      "first_filename_date": "2025-01-01",
+      "last_filename_date": "2025-12-31"
+    },
+    {
+      "year": 2025,
+      "network": "GE",
+      "stations": 21,
+      "streams": 803,
+      "files": 109674,
+      "bytes": 106078601216,
+      "first_filename_date": "2025-01-01",
+      "last_filename_date": "2025-07-27"
+    },
+    {
+      "year": 2025,
+      "network": "GF",
+      "stations": 1,
+      "streams": 3,
+      "files": 3,
+      "bytes": 3735552,
+      "first_filename_date": "2025-07-27",
+      "last_filename_date": "2025-07-27"
+    },
+    {
+      "year": 2025,
+      "network": "ME",
+      "stations": 13,
+      "streams": 30,
+      "files": 6183,
+      "bytes": 162905260032,
+      "first_filename_date": "2025-01-01",
+      "last_filename_date": "2025-12-31"
+    }
+  ],
+  "array_comparison": [
+    {
+      "year": 2023,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "EHZ",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 2335870.355979681,
+      "equivalent_days": 27.035536527542604,
+      "percent_of_year": 7.406996308915782,
+      "days_with_coverage": 29,
+      "complete_utc_days": [
+        "2023-08-18",
+        "2023-08-20",
+        "2023-08-21",
+        "2023-08-25",
+        "2023-08-26",
+        "2023-08-27",
+        "2023-09-10"
+      ],
+      "segments": 954,
+      "longest_windows": [
+        {
+          "start_utc": "2023-08-19T11:47:04.824999+00:00",
+          "end_utc_exclusive": "2023-08-22T22:00:38.031000+00:00",
+          "hours": 82.22589055584537
+        },
+        {
+          "start_utc": "2023-09-09T10:42:23.993000+00:00",
+          "end_utc_exclusive": "2023-09-11T16:09:41.784999+00:00",
+          "hours": 53.45494222197268
+        },
+        {
+          "start_utc": "2023-08-26T00:00:01.399000+00:00",
+          "end_utc_exclusive": "2023-08-28T00:00:01.938999+00:00",
+          "hours": 48.00014999965827
+        },
+        {
+          "start_utc": "2023-08-17T05:11:49.351999+00:00",
+          "end_utc_exclusive": "2023-08-19T00:00:02.594999+00:00",
+          "hours": 42.803678611053364
+        },
+        {
+          "start_utc": "2023-08-24T06:21:27.105999+00:00",
+          "end_utc_exclusive": "2023-08-26T00:00:01.398999+00:00",
+          "hours": 41.6428591666619
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "HDF",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 2335829.906977415,
+      "equivalent_days": 27.035068367794157,
+      "percent_of_year": 7.4068680459710015,
+      "days_with_coverage": 29,
+      "complete_utc_days": [
+        "2023-08-18",
+        "2023-08-20",
+        "2023-08-21",
+        "2023-08-25",
+        "2023-08-26",
+        "2023-08-27",
+        "2023-09-10"
+      ],
+      "segments": 1022,
+      "longest_windows": [
+        {
+          "start_utc": "2023-08-19T11:47:03.934999+00:00",
+          "end_utc_exclusive": "2023-08-22T00:00:01.418999+00:00",
+          "hours": 60.21596777776877
+        },
+        {
+          "start_utc": "2023-09-09T10:42:23.993000+00:00",
+          "end_utc_exclusive": "2023-09-11T16:09:44.055000+00:00",
+          "hours": 53.45557277772161
+        },
+        {
+          "start_utc": "2023-08-26T00:00:00.759000+00:00",
+          "end_utc_exclusive": "2023-08-28T00:00:01.038999+00:00",
+          "hours": 48.00007777743869
+        },
+        {
+          "start_utc": "2023-08-24T06:21:27.105999+00:00",
+          "end_utc_exclusive": "2023-08-26T00:00:00.758999+00:00",
+          "hours": 41.64268138885498
+        },
+        {
+          "start_utc": "2023-08-31T15:51:38.221000+00:00",
+          "end_utc_exclusive": "2023-09-01T19:07:40.933000+00:00",
+          "hours": 27.26742000003656
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "10channels",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 2335786.7149600983,
+      "equivalent_days": 27.03456846018632,
+      "percent_of_year": 7.406731084982554,
+      "days_with_coverage": 29,
+      "complete_utc_days": [
+        "2023-08-18",
+        "2023-08-20",
+        "2023-08-21",
+        "2023-08-25",
+        "2023-08-26",
+        "2023-08-27",
+        "2023-09-10"
+      ],
+      "segments": 1126,
+      "longest_windows": [
+        {
+          "start_utc": "2023-08-19T11:47:04.824999+00:00",
+          "end_utc_exclusive": "2023-08-22T00:00:01.418999+00:00",
+          "hours": 60.21572055558364
+        },
+        {
+          "start_utc": "2023-09-09T10:42:23.993000+00:00",
+          "end_utc_exclusive": "2023-09-11T16:09:41.784999+00:00",
+          "hours": 53.45494222197268
+        },
+        {
+          "start_utc": "2023-08-26T00:00:01.399000+00:00",
+          "end_utc_exclusive": "2023-08-28T00:00:01.038999+00:00",
+          "hours": 47.99989999963178
+        },
+        {
+          "start_utc": "2023-08-24T06:21:27.105999+00:00",
+          "end_utc_exclusive": "2023-08-26T00:00:00.758999+00:00",
+          "hours": 41.64268138885498
+        },
+        {
+          "start_utc": "2023-08-18T00:00:01.319000+00:00",
+          "end_utc_exclusive": "2023-08-19T00:00:02.254999+00:00",
+          "hours": 24.00025999969906
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "EHZ",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK01.EHZ",
+        "DUK02.EHZ",
+        "DUK03.EHZ",
+        "DUK04.EHZ",
+        "DUK05.EHZ"
+      ]
+    },
+    {
+      "year": 2023,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "HDF",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK01.HDF",
+        "DUK02.HDF",
+        "DUK03.HDF",
+        "DUK04.HDF",
+        "DUK05.HDF"
+      ]
+    },
+    {
+      "year": 2023,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "10channels",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK01.EHZ",
+        "DUK01.HDF",
+        "DUK02.EHZ",
+        "DUK02.HDF",
+        "DUK03.EHZ",
+        "DUK03.HDF",
+        "DUK04.EHZ",
+        "DUK04.HDF",
+        "DUK05.EHZ",
+        "DUK05.HDF"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "UGM",
+      "stations_required": 4,
+      "channels": "EHZ",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 8627029.838760614,
+      "equivalent_days": 99.84988239306267,
+      "percent_of_year": 27.28138863198433,
+      "days_with_coverage": 108,
+      "complete_utc_days": [],
+      "segments": 2295,
+      "longest_windows": [
+        {
+          "start_utc": "2024-06-01T00:01:02.758900+00:00",
+          "end_utc_exclusive": "2024-06-01T12:00:59.687900+00:00",
+          "hours": 11.99914694448312
+        },
+        {
+          "start_utc": "2024-06-18T12:01:04.550900+00:00",
+          "end_utc_exclusive": "2024-06-19T00:01:01.320900+00:00",
+          "hours": 11.99910277777248
+        },
+        {
+          "start_utc": "2024-06-21T00:01:04.301000+00:00",
+          "end_utc_exclusive": "2024-06-21T12:01:01.070900+00:00",
+          "hours": 11.999102750089433
+        },
+        {
+          "start_utc": "2024-06-14T00:01:03.846000+00:00",
+          "end_utc_exclusive": "2024-06-14T12:01:00.358900+00:00",
+          "hours": 11.999031361076566
+        },
+        {
+          "start_utc": "2024-06-20T00:01:03.356000+00:00",
+          "end_utc_exclusive": "2024-06-20T12:00:59.626000+00:00",
+          "hours": 11.99896388888359
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "UGM",
+      "stations_required": 4,
+      "channels": "HDF",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 8627998.773769379,
+      "equivalent_days": 99.86109691862707,
+      "percent_of_year": 27.284452710007397,
+      "days_with_coverage": 108,
+      "complete_utc_days": [],
+      "segments": 2436,
+      "longest_windows": [
+        {
+          "start_utc": "2024-05-08T00:01:03.779000+00:00",
+          "end_utc_exclusive": "2024-05-08T12:01:01.792000+00:00",
+          "hours": 11.999448055558734
+        },
+        {
+          "start_utc": "2024-06-10T00:01:03.929000+00:00",
+          "end_utc_exclusive": "2024-06-10T12:01:01.206000+00:00",
+          "hours": 11.999243611163564
+        },
+        {
+          "start_utc": "2024-06-05T00:01:04.145900+00:00",
+          "end_utc_exclusive": "2024-06-05T12:01:01.205900+00:00",
+          "hours": 11.999183333317438
+        },
+        {
+          "start_utc": "2024-05-10T00:01:04.148900+00:00",
+          "end_utc_exclusive": "2024-05-10T12:01:00.941900+00:00",
+          "hours": 11.999109166595671
+        },
+        {
+          "start_utc": "2024-06-18T12:01:04.085900+00:00",
+          "end_utc_exclusive": "2024-06-19T00:01:00.720900+00:00",
+          "hours": 11.999065277775129
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "UGM",
+      "stations_required": 4,
+      "channels": "8channels",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 8626525.626853704,
+      "equivalent_days": 99.84404660710307,
+      "percent_of_year": 27.27979415494619,
+      "days_with_coverage": 108,
+      "complete_utc_days": [],
+      "segments": 3076,
+      "longest_windows": [
+        {
+          "start_utc": "2024-06-18T12:01:04.550900+00:00",
+          "end_utc_exclusive": "2024-06-19T00:01:00.720900+00:00",
+          "hours": 11.998936111132304
+        },
+        {
+          "start_utc": "2024-06-14T00:01:04.378900+00:00",
+          "end_utc_exclusive": "2024-06-14T12:01:00.358900+00:00",
+          "hours": 11.99888333333863
+        },
+        {
+          "start_utc": "2024-06-05T00:01:04.779000+00:00",
+          "end_utc_exclusive": "2024-06-05T12:01:00.189000+00:00",
+          "hours": 11.998725000023843
+        },
+        {
+          "start_utc": "2024-06-23T00:01:03.845900+00:00",
+          "end_utc_exclusive": "2024-06-23T12:00:59.145900+00:00",
+          "hours": 11.9986944444312
+        },
+        {
+          "start_utc": "2024-05-08T00:01:03.779000+00:00",
+          "end_utc_exclusive": "2024-05-08T12:00:59.068000+00:00",
+          "hours": 11.998691388832198
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "EHZ",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "UGM05.EHZ"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "HDF",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "UGM05.HDF"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "10channels",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "UGM05.EHZ",
+        "UGM05.HDF"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 3,
+      "channels": "EHZ",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 4326320.842698336,
+      "equivalent_days": 50.07315790160111,
+      "percent_of_year": 13.68119068349757,
+      "days_with_coverage": 56,
+      "complete_utc_days": [],
+      "segments": 167,
+      "longest_windows": [
+        {
+          "start_utc": "2024-10-11T00:01:05.122000+00:00",
+          "end_utc_exclusive": "2024-10-12T00:00:00.982000+00:00",
+          "hours": 23.982183333304192
+        },
+        {
+          "start_utc": "2024-10-07T01:51:38.792000+00:00",
+          "end_utc_exclusive": "2024-10-08T00:00:00.250900+00:00",
+          "hours": 22.139294138881894
+        },
+        {
+          "start_utc": "2024-10-10T04:34:47.872000+00:00",
+          "end_utc_exclusive": "2024-10-11T00:00:01.390900+00:00",
+          "hours": 19.420421916710005
+        },
+        {
+          "start_utc": "2024-10-08T07:27:58.332000+00:00",
+          "end_utc_exclusive": "2024-10-09T00:00:00.440900+00:00",
+          "hours": 16.53391913884216
+        },
+        {
+          "start_utc": "2024-10-06T11:45:02.998000+00:00",
+          "end_utc_exclusive": "2024-10-07T00:00:01.582000+00:00",
+          "hours": 12.249606666631168
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 3,
+      "channels": "HDF",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 6958054.069195747,
+      "equivalent_days": 80.53303320828411,
+      "percent_of_year": 22.003560985869978,
+      "days_with_coverage": 90,
+      "complete_utc_days": [
+        "2024-08-17",
+        "2024-08-19",
+        "2024-08-22"
+      ],
+      "segments": 279,
+      "longest_windows": [
+        {
+          "start_utc": "2024-08-20T00:00:01.316900+00:00",
+          "end_utc_exclusive": "2024-08-21T00:00:01.522900+00:00",
+          "hours": 24.000057222247122
+        },
+        {
+          "start_utc": "2024-08-17T00:00:00.379900+00:00",
+          "end_utc_exclusive": "2024-08-18T00:00:00.362900+00:00",
+          "hours": 23.999995277788905
+        },
+        {
+          "start_utc": "2024-08-19T00:00:00.896900+00:00",
+          "end_utc_exclusive": "2024-08-20T00:00:00.829900+00:00",
+          "hours": 23.999981388780807
+        },
+        {
+          "start_utc": "2024-08-22T00:00:01.126900+00:00",
+          "end_utc_exclusive": "2024-08-23T00:00:01.032900+00:00",
+          "hours": 23.999973888860808
+        },
+        {
+          "start_utc": "2024-08-21T00:00:01.606900+00:00",
+          "end_utc_exclusive": "2024-08-22T00:00:01.116900+00:00",
+          "hours": 23.99986388888624
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 3,
+      "channels": "6channels",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 4326165.489797592,
+      "equivalent_days": 50.07135983562028,
+      "percent_of_year": 13.680699408639422,
+      "days_with_coverage": 56,
+      "complete_utc_days": [],
+      "segments": 210,
+      "longest_windows": [
+        {
+          "start_utc": "2024-10-09T00:01:02.540900+00:00",
+          "end_utc_exclusive": "2024-10-09T12:01:00.750900+00:00",
+          "hours": 11.999502777788374
+        },
+        {
+          "start_utc": "2024-11-28T12:01:04.012000+00:00",
+          "end_utc_exclusive": "2024-11-29T00:01:00.751000+00:00",
+          "hours": 11.999094166623221
+        },
+        {
+          "start_utc": "2024-12-14T00:01:04.483000+00:00",
+          "end_utc_exclusive": "2024-12-14T12:01:01.001000+00:00",
+          "hours": 11.999032777812745
+        },
+        {
+          "start_utc": "2024-12-26T12:01:04.407900+00:00",
+          "end_utc_exclusive": "2024-12-27T00:01:00.849900+00:00",
+          "hours": 11.999011666708522
+        },
+        {
+          "start_utc": "2024-12-12T00:01:04.512900+00:00",
+          "end_utc_exclusive": "2024-12-12T12:01:00.870900+00:00",
+          "hours": 11.99898833334446
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 4,
+      "channels": "EHZ",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 4267256.572097778,
+      "equivalent_days": 49.389543658539104,
+      "percent_of_year": 13.49441083566642,
+      "days_with_coverage": 54,
+      "complete_utc_days": [],
+      "segments": 189,
+      "longest_windows": [
+        {
+          "start_utc": "2024-10-10T04:34:47.872000+00:00",
+          "end_utc_exclusive": "2024-10-11T00:00:01.390900+00:00",
+          "hours": 19.420421916710005
+        },
+        {
+          "start_utc": "2024-10-08T07:27:58.332000+00:00",
+          "end_utc_exclusive": "2024-10-09T00:00:00.440900+00:00",
+          "hours": 16.53391913884216
+        },
+        {
+          "start_utc": "2024-12-10T00:01:04.167900+00:00",
+          "end_utc_exclusive": "2024-12-10T12:01:01.367900+00:00",
+          "hours": 11.999222222301695
+        },
+        {
+          "start_utc": "2024-10-09T00:01:03.857000+00:00",
+          "end_utc_exclusive": "2024-10-09T12:01:00.860900+00:00",
+          "hours": 11.9991677500142
+        },
+        {
+          "start_utc": "2024-12-13T12:01:04.087900+00:00",
+          "end_utc_exclusive": "2024-12-14T00:01:00.857900+00:00",
+          "hours": 11.99910277777248
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 4,
+      "channels": "HDF",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK04.HDF"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 4,
+      "channels": "8channels",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK04.HDF"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "EHZ",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK05.EHZ"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "HDF",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK04.HDF",
+        "DUK05.HDF"
+      ]
+    },
+    {
+      "year": 2024,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "10channels",
+      "status": "not_evaluable_missing_station",
+      "missing": [
+        "DUK04.HDF",
+        "DUK05.EHZ",
+        "DUK05.HDF"
+      ]
+    },
+    {
+      "year": 2025,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "EHZ",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 8294059.786065102,
+      "equivalent_days": 95.99606233871646,
+      "percent_of_year": 26.30029105170314,
+      "days_with_coverage": 114,
+      "complete_utc_days": [],
+      "segments": 21800,
+      "longest_windows": [
+        {
+          "start_utc": "2025-12-21T00:14:19.783000+00:00",
+          "end_utc_exclusive": "2025-12-21T12:00:59.303000+00:00",
+          "hours": 11.777644444439145
+        },
+        {
+          "start_utc": "2025-12-20T16:28:36.647000+00:00",
+          "end_utc_exclusive": "2025-12-21T00:00:59.897000+00:00",
+          "hours": 7.539791666666667
+        },
+        {
+          "start_utc": "2025-10-19T04:28:35.561000+00:00",
+          "end_utc_exclusive": "2025-10-19T10:56:21.901000+00:00",
+          "hours": 6.4628722221983805
+        },
+        {
+          "start_utc": "2025-10-13T12:04:47.629999+00:00",
+          "end_utc_exclusive": "2025-10-13T17:06:57.575000+00:00",
+          "hours": 5.036095833645927
+        },
+        {
+          "start_utc": "2025-11-08T18:03:57.875000+00:00",
+          "end_utc_exclusive": "2025-11-08T22:47:36.935000+00:00",
+          "hours": 4.727516666650772
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "HDF",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 8293781.904059172,
+      "equivalent_days": 95.99284611179597,
+      "percent_of_year": 26.299409893642732,
+      "days_with_coverage": 114,
+      "complete_utc_days": [],
+      "segments": 23278,
+      "longest_windows": [
+        {
+          "start_utc": "2025-12-21T00:14:21.753000+00:00",
+          "end_utc_exclusive": "2025-12-21T12:01:00.677000+00:00",
+          "hours": 11.777478888895777
+        },
+        {
+          "start_utc": "2025-12-20T16:56:34.683000+00:00",
+          "end_utc_exclusive": "2025-12-21T00:01:00.978000+00:00",
+          "hours": 7.073970833288299
+        },
+        {
+          "start_utc": "2025-10-13T12:04:49.159999+00:00",
+          "end_utc_exclusive": "2025-10-13T17:06:57.575000+00:00",
+          "hours": 5.035670833653874
+        },
+        {
+          "start_utc": "2025-12-20T12:09:03.522999+00:00",
+          "end_utc_exclusive": "2025-12-20T16:56:34.682999+00:00",
+          "hours": 4.791988888846503
+        },
+        {
+          "start_utc": "2025-11-08T18:03:57.875000+00:00",
+          "end_utc_exclusive": "2025-11-08T22:47:36.935000+00:00",
+          "hours": 4.727516666650772
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "array": "UGM",
+      "stations_required": 5,
+      "channels": "10channels",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 8292543.407977104,
+      "equivalent_days": 95.97851166640167,
+      "percent_of_year": 26.295482648329227,
+      "days_with_coverage": 114,
+      "complete_utc_days": [],
+      "segments": 26804,
+      "longest_windows": [
+        {
+          "start_utc": "2025-12-21T00:14:21.753000+00:00",
+          "end_utc_exclusive": "2025-12-21T12:00:59.303000+00:00",
+          "hours": 11.777097222208976
+        },
+        {
+          "start_utc": "2025-12-20T16:56:34.683000+00:00",
+          "end_utc_exclusive": "2025-12-21T00:00:59.897000+00:00",
+          "hours": 7.073670555551847
+        },
+        {
+          "start_utc": "2025-10-13T12:04:49.159999+00:00",
+          "end_utc_exclusive": "2025-10-13T17:06:57.575000+00:00",
+          "hours": 5.035670833653874
+        },
+        {
+          "start_utc": "2025-11-08T18:03:57.875000+00:00",
+          "end_utc_exclusive": "2025-11-08T22:47:36.935000+00:00",
+          "hours": 4.727516666650772
+        },
+        {
+          "start_utc": "2025-11-29T07:15:41.115000+00:00",
+          "end_utc_exclusive": "2025-11-29T11:35:20.925000+00:00",
+          "hours": 4.327724999984105
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "EHZ",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 10285985.317980528,
+      "equivalent_days": 119.050755995145,
+      "percent_of_year": 32.61664547812192,
+      "days_with_coverage": 127,
+      "complete_utc_days": [],
+      "segments": 466,
+      "longest_windows": [
+        {
+          "start_utc": "2025-07-31T12:01:03.609999+00:00",
+          "end_utc_exclusive": "2025-08-01T00:01:00.230000+00:00",
+          "hours": 11.999061111410459
+        },
+        {
+          "start_utc": "2025-10-26T00:01:04.788000+00:00",
+          "end_utc_exclusive": "2025-10-26T12:01:01.134000+00:00",
+          "hours": 11.998984999987814
+        },
+        {
+          "start_utc": "2025-10-18T00:01:04.313000+00:00",
+          "end_utc_exclusive": "2025-10-18T12:01:00.563000+00:00",
+          "hours": 11.998958333333333
+        },
+        {
+          "start_utc": "2025-09-26T00:01:03.766000+00:00",
+          "end_utc_exclusive": "2025-09-26T12:00:59.699000+00:00",
+          "hours": 11.998870277735922
+        },
+        {
+          "start_utc": "2025-08-21T12:01:04.505999+00:00",
+          "end_utc_exclusive": "2025-08-22T00:01:00.410000+00:00",
+          "hours": 11.998862222499318
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "HDF",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 10285999.673015833,
+      "equivalent_days": 119.05092214138695,
+      "percent_of_year": 32.61669099764026,
+      "days_with_coverage": 127,
+      "complete_utc_days": [],
+      "segments": 428,
+      "longest_windows": [
+        {
+          "start_utc": "2025-01-08T12:01:04.578000+00:00",
+          "end_utc_exclusive": "2025-01-09T00:01:01.504000+00:00",
+          "hours": 11.999146111077733
+        },
+        {
+          "start_utc": "2025-10-11T00:01:03.665999+00:00",
+          "end_utc_exclusive": "2025-10-11T12:01:00.236000+00:00",
+          "hours": 11.999047222534815
+        },
+        {
+          "start_utc": "2025-08-24T12:01:04.005999+00:00",
+          "end_utc_exclusive": "2025-08-25T00:01:00.433000+00:00",
+          "hours": 11.999007500277624
+        },
+        {
+          "start_utc": "2025-09-28T00:01:04.573000+00:00",
+          "end_utc_exclusive": "2025-09-28T12:01:00.955000+00:00",
+          "hours": 11.998994999991522
+        },
+        {
+          "start_utc": "2025-08-03T00:01:04.670000+00:00",
+          "end_utc_exclusive": "2025-08-03T12:01:01.026000+00:00",
+          "hours": 11.998987777762943
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "array": "DUK",
+      "stations_required": 5,
+      "channels": "10channels",
+      "status": "verified_header_coverage",
+      "missing": [],
+      "verified_seconds": 10285782.27285552,
+      "equivalent_days": 119.04840593582779,
+      "percent_of_year": 32.61600162625419,
+      "days_with_coverage": 127,
+      "complete_utc_days": [],
+      "segments": 573,
+      "longest_windows": [
+        {
+          "start_utc": "2025-08-21T12:01:04.505999+00:00",
+          "end_utc_exclusive": "2025-08-22T00:01:00.225000+00:00",
+          "hours": 11.998810833560096
+        },
+        {
+          "start_utc": "2025-10-18T00:01:04.810000+00:00",
+          "end_utc_exclusive": "2025-10-18T12:01:00.419000+00:00",
+          "hours": 11.998780277768772
+        },
+        {
+          "start_utc": "2025-01-10T00:01:03.936000+00:00",
+          "end_utc_exclusive": "2025-01-10T12:00:59.314000+00:00",
+          "hours": 11.998716111050712
+        },
+        {
+          "start_utc": "2025-08-31T00:01:04.604000+00:00",
+          "end_utc_exclusive": "2025-08-31T12:00:59.897000+00:00",
+          "hours": 11.998692499995231
+        },
+        {
+          "start_utc": "2025-09-28T00:01:04.743000+00:00",
+          "end_utc_exclusive": "2025-09-28T12:00:59.935000+00:00",
+          "hours": 11.998664444420072
+        }
+      ]
+    }
+  ],
+  "r0279_2024_is_ugm05_confirmed": false
+}
